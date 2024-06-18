@@ -172,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 37010545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed6541b1a5a1849ae3a319e5bd914f, type: 3}
+  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &37010548
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 435933429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bed6541b1a5a1849ae3a319e5bd914f, type: 3}
+  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &435933432
@@ -535,13 +535,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 435933431}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
