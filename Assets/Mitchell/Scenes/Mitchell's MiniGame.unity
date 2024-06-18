@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 801265121}
   - component: {fileID: 801265127}
   - component: {fileID: 801265128}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 2002925545}
   - component: {fileID: 2002925547}
   - component: {fileID: 2002925546}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Follow Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
