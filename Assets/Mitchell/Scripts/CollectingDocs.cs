@@ -17,7 +17,7 @@ public class CollectingDocs : MonoBehaviour
         // Collition code for Coin Pickup
         if (Col.gameObject.tag == "Docs")
         {
-            Debug.Log("Evedence collected!");
+            Debug.Log("Evidence collected!");
             docs = docs + 1;
 
             //   Col.gameObject.SetActive(false);
