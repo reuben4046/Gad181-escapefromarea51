@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
  
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementMM : MonoBehaviour
 {
     // INSTRUCTIONS
     // This script must be on an object that has a Character Controller component.
