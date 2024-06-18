@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text coinText;
-    public static int coinCount;
+    public Text docText;
+    public static int docCount;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         // Displays how many coins you have in the UI
-        coinText.text = "Coins: " + Mathf.Round(coinCount) + "/5";
+        docText.text = "Docs: " + Mathf.Round(docCount) + "/6";
     }
 }
