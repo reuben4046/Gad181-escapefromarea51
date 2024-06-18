@@ -201,8 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 583643141}
   - component: {fileID: 583643140}
-  - component: {fileID: 583643139}
-  - component: {fileID: 583643138}
+  - component: {fileID: 583643142}
   m_Layer: 0
   m_Name: Enemy (Fatster)
   m_TagString: Untagged
@@ -210,31 +209,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &583643138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583643137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6158465cc198e409bbd16b79c7fc59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 801265125}
---- !u!114 &583643139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583643137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &583643140
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -302,6 +276,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &583643142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583643137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fed0cb02c98e343b486da181733798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObj: {fileID: 801265125}
 --- !u!1 &801265120
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +303,7 @@ GameObject:
   - component: {fileID: 801265122}
   - component: {fileID: 801265121}
   - component: {fileID: 801265126}
+  - component: {fileID: 801265127}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -463,6 +451,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &801265127
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801265120}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1297141163
 GameObject:
   m_ObjectHideFlags: 0
