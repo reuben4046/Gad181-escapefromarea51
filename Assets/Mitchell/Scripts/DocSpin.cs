@@ -14,6 +14,6 @@ public class DocSpin : MonoBehaviour
     void Update()
     {
         // Animates the Document Spin by rotation.
-        transform.Rotate(0, 0, 1);
+        transform.Rotate(0, 1, 0);
     }
 }
