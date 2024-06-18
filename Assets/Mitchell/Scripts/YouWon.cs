@@ -14,7 +14,7 @@ public class YouWon : MonoBehaviour
         {
             docPickup++;
             Debug.Log(docPickup);
-            Debug.Log("Doc Picked Up!");
+            Debug.Log("Evidence Picked Up!");
             if (docPickup >= 5)
             {
                 SceneManager.LoadScene(2);
