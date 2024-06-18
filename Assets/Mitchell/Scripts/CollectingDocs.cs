@@ -15,7 +15,7 @@ public class CollectingDocs : MonoBehaviour
     public void OnTriggerEnter(Collider Col)
     {
         // Collition code for Documentation Pickup
-        if (Col.gameObject.tag == "Docs")
+        if (Col.gameObject.tag == "Document")
         {
             Debug.Log("Evidence collected!");
             docs = docs + 1;

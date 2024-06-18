@@ -10,12 +10,12 @@ public class YouWon : MonoBehaviour
     // Collition code if the Player collects all 5 Coins to win.
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Doc")
+        if (collision.gameObject.tag == "Document")
         {
             docPickup++;
             Debug.Log(docPickup);
             Debug.Log("Evidence Picked Up!");
-            if (docPickup >= 5)
+            if (docPickup >= 6)
             {
                 SceneManager.LoadScene(1);
             }
