@@ -13,7 +13,7 @@ public class DocSpin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Animates the Coin Spin by rotation.
-        transform.Rotate(0, 0, 1);
+        // Animates the Document Spin by rotation.
+        transform.Rotate(0, 1, 0);
     }
 }
