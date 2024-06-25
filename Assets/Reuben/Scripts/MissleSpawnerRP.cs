@@ -56,6 +56,8 @@ public class MissleSpawnerRP : MonoBehaviour
         }
     }
 
+    public Vector2 spawnPositonLocal;
+
     private Vector2 PickRandomSpawn()
     {
         float randX = Random.Range(xRangeMin, xRangeMax);
@@ -77,7 +79,7 @@ public class MissleSpawnerRP : MonoBehaviour
             randY = Random.Range(yRangeMin, yRangeMax);
         }
 
-        return new Vector2(randX, randY);
+        return new Vector2(transform.position.x + randX, transform.position.y + randY);
     }
 
 

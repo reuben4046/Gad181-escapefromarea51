@@ -8,7 +8,7 @@ public class MissileForwardMovementRP : MonoBehaviour
 
     [SerializeField] private float acceleration = 3f;
 
-    [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] private float maxSpeed = 19f;
 
     [SerializeField] private float currentSpeed = 8f;
 
