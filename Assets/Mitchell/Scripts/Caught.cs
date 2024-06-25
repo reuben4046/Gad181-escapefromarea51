@@ -7,7 +7,10 @@ public class Caught : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(0);
+        if (other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void RestartGame()
