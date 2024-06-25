@@ -14,6 +14,11 @@ public class Caught : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void RestartGame()
     {
         // Restarts the game all over.
