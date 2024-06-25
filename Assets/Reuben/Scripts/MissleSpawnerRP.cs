@@ -5,11 +5,11 @@ using UnityEngine;
 public class MissleSpawnerRP : MonoBehaviour
 {
 
-    [SerializeField] private int maxXRange = 50;
-    [SerializeField] private int maxYRange = 40;
+    [SerializeField] private float maxXRange = 50;
+    [SerializeField] private float maxYRange = 40;
 
-    [SerializeField] private int minXRange = 35;
-    [SerializeField] private int minYRange = 25;
+    [SerializeField] private float minXRange = 35;
+    [SerializeField] private float minYRange = 25;
 
     private Vector2 spawnPosition;
 
@@ -53,6 +53,8 @@ public class MissleSpawnerRP : MonoBehaviour
     }
 
 
+    [SerializeField] private float gizPositionX = 0f;
+    [SerializeField] private float gizPositionY = 0f;
 
     private void OnDrawGizmos()
     {
@@ -64,6 +66,9 @@ public class MissleSpawnerRP : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(spawnPosition, 3f);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(new Vector2(gizPositionX, gizPositionY), 3f);
     }
 
 }
