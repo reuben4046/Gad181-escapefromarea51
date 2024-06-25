@@ -9,8 +9,7 @@ public class Missile : MonoBehaviour
     private PlayerMovementRP player;
 
     //Rotation speed
-    private float rotationSpeed = 2f;
-
+    [SerializeField] private float rotationSpeed = 2f;
 
 
     // Start is called before the first frame update

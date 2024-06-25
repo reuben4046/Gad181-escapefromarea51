@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class MissileForwardMovementRP : MonoBehaviour
 {
 
-   [SerializeField] private float speed = 10f;
+    [SerializeField] private float acceleration = 3f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float maxSpeed = 10f;
+
+    [SerializeField] private float currentSpeed = 8f;
+
+
 
     // Update is called once per frame
     void Update()
@@ -21,7 +22,8 @@ public class MissileForwardMovementRP : MonoBehaviour
 
     private void ForwardForce()
     {
-        transform.Translate(new Vector2(0, 1) * speed * Time.deltaTime);
+        currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed);
+        transform.Translate(new Vector2(0, currentSpeed) * Time.deltaTime);
     }
 
 }
