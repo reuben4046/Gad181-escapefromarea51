@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Caught : MonoBehaviour
 {
+    public AudioSource playsound;
     private void OnTriggerEnter(Collider other)
     {
         SceneManager.LoadScene(0);
+        playsound.Play();
     }
 
     public void RestartGame()
