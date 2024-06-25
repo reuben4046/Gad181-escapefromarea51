@@ -5,18 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Caught : MonoBehaviour
 {
-    // Collition code if the Purple Pill Collides with the Player
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(0);
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        SceneManager.LoadScene(0);
     }
 
     public void RestartGame()

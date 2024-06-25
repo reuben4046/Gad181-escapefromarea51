@@ -19,7 +19,7 @@ public class CollectingDocs : MonoBehaviour
         {
             Debug.Log("Evidence collected!");
             docs = docs + 1;
-
+            ScoreManager.docCount += 1;
             //   Col.gameObject.SetActive(false);
             Destroy(Col.gameObject);
         }
