@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MissleSpawnerRP : MonoBehaviour
 {
+    //spawn position that the prefab is spawned at
+    private Vector2 spawnPosition;
+
+    //prefab reference
+    public GameObject misslePrefab;
+
+
     [Header("Gizmos")]
     [SerializeField] private float gizmoMaxXRange = 50;
     [SerializeField] private float gizmoMaxYRange = 40;
@@ -25,39 +32,33 @@ public class MissleSpawnerRP : MonoBehaviour
     [SerializeField] private float smallYRangeMax = 20f;
     [SerializeField] private float smallYRangeMin = 12f;
     
-    private Vector2 spawnPosition;
+    
+    //keeps coroutine running in a loop
+    private bool corotineRunning = true;
 
-    public GameObject misslePrefab;
+    private float spawnInterval = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
-
         StartCoroutine(SpawnMissles());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private bool corotineRunning = true;
-
+    
+    //coroutine that spawns the missles every spawnInterval seconds
     private IEnumerator SpawnMissles()
     {
         while (corotineRunning)
         { 
-            yield return new WaitForSeconds(3f);
-            spawnPosition = PickRandomSpawn();
-            Debug.Log("Missle Spawned at " + spawnPosition);
+            yield return new WaitForSeconds(spawnInterval);
 
+            spawnPosition = PickRandomSpawn();
             Instantiate(misslePrefab, spawnPosition, Quaternion.identity);
         }
     }
 
-    public Vector2 spawnPositonLocal;
-
+    //Picks a random spawn position picking x first and if the x is too close to 0, then a y is picked that will make it so that the spawn 
+    //position is still out of the veiw of the camera. 
     private Vector2 PickRandomSpawn()
     {
         float randX = Random.Range(xRangeMin, xRangeMax);
@@ -82,7 +83,7 @@ public class MissleSpawnerRP : MonoBehaviour
         return new Vector2(transform.position.x + randX, transform.position.y + randY);
     }
 
-
+    //gizmos used for figuring out and visualisng the spawn area coordinates
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
