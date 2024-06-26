@@ -62,7 +62,7 @@ public class MissleSpawnerRP : MonoBehaviour
     private Vector2 PickRandomSpawn()
     {
         float randX = Random.Range(xRangeMin, xRangeMax);
-        float randY = Random.Range(yRangeMin, yRangeMax);
+        float randY;
         if (randX < 17.5f && randX > -17.5f)
         {
             bool positiveY = Random.Range(0, 2) == 1;
