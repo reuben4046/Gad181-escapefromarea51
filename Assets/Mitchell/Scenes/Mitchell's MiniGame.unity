@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 583643141}
   - component: {fileID: 583643144}
   - component: {fileID: 583643140}
+  - component: {fileID: 583643146}
   - component: {fileID: 583643143}
   - component: {fileID: 583643145}
   m_Layer: 0
@@ -553,12 +554,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583643137}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6fed0cb02c98e343b486da181733798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetObj: {fileID: 801265125}
+--- !u!114 &583643146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583643137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c30e8f76019e214999202ee84afb5cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 20
+  viewAngle: 360
+  targetPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  player: {fileID: 801265120}
+  enemy: {fileID: 0}
 --- !u!1 &801265120
 GameObject:
   m_ObjectHideFlags: 0
