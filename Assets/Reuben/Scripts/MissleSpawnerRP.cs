@@ -12,27 +12,22 @@ public class MissleSpawnerRP : MonoBehaviour
 
 
     [Header("Gizmos")]
-    [SerializeField] private float gizmoMaxXRange = 50;
-    [SerializeField] private float gizmoMaxYRange = 40;
-
-    [SerializeField] private float gizmoMinXRange = 35;
-    [SerializeField] private float gizmoMinYRange = 25;
-
     [SerializeField] private float gizPositionX = 0f;
     [SerializeField] private float gizPositionY = 0f;
 
 
     [Header("Spawn")]
-    [SerializeField] private float xRangeMax = 25f;
-    [SerializeField] private float xRangeMin = -25f;
 
-    [SerializeField] private float yRangeMax = 20f;
-    [SerializeField] private float yRangeMin = -20f;
+    [SerializeField] private float xRange = 25f;
+    [SerializeField] private float yRange = 20f;
 
-    [SerializeField] private float smallYRangeMax = 20f;
-    [SerializeField] private float smallYRangeMin = 12f;
-    
-    
+    [SerializeField] private float smallYRangeMax;
+    [SerializeField] private float smallYRangeMin;
+
+
+    [SerializeField] private float xCheckNumber;
+
+
     //keeps coroutine running in a loop
     private bool corotineRunning = true;
 
@@ -42,6 +37,10 @@ public class MissleSpawnerRP : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnMissles());
+        xCheckNumber = xRange - 17.5f;
+
+        smallYRangeMax = yRange;
+        smallYRangeMin = yRange - 10f;
     }
 
     
@@ -61,9 +60,9 @@ public class MissleSpawnerRP : MonoBehaviour
     //position is still out of the veiw of the camera. 
     private Vector2 PickRandomSpawn()
     {
-        float randX = Random.Range(xRangeMin, xRangeMax);
+        float randX = Random.Range(-xRange, xRange);
         float randY;
-        if (randX < 17.5f && randX > -17.5f)
+        if (randX < xCheckNumber && randX > -xCheckNumber)
         {
             bool positiveY = Random.Range(0, 2) == 1;
             if (positiveY)
@@ -77,7 +76,7 @@ public class MissleSpawnerRP : MonoBehaviour
         }
         else
         {
-            randY = Random.Range(yRangeMin, yRangeMax);
+            randY = Random.Range(-yRange, yRange);
         }
 
         return new Vector2(transform.position.x + randX, transform.position.y + randY);
@@ -87,10 +86,10 @@ public class MissleSpawnerRP : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(gizmoMaxXRange, gizmoMaxYRange, 0));
+        Gizmos.DrawWireCube(transform.position, new Vector3(xRange*2, yRange*2, 0));
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position, new Vector3(gizmoMinXRange, gizmoMinYRange, 0));
+        Gizmos.DrawWireCube(transform.position, new Vector3(xRange * 2 - xCheckNumber, yRange * 2 - xCheckNumber, 0));
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(spawnPosition, 0.5f);
