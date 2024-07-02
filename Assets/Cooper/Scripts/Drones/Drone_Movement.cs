@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class Drone_Movement : MonoBehaviour
 {
-    public List<Drone_Pattern> Patterns;
+    //public List<Drone_Pattern> Patterns;
+    private ListOfDronePatterns patternsList;
     public float speed = 2;
     int index = 0; 
     private Drone_Pattern currentPattern;
     // Start is called before the first frame update
     void Start()
     {
-        currentPattern = Patterns[Random.Range(0, Patterns.Count)];
+        GameObject Patternobject = GameObject.FindGameObjectWithTag("Pattern");
+        patternsList = Patternobject.GetComponent<ListOfDronePatterns>();
+        //Debug.Log(patternsList.Patterns.Count);
+        currentPattern = patternsList.Patterns[Random.Range(0, patternsList.Patterns.Count)];
     }
 
     // Update is called once per frame

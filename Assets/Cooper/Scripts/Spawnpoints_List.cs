@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileDestroyer : MonoBehaviour
+public class Spawnpoints_List : MonoBehaviour
 {
+    public List<Transform> spawnPoints = new List<Transform>();
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +17,5 @@ public class MissileDestroyer : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        Destroy(gameObject);
-     
     }
 }

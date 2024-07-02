@@ -124,6 +124,8 @@ MonoBehaviour:
   Patterns:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   speed: 2
 --- !u!54 &9075190972099793551
 Rigidbody:

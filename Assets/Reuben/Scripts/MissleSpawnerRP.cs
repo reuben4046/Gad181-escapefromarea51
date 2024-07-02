@@ -25,8 +25,9 @@ public class MissleSpawnerRP : MonoBehaviour
     [SerializeField] private float smallYRangeMin;
 
 
-    [SerializeField] private float xCheckNumber;
+    [SerializeField] private float xBounds;
 
+    public List<GameObject> spawnedMissiles = new List<GameObject>();
 
     //keeps coroutine running in a loop
     private bool corotineRunning = true;
@@ -34,16 +35,35 @@ public class MissleSpawnerRP : MonoBehaviour
     private float spawnInterval = 3f;
 
     // Start is called before the first frame update
+
+    //subscribing and unsubscribing to events
+    private void OnEnable()
+    {
+        EventSystemRP.OnMissileDestroyed += OnMissileDestroyed;
+    }
+
+    private void OnDisable()
+    {
+        EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
+    }
+
+    //start
     void Start()
     {
         StartCoroutine(SpawnMissles());
-        xCheckNumber = xRange - 17.5f;
+        xBounds = xRange - 17.5f;
 
         smallYRangeMax = yRange;
         smallYRangeMin = yRange - 10f;
     }
 
-    
+    //this function is called when the onmissiledestroyed event is triggered
+    private void OnMissileDestroyed(GameObject missile)
+    {
+        spawnedMissiles.Remove(missile);
+    }
+
+
     //coroutine that spawns the missles every spawnInterval seconds
     private IEnumerator SpawnMissles()
     {
@@ -52,7 +72,9 @@ public class MissleSpawnerRP : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
 
             spawnPosition = PickRandomSpawn();
-            Instantiate(misslePrefab, spawnPosition, Quaternion.identity);
+            GameObject missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity);
+            spawnedMissiles.Add(missile);
+            
         }
     }
 
@@ -62,7 +84,7 @@ public class MissleSpawnerRP : MonoBehaviour
     {
         float randX = Random.Range(-xRange, xRange);
         float randY;
-        if (randX < xCheckNumber && randX > -xCheckNumber)
+        if (randX < xBounds && randX > -xBounds)
         {
             bool positiveY = Random.Range(0, 2) == 1;
             if (positiveY)
@@ -89,7 +111,7 @@ public class MissleSpawnerRP : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(xRange*2, yRange*2, 0));
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position, new Vector3(xRange * 2 - xCheckNumber, yRange * 2 - xCheckNumber, 0));
+        Gizmos.DrawWireCube(transform.position, new Vector3(xRange * 2 - xBounds, yRange * 2 - xBounds, 0));
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(spawnPosition, 0.5f);
