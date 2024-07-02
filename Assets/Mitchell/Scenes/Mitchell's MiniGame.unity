@@ -667,7 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetPlayer: {fileID: 801265125}
   turnSpeed: 2
-  walkSpeed: 5
+  walkSpeed: 9
 --- !u!1 &801265120
 GameObject:
   m_ObjectHideFlags: 0
