@@ -437,7 +437,6 @@ GameObject:
   - component: {fileID: 583643146}
   - component: {fileID: 583643147}
   - component: {fileID: 583643143}
-  - component: {fileID: 583643145}
   m_Layer: 0
   m_Name: Enemy (Fatster)
   m_TagString: Untagged
@@ -506,7 +505,7 @@ Transform:
   m_GameObject: {fileID: 583643137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.524, z: 33.9}
+  m_LocalPosition: {x: 0, y: 0.524, z: 14.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -548,19 +547,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &583643145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583643137}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6fed0cb02c98e343b486da181733798, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetObj: {fileID: 801265125}
 --- !u!114 &583643146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,7 +566,7 @@ MonoBehaviour:
     m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   player: {fileID: 801265120}
   enemy: {fileID: 0}
 --- !u!114 &583643147
