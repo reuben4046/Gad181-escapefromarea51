@@ -9,11 +9,11 @@ public class PlayerMovementRP : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
-    private float forwardForce = 1f;
+    [SerializeField] private float forwardForce = 1f;
 
-    private float maxSpeed = 20f;
+    [SerializeField] private float maxSpeed = 20f;
 
-    private float rotationSpeed = 0.3f;
+    [SerializeField] private float rotationSpeed = 0.3f;
 
     [SerializeField] private float moveSpeed = 25f;
 
