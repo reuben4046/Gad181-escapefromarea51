@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Mitchell/Scenes/ChapterMM.unity
+    guid: 70e7dcf9d4aa43d41992a50e3da709d2
+  - enabled: 1
     path: Assets/Mitchell/Scenes/Caught.unity
     guid: 8496f4e498d20324f9123ea1fe0b18e4
   - enabled: 1
