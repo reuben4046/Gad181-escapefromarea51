@@ -20,6 +20,11 @@ public class Caught : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ContinueGame()
+    {
+        Debug.Log("Taking you to the final MiniGame!");
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quitting Game");
