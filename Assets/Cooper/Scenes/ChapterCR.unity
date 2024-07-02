@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 435933434}
   - component: {fileID: 435933433}
   - component: {fileID: 435933432}
-  - component: {fileID: 435933431}
+  - component: {fileID: 435933435}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -467,18 +467,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -27}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &435933431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435933429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &435933432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,9 +511,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 435933431}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 435933435}
+        m_TargetAssemblyTypeName: Chapter, Assembly-CSharp
+        m_MethodName: BeginChapter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -573,6 +561,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435933429}
   m_CullTransparentMesh: 1
+--- !u!114 &435933435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435933429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb74a46bd138e224bbc9cb16a2a4af1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &924196665
 GameObject:
   m_ObjectHideFlags: 0
