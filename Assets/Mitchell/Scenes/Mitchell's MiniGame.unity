@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 583643144}
   - component: {fileID: 583643140}
   - component: {fileID: 583643146}
+  - component: {fileID: 583643147}
   - component: {fileID: 583643143}
   - component: {fileID: 583643145}
   m_Layer: 0
@@ -505,7 +506,7 @@ Transform:
   m_GameObject: {fileID: 583643137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.524, z: 13.12}
+  m_LocalPosition: {x: 0, y: 0.524, z: 33.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -582,6 +583,21 @@ MonoBehaviour:
     m_Bits: 0
   player: {fileID: 801265120}
   enemy: {fileID: 0}
+--- !u!114 &583643147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583643137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e9803452c067548b2d63d193738927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPlayer: {fileID: 801265125}
+  turnSpeed: 2
+  walkSpeed: 5
 --- !u!1 &801265120
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +721,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

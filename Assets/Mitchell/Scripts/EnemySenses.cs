@@ -13,12 +13,12 @@ public class EnemySenses : MonoBehaviour
     public LayerMask obstacleMask;
 
     public GameObject player;
-    public Enemy enemy;
+    public Fatster enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GetComponentInChildren<Enemy>();
+        enemy = GetComponentInChildren<Fatster>();
     }
 
     // Update is called once per frame

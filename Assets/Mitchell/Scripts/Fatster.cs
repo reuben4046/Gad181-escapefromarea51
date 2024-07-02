@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Fatster : MonoBehaviour
 {
     public Transform TargetPlayer;
     public float turnSpeed = 1f;
