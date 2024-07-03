@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerMovementRP : MonoBehaviour
 {
-
+    
     private Rigidbody2D rigidBody;
 
     [SerializeField] private float forwardForce = 1f;
