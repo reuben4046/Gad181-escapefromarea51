@@ -46,11 +46,11 @@ public class PlayerMovementRP : MonoBehaviour
 
     private void RotateLeft()
     {
-        transform.Rotate(0, 0, - rotationSpeed);
+        transform.Rotate(0, 0, + rotationSpeed);
     }
     private void RotateRight()
     {
-        transform.Rotate(0,0, rotationSpeed);
+        transform.Rotate(0,0, - rotationSpeed);
     }
    
 
