@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class OffScreenMissileIndicator : MonoBehaviour
@@ -19,6 +21,28 @@ public class OffScreenMissileIndicator : MonoBehaviour
 
     //dictionary that stores the marker and the missile
     private Dictionary<GameObject, GameObject> targetIndicators = new Dictionary<GameObject, GameObject>();
+
+    private void OnEnable()
+    {
+        EventSystemRP.OnMissileSpawned += OnMissileSpawned;
+        EventSystemRP.OnMissileDestroyed += OnMissileDestroyed;
+    }
+
+    private void OnDisable()
+    {
+        EventSystemRP.OnMissileSpawned -= OnMissileSpawned;
+        EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
+    }
+
+    private void OnMissileSpawned(GameObject missile)
+    {
+        Targets.Add(missile);
+    }
+
+    private void OnMissileDestroyed(GameObject missile)
+    {
+        Targets.Remove(missile);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +76,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
 
             UpdateMissile(marker, missile);
         }
+        
     }
 
     //function that updates the position and rotation of the marker clamping its position to the edges of the screen. 
