@@ -24,9 +24,9 @@ public class MissleSpawnerRP : MonoBehaviour
     [SerializeField] private float smallYRangeMax;
     [SerializeField] private float smallYRangeMin;
 
-
     [SerializeField] private float xBounds;
 
+    //list of spawned missles
     public List<GameObject> spawnedMissiles = new List<GameObject>();
 
     //keeps coroutine running in a loop
@@ -74,6 +74,7 @@ public class MissleSpawnerRP : MonoBehaviour
             spawnPosition = PickRandomSpawn();
             GameObject missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity);
             spawnedMissiles.Add(missile);
+            EventSystemRP.OnMissileSpawned?.Invoke(missile);
             
         }
     }
