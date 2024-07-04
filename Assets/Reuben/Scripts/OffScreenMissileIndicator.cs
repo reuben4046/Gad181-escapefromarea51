@@ -72,6 +72,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
             {
                 targetIndicators.Remove(entry.Key);
                 targetIndicators.Remove(entry.Value);
+                indicatorPrefab.SetActive(false);
                 continue;
             }
             var marker = entry.Key;
