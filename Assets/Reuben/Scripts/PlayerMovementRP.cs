@@ -6,8 +6,12 @@ using UnityEngine;
 
 public class PlayerMovementRP : MonoBehaviour
 {
-    
+
     private Rigidbody2D rigidBody;
+
+    [SerializeField] private TrailRenderer leftWing;
+
+    [SerializeField] private TrailRenderer rightWing;
 
     [SerializeField] private float forwardForce = 1f;
 
@@ -22,6 +26,8 @@ public class PlayerMovementRP : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        leftWing.emitting = false;
+        rightWing.emitting = false;
     }
 
     // Update is called once per frame
@@ -36,13 +42,32 @@ public class PlayerMovementRP : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             RotateLeft();
+            RightWingTrail(true);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else
+        {
+            RightWingTrail(false);
+        }
+        if (Input.GetKey(KeyCode.D))
         {
             RotateRight();
+            LeftWingTrail(true);
+        }
+        else
+        {
+            LeftWingTrail(false);
         }
     }
 
+    private void LeftWingTrail(bool showTrail)
+    {
+        leftWing.emitting = showTrail;
+    }
+
+    private void RightWingTrail(bool showTrail)
+    {
+        rightWing.emitting = showTrail;
+    }
 
     private void RotateLeft()
     {
@@ -56,6 +81,6 @@ public class PlayerMovementRP : MonoBehaviour
 
     void ForwardForce()
     {
-        transform.Translate(new Vector2(0, moveSpeed)* Time.deltaTime);
+        transform.Translate(new Vector2(0, moveSpeed) * Time.deltaTime);
     }
 }

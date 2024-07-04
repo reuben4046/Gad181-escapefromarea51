@@ -89,6 +89,11 @@ public class OffScreenMissileIndicator : MonoBehaviour
         bool isOffScreen = screenPos.x <=0 || screenPos.x >=1 || screenPos.y <=0 || screenPos.y >=1;
         if (isOffScreen)
         {
+            if (target == null)
+            {
+                indicator.SetActive(false);
+                return;
+            } 
             indicator.SetActive(true);
             var spriteSizeInVeiwPort = camera.WorldToViewportPoint(new Vector3(spriteWidth, spriteHeight, 0))
             - camera.WorldToViewportPoint(Vector3.zero);
