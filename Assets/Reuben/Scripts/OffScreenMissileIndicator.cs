@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class OffScreenMissileIndicator : MonoBehaviour
 {
-    //list of the missiles
-    public List<GameObject> Targets = new List<GameObject>();
     //marker that shows where the missiles are
     public GameObject indicatorPrefab; 
 
@@ -18,6 +18,9 @@ public class OffScreenMissileIndicator : MonoBehaviour
 
     //reference to the camera
     private new Camera camera;
+
+    //reference to the marker holder (organisation purposes)
+    public Transform markerHolder;
 
     //dictionary that stores the marker and the missile
     private Dictionary<GameObject, GameObject> targetIndicators = new Dictionary<GameObject, GameObject>();
@@ -36,12 +39,14 @@ public class OffScreenMissileIndicator : MonoBehaviour
 
     private void OnMissileSpawned(GameObject missile)
     {
-        Targets.Add(missile);
+        var marker = Instantiate(indicatorPrefab, markerHolder);
+        marker.SetActive(false);
+        targetIndicators.Add(missile, marker);
     }
 
     private void OnMissileDestroyed(GameObject missile)
     {
-        Targets.Remove(missile);
+        targetIndicators.Remove(missile);
     }
 
     // Start is called before the first frame update
@@ -55,28 +60,25 @@ public class OffScreenMissileIndicator : MonoBehaviour
         var bounds = spriteRenderer.bounds;
         spriteHeight = bounds.size.y/2f;
         spriteWidth = bounds.size.x/2f;
-
-        //instantiating the marker
-        foreach (var target in Targets)
-        {
-           var marker = Instantiate(indicatorPrefab);
-           marker.SetActive(false);
-           targetIndicators.Add(target, marker);
-        }
-    }
-
+    }       
+        
     // Update is called once per frame
     void Update()
     {
-        //updating the position of the marker
+        // updating the position of the marker
         foreach (KeyValuePair<GameObject, GameObject> entry in targetIndicators)
         {
+            if (entry.Key && entry.Value == null)
+            {
+                targetIndicators.Remove(entry.Key);
+                targetIndicators.Remove(entry.Value);
+                continue;
+            }
             var marker = entry.Key;
             var missile = entry.Value;
 
             UpdateMissile(marker, missile);
         }
-        
     }
 
     //function that updates the position and rotation of the marker clamping its position to the edges of the screen. 
