@@ -36,7 +36,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
         EventSystemRP.OnMissileSpawned -= OnMissileSpawned;
         EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
     }
-
+    
     private void OnMissileSpawned(GameObject missile)
     {
         var marker = Instantiate(indicatorPrefab, markerHolder);
@@ -68,7 +68,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
         // updating the position of the marker
         foreach (KeyValuePair<GameObject, GameObject> entry in targetIndicators)
         {
-            if (entry.Key && entry.Value == null)
+            if (entry.Key == null || entry.Value == null)
             {
                 targetIndicators.Remove(entry.Key);
                 targetIndicators.Remove(entry.Value);
