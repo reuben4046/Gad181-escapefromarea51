@@ -36,11 +36,13 @@ public class OffScreenMissileIndicator : MonoBehaviour
         EventSystemRP.OnMissileSpawned -= OnMissileSpawned;
         EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
     }
-    
+    GameObject marker;
+    GameObject missile;    
+
     private void OnMissileSpawned(GameObject missile)
     {
-        var marker = Instantiate(indicatorPrefab, markerHolder);
-        marker.SetActive(false);
+        marker = Instantiate(indicatorPrefab, markerHolder);
+        spriteRenderer.enabled = true;
         targetIndicators.Add(missile, marker);
     }
 
@@ -48,6 +50,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
     {
         targetIndicators.Remove(missile);
     }
+    SpriteRenderer markerSpriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -56,27 +59,43 @@ public class OffScreenMissileIndicator : MonoBehaviour
         camera = Camera.main;
         spriteRenderer = indicatorPrefab.GetComponent<SpriteRenderer>();
 
+        markerSpriteRenderer = marker.GetComponent<SpriteRenderer>();
+
         //getting the size of the sprite
         var bounds = spriteRenderer.bounds;
         spriteHeight = bounds.size.y/2f;
         spriteWidth = bounds.size.x/2f;
     }       
-        
+    
+
     // Update is called once per frame
     void Update()
     {
         // updating the position of the marker
         foreach (KeyValuePair<GameObject, GameObject> entry in targetIndicators)
         {
+            marker = entry.Key;
+            missile = entry.Value;            
+
             if (entry.Key == null || entry.Value == null)
             {
+                //if the marker or the missile is destroyed
+                markerSpriteRenderer.enabled = false;
+                Destroy(marker);
                 targetIndicators.Remove(entry.Key);
                 targetIndicators.Remove(entry.Value);
-                indicatorPrefab.SetActive(false);
                 continue;
             }
-            var marker = entry.Key;
-            var missile = entry.Value;
+
+            if (missile == null)
+            {
+                //if the missile is destroyed
+                Destroy(marker);
+                targetIndicators.Remove(marker);
+                continue;
+            }
+            
+
 
             UpdateMissile(marker, missile);
         }
@@ -89,7 +108,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
         bool isOffScreen = screenPos.x <=0 || screenPos.x >=1 || screenPos.y <=0 || screenPos.y >=1;
         if (isOffScreen)
         {
-            indicator.SetActive(true);
+            markerSpriteRenderer.enabled = true;
             var spriteSizeInVeiwPort = camera.WorldToViewportPoint(new Vector3(spriteWidth, spriteHeight, 0))
             - camera.WorldToViewportPoint(Vector3.zero);
 
@@ -106,7 +125,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
         }
         else
         {
-            indicator.SetActive(false);
+            markerSpriteRenderer.enabled = false;
         }
     }
 
