@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 442267015976470090}
   - component: {fileID: 2350899855582360470}
   - component: {fileID: 5091973485391992006}
+  - component: {fileID: 850926961183997634}
   m_Layer: 0
   m_Name: MissleSprite
   m_TagString: Missle
@@ -202,6 +203,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182e0a6a96cbf492c863833d869b49a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &850926961183997634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2963049664313472259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  needBoxIndicator: 1
+  needArrowIndicator: 1
+  needDistanceText: 1
+  indicator: {fileID: 0}
 --- !u!1 &7312556738119745100
 GameObject:
   m_ObjectHideFlags: 0
