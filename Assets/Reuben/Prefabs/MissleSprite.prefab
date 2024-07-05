@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetColor: {r: 1, g: 0, b: 0, a: 1}
-  needBoxIndicator: 1
+  needBoxIndicator: 0
   needArrowIndicator: 1
-  needDistanceText: 1
+  needDistanceText: 0
   indicator: {fileID: 0}
 --- !u!1 &7312556738119745100
 GameObject:
