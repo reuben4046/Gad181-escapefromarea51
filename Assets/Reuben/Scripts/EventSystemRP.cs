@@ -9,4 +9,7 @@ public static class EventSystemRP
     
     public delegate void OnMissileSpawnedDelegate(GameObject missile);
     public static OnMissileSpawnedDelegate OnMissileSpawned;
+
+    public delegate void GetLastPositionDelegate(Vector2 position);
+    public static GetLastPositionDelegate OnGetLastPosition;
 }

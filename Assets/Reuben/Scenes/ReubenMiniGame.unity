@@ -1141,7 +1141,6 @@ GameObject:
   m_Component:
   - component: {fileID: 724139158}
   - component: {fileID: 724139157}
-  - component: {fileID: 724139159}
   m_Layer: 0
   m_Name: MissileManager
   m_TagString: Untagged
@@ -1179,20 +1178,6 @@ Transform:
   - {fileID: 1163789184}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &724139159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724139156}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dcab909b3ae84b7e905e446ac6ce2de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indicatorPrefab: {fileID: 8387515761641837600, guid: 5844615bd38ba4c548c6d99f525a4fbf, type: 3}
-  markerHolder: {fileID: 1163789184}
 --- !u!1 &912049897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,6 +1261,51 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 724139158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1476632000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476632002}
+  - component: {fileID: 1476632001}
+  m_Layer: 0
+  m_Name: ExplosionSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1476632001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476632000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9938818531549e98e7be1a2d4b0b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 7787910658356795717, guid: 6a4c5ba27f4b24988921a4fbea42bd9f, type: 3}
+--- !u!4 &1476632002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476632000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3935933, y: -4.5135837, z: 1.3593706}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1546811092
 GameObject:
@@ -2056,3 +2086,4 @@ SceneRoots:
   - {fileID: 724139158}
   - {fileID: 695279462}
   - {fileID: 40905405}
+  - {fileID: 1476632002}
