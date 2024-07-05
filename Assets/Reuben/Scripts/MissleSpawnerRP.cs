@@ -7,6 +7,8 @@ public class MissleSpawnerRP : MonoBehaviour
     //spawn position that the prefab is spawned at
     private Vector2 spawnPosition;
 
+    [SerializeField] Transform missileHolder;
+
     //prefab reference
     public GameObject misslePrefab;
 
@@ -72,7 +74,7 @@ public class MissleSpawnerRP : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
 
             spawnPosition = PickRandomSpawn();
-            GameObject missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity);
+            GameObject missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity, missileHolder);
             spawnedMissiles.Add(missile);
             EventSystemRP.OnMissileSpawned?.Invoke(missile);
             

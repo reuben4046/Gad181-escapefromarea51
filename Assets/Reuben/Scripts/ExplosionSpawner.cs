@@ -9,6 +9,7 @@ public class ExplosionSpawner : MonoBehaviour
 
     private GameObject explosionAnimation;
 
+    [SerializeField] Transform ExplosionHolder;
     private float explosionTime = 1f;
 
     void OnEnable()
@@ -24,7 +25,7 @@ public class ExplosionSpawner : MonoBehaviour
     private void OnGetLastPosition(Vector2 position)
     {
         float randomNumber = Random.Range(0f, 360f);
-        explosionAnimation = Instantiate(explosionPrefab, position, Quaternion.Euler(0f, 0f, randomNumber));
+        explosionAnimation = Instantiate(explosionPrefab, position, Quaternion.Euler(0f, 0f, randomNumber), ExplosionHolder);
 
         StartCoroutine(DestroyExplosionPrefab());
     }
