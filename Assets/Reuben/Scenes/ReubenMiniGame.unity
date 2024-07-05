@@ -1141,6 +1141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724139158}
   - component: {fileID: 724139157}
+  - component: {fileID: 724139159}
   m_Layer: 0
   m_Name: MissileManager
   m_TagString: Untagged
@@ -1155,7 +1156,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724139156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4247268dd5174580a5fe79913cfa069, type: 3}
   m_Name: 
@@ -1178,6 +1179,20 @@ Transform:
   - {fileID: 1163789184}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &724139159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724139156}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcab909b3ae84b7e905e446ac6ce2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicatorPrefab: {fileID: 8387515761641837600, guid: 5844615bd38ba4c548c6d99f525a4fbf, type: 3}
+  markerHolder: {fileID: 1163789184}
 --- !u!1 &912049897
 GameObject:
   m_ObjectHideFlags: 0
