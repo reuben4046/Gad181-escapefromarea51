@@ -15,6 +15,8 @@ public class MissileDestroyerRP : MonoBehaviour
             EventSystemRP.OnPlayerHit?.Invoke();
         }
 
+        EventSystemRP.OnPlayExplosionSound?.Invoke();
+
         //broadcasts the event
         EventSystemRP.OnMissileDestroyed?.Invoke(this.gameObject);
 

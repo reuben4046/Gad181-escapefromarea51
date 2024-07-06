@@ -33,11 +33,7 @@ public class PlayerMovementRP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            ForwardForce();
-        }
+        ForwardForce();
 
         if (Input.GetKey(KeyCode.A))
         {
