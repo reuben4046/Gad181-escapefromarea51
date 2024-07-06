@@ -1734,7 +1734,7 @@ MonoBehaviour:
   rightWing: {fileID: 101270840}
   forwardForce: 1
   maxSpeed: 20
-  rotationSpeed: 0.3
+  rotationSpeed: 200
   moveSpeed: 15
 --- !u!61 &1546811098
 BoxCollider2D:

@@ -17,7 +17,7 @@ public class PlayerMovementRP : MonoBehaviour
 
     [SerializeField] private float maxSpeed = 20f;
 
-    [SerializeField] private float rotationSpeed = 0.3f;
+    [SerializeField] private float rotationSpeed = 200f;
 
     [SerializeField] private float moveSpeed = 25f;
 
@@ -72,11 +72,11 @@ public class PlayerMovementRP : MonoBehaviour
 
     private void RotateLeft()
     {
-        transform.Rotate(0, 0, + rotationSpeed);
+        transform.Rotate(0, 0, + (rotationSpeed * Time.deltaTime));
     }
     private void RotateRight()
     {
-        transform.Rotate(0,0, - rotationSpeed);
+        transform.Rotate(0,0, - (rotationSpeed * Time.deltaTime));
     }
    
 
