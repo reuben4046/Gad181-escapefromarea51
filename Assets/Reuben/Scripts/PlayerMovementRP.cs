@@ -35,6 +35,11 @@ public class PlayerMovementRP : MonoBehaviour
     {
         ForwardForce();
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            rotationSpeed += 1f;
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             RotateLeft();
