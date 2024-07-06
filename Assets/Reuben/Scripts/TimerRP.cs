@@ -11,7 +11,7 @@ public class TimerRP : MonoBehaviour
 
     private float savedTime = 0f;
 
-    [SerializeField] private float spawnIncreaseWaitTime = 20f;
+    [SerializeField] private float spawnIncreaseWaitTime = 60f;
 
 
     // Start is called before the first frame update
@@ -31,8 +31,6 @@ public class TimerRP : MonoBehaviour
 
         IncreaseSpawnAmmount();
     }
-
-    
 
     private void IncreaseSpawnAmmount()
     {
