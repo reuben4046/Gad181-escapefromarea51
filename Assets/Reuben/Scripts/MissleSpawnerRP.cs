@@ -42,11 +42,24 @@ public class MissleSpawnerRP : MonoBehaviour
     private void OnEnable()
     {
         EventSystemRP.OnMissileDestroyed += OnMissileDestroyed;
+        EventSystemRP.OnIncreaseSpawnAmmount += OnIncreaseSpawnAmmount;
     }
 
     private void OnDisable()
     {
         EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
+        EventSystemRP.OnIncreaseSpawnAmmount -= OnIncreaseSpawnAmmount;
+    }
+
+    private float spawnAmmount = 0f;
+    private float maxSpawnAmmount = 3f;
+
+    private void OnIncreaseSpawnAmmount()
+    {
+        if (spawnAmmount < maxSpawnAmmount)
+        {
+            spawnAmmount ++;
+        }
     }
 
     //start
@@ -73,14 +86,22 @@ public class MissleSpawnerRP : MonoBehaviour
         { 
             yield return new WaitForSeconds(spawnInterval);
 
-            spawnPosition = PickRandomSpawn();
-            GameObject missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity, missileHolder);
-            spawnedMissiles.Add(missile);
-            EventSystemRP.OnMissileSpawned?.Invoke(missile);
-            
+            for (int i = 0; i < spawnAmmount; i++)
+            {
+                SpawnMissle();
+            }
+            Debug.Log(spawnAmmount);
         }
     }
 
+    private void SpawnMissle()
+    {
+        spawnPosition = PickRandomSpawn();
+        GameObject missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity, missileHolder);
+        spawnedMissiles.Add(missile);
+        EventSystemRP.OnMissileSpawned?.Invoke(missile);
+    }
+    
     //Picks a random spawn position picking x first and if the x is too close to 0, then a y is picked that will make it so that the spawn 
     //position is still out of the veiw of the camera. 
     private Vector2 PickRandomSpawn()
