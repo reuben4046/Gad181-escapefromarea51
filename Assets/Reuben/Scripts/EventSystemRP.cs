@@ -12,4 +12,14 @@ public static class EventSystemRP
 
     public delegate void GetLastPositionDelegate(Vector2 position);
     public static GetLastPositionDelegate OnGetLastPosition;
+
+    public delegate void IncreaseSpawnAmmountDelegate();
+    public static IncreaseSpawnAmmountDelegate OnIncreaseSpawnAmmount;
+
+    public delegate void PlayerHitDelegate();
+    public static PlayerHitDelegate OnPlayerHit;
+
+    // Sounds
+    public delegate void PlayExplosionSoundDelegate();
+    public static PlayExplosionSoundDelegate OnPlayExplosionSound;
 }
