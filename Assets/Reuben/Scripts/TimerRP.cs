@@ -32,12 +32,13 @@ public class TimerRP : MonoBehaviour
         IncreaseSpawnAmmount();
     }
 
+    //increases the spawn ammount if the elapsed time is greater than the saved time plus the spawn increase wait time
     private void IncreaseSpawnAmmount()
     {
         if (elapsedTime > savedTime + spawnIncreaseWaitTime)
         {
             savedTime = elapsedTime;
-            EventSystemRP.OnIncreaseSpawnAmmount?.Invoke();
+            EventSystemRP.OnIncreaseSpawnAmmount?.Invoke(); //invokes the onIncreaseSpawnAmmount event
         }
     }
 }

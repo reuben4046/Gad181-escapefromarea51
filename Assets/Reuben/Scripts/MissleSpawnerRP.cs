@@ -50,10 +50,14 @@ public class MissleSpawnerRP : MonoBehaviour
         EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
         EventSystemRP.OnIncreaseSpawnAmmount -= OnIncreaseSpawnAmmount;
     }
-
+    //ammount of missiles that can be spawned every spawnInterval Seconds
     private float spawnAmmount = 0f;
+
+    //max ammount of missiles that can be spawned 
     private float maxSpawnAmmount = 3f;
 
+    //this function is called when the onincreaseSpawnAmmount event is triggered
+    //increasing the ammount of spawned missles if it is less than maxSpawnAmmount
     private void OnIncreaseSpawnAmmount()
     {
         if (spawnAmmount < maxSpawnAmmount)
@@ -82,18 +86,19 @@ public class MissleSpawnerRP : MonoBehaviour
     //coroutine that spawns the missles every spawnInterval seconds
     private IEnumerator SpawnMissles()
     {
-        while (corotineRunning)
+        while (corotineRunning) //loops the coroutine
         { 
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(spawnInterval); //waits SpawnInterval seconds
 
-            for (int i = 0; i < spawnAmmount; i++)
+            for (int i = 0; i < spawnAmmount; i++) //loops spawnAmmount times
             {
                 SpawnMissle();
             }
-            Debug.Log(spawnAmmount);
+            Debug.Log(spawnAmmount); //prints the amount of spawned missles
         }
     }
 
+    //spawns the missile prefab at a random spawn position 
     private void SpawnMissle()
     {
         spawnPosition = PickRandomSpawn();
