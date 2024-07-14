@@ -7,15 +7,15 @@ public class GameEnderRP : MonoBehaviour
 
     private void OnEnable()
     {
-        EventSystemRP.OnPlayerHit += OnPlayerHit;
+        EventSystemRP.OnPlayerHealthZero += OnPlayerHealthZero;
     }
 
     private void OnDisable()
     {
-        EventSystemRP.OnPlayerHit -= OnPlayerHit;
+        EventSystemRP.OnPlayerHealthZero -= OnPlayerHealthZero;
     }   
 
-    private void OnPlayerHit()
+    private void OnPlayerHealthZero()
     {
         Destroy(gameObject);
     }

@@ -19,6 +19,9 @@ public static class EventSystemRP
     public delegate void PlayerHitDelegate();
     public static PlayerHitDelegate OnPlayerHit;
 
+    public delegate void PlayerHealthZeroDelegate();
+    public static PlayerHealthZeroDelegate OnPlayerHealthZero;
+
     // Sounds
     public delegate void PlayExplosionSoundDelegate();
     public static PlayExplosionSoundDelegate OnPlayExplosionSound;
