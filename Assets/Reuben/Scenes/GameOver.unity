@@ -311,6 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe194c27749b45ccbdf689dde4ea0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savedInformation: {fileID: 11400000, guid: 1f5f898a230094f2db59eb862e2732ba, type: 2}
+  timeText: {fileID: 386939721}
 --- !u!1 &386939719
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +325,7 @@ GameObject:
   - component: {fileID: 386939722}
   - component: {fileID: 386939721}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: timeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

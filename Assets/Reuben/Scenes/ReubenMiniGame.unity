@@ -1100,6 +1100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65f806ec14f04845a95d0efc28a9bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savedInformation: {fileID: 11400000, guid: 1f5f898a230094f2db59eb862e2732ba, type: 2}
   timerText: {fileID: 776522306}
   spawnIncreaseWaitTime: 60
 --- !u!114 &695279464
@@ -2037,7 +2038,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546811092}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0df25b4b6ee264e4abea1cdafdd232df, type: 3}
   m_Name: 

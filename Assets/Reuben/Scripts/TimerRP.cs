@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class TimerRP : MonoBehaviour
 {
+
+    public SavedInformationRP savedInformation;
+
     [SerializeField] private TextMeshProUGUI timerText;
     private float elapsedTime;
 
@@ -13,6 +16,22 @@ public class TimerRP : MonoBehaviour
 
     [SerializeField] private float spawnIncreaseWaitTime = 60f;
 
+    bool updateTime = true;
+
+    private void OnEnable()
+    {
+        EventSystemRP.OnPlayerHealthZero += OnPlayerHealthZero;
+    }
+
+    private void OnDisable()
+    {
+        EventSystemRP.OnPlayerHealthZero -= OnPlayerHealthZero;
+    }
+
+    private void OnPlayerHealthZero()
+    {
+        updateTime = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +43,18 @@ public class TimerRP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        elapsedTime += Time.deltaTime;
-        int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if (updateTime)
+        {
+            elapsedTime += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(elapsedTime / 60);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        IncreaseSpawnAmmount();
+            savedInformation.timeSurvived = timerText.text;
+
+            IncreaseSpawnAmmount();  
+        }
+
     }
 
     //increases the spawn ammount if the elapsed time is greater than the saved time plus the spawn increase wait time
