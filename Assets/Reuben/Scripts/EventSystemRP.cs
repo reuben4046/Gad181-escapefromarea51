@@ -4,10 +4,10 @@ using UnityEngine;
 
 public static class EventSystemRP
 {
-    public delegate void OnMissileDestroyedDelegate(GameObject missile);
+    public delegate void OnMissileDestroyedDelegate(Missile missile);
     public static OnMissileDestroyedDelegate OnMissileDestroyed;
     
-    public delegate void OnMissileSpawnedDelegate(GameObject missile);
+    public delegate void OnMissileSpawnedDelegate(Missile missile);
     public static OnMissileSpawnedDelegate OnMissileSpawned;
 
     public delegate void GetLastPositionDelegate(Vector2 position);

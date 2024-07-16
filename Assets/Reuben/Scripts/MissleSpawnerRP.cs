@@ -10,7 +10,7 @@ public class MissleSpawnerRP : MonoBehaviour
     [SerializeField] Transform missileHolder;
 
     //prefab reference
-    public GameObject misslePrefab;
+    public Missile misslePrefab;
 
 
     [Header("Gizmos")]
@@ -29,7 +29,7 @@ public class MissleSpawnerRP : MonoBehaviour
     [SerializeField] private float xBounds;
 
     //list of spawned missles
-    public List<GameObject> spawnedMissiles = new List<GameObject>();
+    public List<Missile> spawnedMissiles = new List<Missile>();
 
     //keeps coroutine running in a loop
     private bool corotineRunning = true;
@@ -77,7 +77,7 @@ public class MissleSpawnerRP : MonoBehaviour
     }
 
     //this function is called when the onmissiledestroyed event is triggered
-    private void OnMissileDestroyed(GameObject missile)
+    private void OnMissileDestroyed(Missile missile)
     {
         spawnedMissiles.Remove(missile);
     }
@@ -102,7 +102,7 @@ public class MissleSpawnerRP : MonoBehaviour
     private void SpawnMissle()
     {
         spawnPosition = PickRandomSpawn();
-        GameObject missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity, missileHolder);
+        Missile missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity, missileHolder);
         spawnedMissiles.Add(missile);
         EventSystemRP.OnMissileSpawned?.Invoke(missile);
     }

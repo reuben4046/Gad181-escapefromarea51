@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyIndicatorRP : MonoBehaviour
 {
     //Reference to the newest missile
-    private GameObject newestMissile;
+    private Missile newestMissile;
 
     //Rotation speed that the indication will rotate at around the player
     private float rotationSpeed = 20f;
@@ -42,7 +42,7 @@ public class EnemyIndicatorRP : MonoBehaviour
     }
 
     //this function is called when the onmissilespawned event is triggered
-    private void OnMissileSpawned(GameObject missile)
+    private void OnMissileSpawned(Missile missile)
     {
         newestMissile = missile;
     }
