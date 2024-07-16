@@ -17,7 +17,7 @@ public class YouWon : MonoBehaviour
             Debug.Log("Evidence Picked Up!");
             if (docPickup >= 6)
             {
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(6);
             }
         }
     }
