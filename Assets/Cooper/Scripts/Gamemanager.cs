@@ -8,7 +8,7 @@ public class Gamemanager : MonoBehaviour
     public Spawnpoints_List spawnpoints;
     public GameObject drone;
     public int maxdrones = 10;
-    private int numberOfdrones;
+    public int numberOfdrones;
 
     // Start is called before the first frame update
     void Start()
