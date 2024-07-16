@@ -14,7 +14,7 @@ public class Repeating_Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z > startPos.z + 90) 
+        if(transform.position.z >= startPos.z + 90) 
         { 
             transform.position = startPos;
         }

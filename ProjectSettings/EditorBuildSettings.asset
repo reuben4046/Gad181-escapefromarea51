@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Cooper/Scenes/Coopers-Minigame.unity
+    guid: 3486b1763951ed94aa7724d4ddf47279
+  - enabled: 1
     path: Assets/Mitchell/Scenes/ChapterMM.unity
     guid: 70e7dcf9d4aa43d41992a50e3da709d2
   - enabled: 1
