@@ -121,12 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28bf582ba245964fba00bce6ecc710f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Patterns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  speed: 2
+  speed: 5
 --- !u!54 &9075190972099793551
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412af8277c1b3e74eb61bd351b5a9d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  droneTracker: {fileID: 0}
 --- !u!114 &6556686515740943647
 MonoBehaviour:
   m_ObjectHideFlags: 0
