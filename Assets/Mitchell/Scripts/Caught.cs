@@ -9,7 +9,7 @@ public class Caught : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(4);
         }
     }
 
@@ -17,13 +17,13 @@ public class Caught : MonoBehaviour
     {
         // Restarts the game all over.
         ScoreManager.docCount = 0;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(5);
     }
 
     public void ContinueGame()
     {
         Debug.Log("Taking you to the final MiniGame!");
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene(7);
     }
 
     public void QuitGame()
