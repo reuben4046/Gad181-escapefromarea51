@@ -13,6 +13,9 @@ public static class EventSystemRP
     public delegate void GetLastPositionDelegate(Vector2 position);
     public static GetLastPositionDelegate OnGetLastPosition;
 
+    public delegate void CaughtInExplosionDelegate(Missile missile);
+    public static CaughtInExplosionDelegate OnCaughtInExplosion;
+
     public delegate void IncreaseSpawnAmmountDelegate();
     public static IncreaseSpawnAmmountDelegate OnIncreaseSpawnAmmount;
 

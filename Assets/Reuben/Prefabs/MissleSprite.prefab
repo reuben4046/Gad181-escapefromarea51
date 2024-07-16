@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182e0a6a96cbf492c863833d869b49a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blastTrigger: {fileID: 2639783409546095962}
+  missile: {fileID: 2350899855582360470}
 --- !u!114 &-3252299602041154347
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -83,8 +83,8 @@ public class OffScreenMissileIndicator : MonoBehaviour
     private void UpdateMissile(Missile missile, GameObject indicator)
     {
         var screenPos = camera.WorldToViewportPoint(missile.transform.position);
-        bool isOffScreen = screenPos.x <=0 || screenPos.x >=1 || screenPos.y <=0 || screenPos.y >=1;
-        if (isOffScreen)
+        bool offScreen = screenPos.x <=0 || screenPos.x >=1 || screenPos.y <=0 || screenPos.y >=1;
+        if (offScreen)
         {
             if (missile == null)
             {

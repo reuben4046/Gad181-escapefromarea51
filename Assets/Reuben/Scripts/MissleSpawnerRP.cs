@@ -94,7 +94,6 @@ public class MissleSpawnerRP : MonoBehaviour
             {
                 SpawnMissle();
             }
-            Debug.Log(spawnAmmount); //prints the amount of spawned missles
         }
     }
 
