@@ -17,7 +17,7 @@ public class Caught : MonoBehaviour
     {
         // Restarts the game all over.
         ScoreManager.docCount = 0;
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);
     }
 
     public void ContinueGame()
