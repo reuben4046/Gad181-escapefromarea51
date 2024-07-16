@@ -46,7 +46,11 @@ public class OffScreenMissileIndicator : MonoBehaviour
 
     private void OnMissileDestroyed(GameObject missile)
     {
+        var ind = targetIndicators[missile];
+
         targetIndicators.Remove(missile);
+
+        Destroy(ind.gameObject);
     }
 
     // Start is called before the first frame update
@@ -68,13 +72,13 @@ public class OffScreenMissileIndicator : MonoBehaviour
         // updating the position of the marker
         foreach (KeyValuePair<GameObject, GameObject> entry in targetIndicators)
         {
-            if (entry.Key == null || entry.Value == null)
-            {
-                targetIndicators.Remove(entry.Key);
-                targetIndicators.Remove(entry.Value);
-                indicatorPrefab.SetActive(false);
-                continue;
-            }
+            //if (entry.Key == null || entry.Value == null)
+            //{
+            //    targetIndicators.Remove(entry.Key);
+            //    targetIndicators.Remove(entry.Value);
+            //    indicatorPrefab.SetActive(false);
+            //    continue;
+            //}
             var marker = entry.Key;
             var missile = entry.Value;
 
