@@ -51,7 +51,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
         targetIndicators.Remove(missile);
 
         Destroy(indicator.gameObject);
-        Destroy(missile);
+        //Destroy(missile);
     }
 
     // Start is called before the first frame update
