@@ -20,7 +20,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
     private new Camera camera;
 
     //reference to the marker holder (organisation purposes)
-    public Transform markerHolder;
+    public Transform indicatorHolder;
 
     //dictionary that stores the marker and the missile
     private Dictionary<Missile, GameObject> targetIndicators = new Dictionary<Missile, GameObject>();
@@ -39,9 +39,9 @@ public class OffScreenMissileIndicator : MonoBehaviour
     
     private void OnMissileSpawned(Missile missile)
     {
-        var marker = Instantiate(indicatorPrefab, markerHolder);
-        marker.SetActive(false);
-        targetIndicators.Add(missile, marker);
+        var indicator = Instantiate(indicatorPrefab, indicatorHolder);
+        indicator.SetActive(false);
+        targetIndicators.Add(missile, indicator);
     }
 
     private void OnMissileDestroyed(Missile missile)
@@ -51,6 +51,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
         targetIndicators.Remove(missile);
 
         Destroy(indicator.gameObject);
+        Destroy(missile);
     }
 
     // Start is called before the first frame update
@@ -72,10 +73,10 @@ public class OffScreenMissileIndicator : MonoBehaviour
         // updating the position of the marker
         foreach (KeyValuePair<Missile, GameObject> entry in targetIndicators)
         {
-            var marker = entry.Key;
-            var missile = entry.Value;
+            var missile = entry.Key;
+            var indicator = entry.Value;
 
-            UpdateMissile(marker, missile);
+            UpdateMissile(missile, indicator);
         }
     }
 

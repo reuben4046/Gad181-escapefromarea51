@@ -19,11 +19,14 @@ public class MissileDestroyerRP : MonoBehaviour
 
         EventSystemRP.OnPlayExplosionSound?.Invoke();
 
+        lastPosition = collision.GetContact(0).point;
+        EventSystemRP.OnGetLastPosition?.Invoke(lastPosition);
+
+
         //broadcasts the event
         EventSystemRP.OnMissileDestroyed?.Invoke(missile);
 
-        lastPosition = collision.GetContact(0).point;
-        EventSystemRP.OnGetLastPosition?.Invoke(lastPosition);
+
 
         
         Destroy(gameObject);

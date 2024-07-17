@@ -13,7 +13,7 @@ public class ExplosionBlastRP : MonoBehaviour
             var missile = other.gameObject.GetComponent<Missile>();
             EventSystemRP.OnCaughtInExplosion?.Invoke(missile);
 
-            Destroy(gameObject, 0.2f);
+            Destroy(gameObject, 1f);
         }
     }
 
