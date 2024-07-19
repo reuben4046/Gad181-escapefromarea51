@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class KeyAnnouncement : MonoBehaviour
 {
-    public AudioSource audioClip;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioSource audioSource;
 
     public void OnTriggerEnter(Collider Col)
     {
-        if (Col.tag == "Player")
+        if (Col.tag == "Player" && !audioSource.isPlaying)
         {
-            audioClip.Play();
+            audioSource.Play();
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
