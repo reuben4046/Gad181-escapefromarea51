@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class PlayerMovementRP : MonoBehaviour
-{
+public class PlayerMovementRP : MonoBehaviour {
 
     private Rigidbody2D rigidBody;
 
@@ -23,65 +22,51 @@ public class PlayerMovementRP : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
         leftWing.emitting = false;
         rightWing.emitting = false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         ForwardForce();
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
+        if (Input.GetKeyDown(KeyCode.R)) {
             rotationSpeed += 1f;
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
+        if (Input.GetKey(KeyCode.A)) {
             RotateLeft();
             RightWingTrail(true);
-        }
-        else
-        {
+        } else {
             RightWingTrail(false);
         }
-        if (Input.GetKey(KeyCode.D))
-        {
+        if (Input.GetKey(KeyCode.D)) {
             RotateRight();
             LeftWingTrail(true);
-        }
-        else
-        {
+        } else {
             LeftWingTrail(false);
         }
     }
 
-    private void LeftWingTrail(bool showTrail)
-    {
+    private void LeftWingTrail(bool showTrail) {
         leftWing.emitting = showTrail;
     }
 
-    private void RightWingTrail(bool showTrail)
-    {
+    private void RightWingTrail(bool showTrail) {
         rightWing.emitting = showTrail;
     }
 
-    private void RotateLeft()
-    {
-        transform.Rotate(0, 0, + (rotationSpeed * Time.deltaTime));
+    private void RotateLeft() {
+        transform.Rotate(0, 0, + (rotationSpeed * Time.deltaTime)); 
     }
-    private void RotateRight()
-    {
+    private void RotateRight() {
         transform.Rotate(0,0, - (rotationSpeed * Time.deltaTime));
     }
    
 
-    void ForwardForce()
-    {
+    void ForwardForce() {
         transform.Translate(new Vector2(0, moveSpeed) * Time.deltaTime);
     }
 }

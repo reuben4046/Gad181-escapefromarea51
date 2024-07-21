@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class EventSystemRP
-{
+public static class EventSystemRP {
+    //events that happen throughout the game
+
     public delegate void OnMissileDestroyedDelegate(Missile missile);
     public static OnMissileDestroyedDelegate OnMissileDestroyed;
     
@@ -13,6 +14,7 @@ public static class EventSystemRP
     public delegate void GetLastPositionDelegate(Vector2 position);
     public static GetLastPositionDelegate OnGetLastPosition;
 
+    //this is currently not used in my game however I hope to implement an explosion blast radius in project 3 
     public delegate void CaughtInExplosionDelegate(Missile missile);
     public static CaughtInExplosionDelegate OnCaughtInExplosion;
 

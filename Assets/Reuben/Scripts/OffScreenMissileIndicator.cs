@@ -6,8 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Timeline;
 
-public class OffScreenMissileIndicator : MonoBehaviour
-{
+public class OffScreenMissileIndicator : MonoBehaviour {
     //marker that shows where the missiles are
     public GameObject indicatorPrefab; 
 
@@ -25,27 +24,23 @@ public class OffScreenMissileIndicator : MonoBehaviour
     //dictionary that stores the marker and the missile
     private Dictionary<Missile, GameObject> targetIndicators = new Dictionary<Missile, GameObject>();
 
-    private void OnEnable()
-    {
+    private void OnEnable() {
         EventSystemRP.OnMissileSpawned += OnMissileSpawned;
         EventSystemRP.OnMissileDestroyed += OnMissileDestroyed;
     }
 
-    private void OnDisable()
-    {
+    private void OnDisable() {
         EventSystemRP.OnMissileSpawned -= OnMissileSpawned;
         EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
     }
     
-    private void OnMissileSpawned(Missile missile)
-    {
+    private void OnMissileSpawned(Missile missile) {
         var indicator = Instantiate(indicatorPrefab, indicatorHolder);
         indicator.SetActive(false);
         targetIndicators.Add(missile, indicator);
     }
 
-    private void OnMissileDestroyed(Missile missile)
-    {
+    private void OnMissileDestroyed(Missile missile) {
         var indicator = targetIndicators[missile];
 
         targetIndicators.Remove(missile);
@@ -55,8 +50,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         //getting the camera and setting the indicator prefab to the sprite renderer
         camera = Camera.main;
         spriteRenderer = indicatorPrefab.GetComponent<SpriteRenderer>();
@@ -68,11 +62,9 @@ public class OffScreenMissileIndicator : MonoBehaviour
     }       
         
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         // updating the position of the marker
-        foreach (KeyValuePair<Missile, GameObject> entry in targetIndicators)
-        {
+        foreach (KeyValuePair<Missile, GameObject> entry in targetIndicators) {
             var missile = entry.Key;
             var indicator = entry.Value;
 
@@ -81,17 +73,16 @@ public class OffScreenMissileIndicator : MonoBehaviour
     }
 
     //function that updates the position and rotation of the marker clamping its position to the edges of the screen. 
-    private void UpdateMissile(Missile missile, GameObject indicator)
-    {
+    private void UpdateMissile(Missile missile, GameObject indicator) {
         var screenPos = camera.WorldToViewportPoint(missile.transform.position);
-        bool offScreen = screenPos.x <=0 || screenPos.x >=1 || screenPos.y <=0 || screenPos.y >=1;
-        if (offScreen)
-        {
-            if (missile == null)
-            {
+        bool offScreen = screenPos.x <=0 || screenPos.x >=1 || screenPos.y <=0 || screenPos.y >=1; //checking if the missile is off the screen
+        if (offScreen) {
+            if (missile == null) {
                 indicator.SetActive(false);
-                return;
+                return; //missile already destroyed
             } 
+
+            //setting the position of the indicator
             indicator.SetActive(true);
             var spriteSizeInVeiwPort = camera.WorldToViewportPoint(new Vector3(spriteWidth, spriteHeight, 0))
             - camera.WorldToViewportPoint(Vector3.zero);
@@ -107,8 +98,7 @@ public class OffScreenMissileIndicator : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
             indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-        else
-        {
+        else {
             indicator.SetActive(false);
         }
     }

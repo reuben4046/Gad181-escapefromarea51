@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIndicatorRP : MonoBehaviour
-{
+public class EnemyIndicatorRP : MonoBehaviour {
+    //this script is not included in my actuall game it was my first attemt at creating an enemy indicator system
+
     //Reference to the newest missile
     private Missile newestMissile;
 
@@ -14,43 +15,35 @@ public class EnemyIndicatorRP : MonoBehaviour
     public GameObject indicator;
 
     //subscribing and unsubscribing to the OnMIssileSpawned event
-    private void OnEnable()
-    {
+    private void OnEnable() {
         EventSystemRP.OnMissileSpawned += OnMissileSpawned;
     }
-    private void OnDisable()
-    {
+    private void OnDisable() {
         EventSystemRP.OnMissileSpawned -= OnMissileSpawned;
     }
 
 
     // Update is called once per frame
-    void Update()
-    {
-        if (newestMissile == null)
-        {
+    void Update() {
+        if (newestMissile == null) {
             indicator.SetActive(false);
         }
-        else
-        {
+        else {
             indicator.SetActive(true);
         }
-        if (newestMissile != null)
-        {
+        if (newestMissile != null) {
             RotateTowards();
         }
     }
 
     //this function is called when the onmissilespawned event is triggered
-    private void OnMissileSpawned(Missile missile)
-    {
+    private void OnMissileSpawned(Missile missile) {
         newestMissile = missile;
     }
 
 
     //Rotates towards the newest missile at Rotation speed
-    private void RotateTowards()
-    {
+    private void RotateTowards() {
         Vector3 direction = newestMissile.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);

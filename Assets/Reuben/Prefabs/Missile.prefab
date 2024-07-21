@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5091973485391992006}
   - component: {fileID: -3252299602041154347}
   m_Layer: 0
-  m_Name: MissleSprite
+  m_Name: Missile
   m_TagString: Missle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 3358094356566024309}
   - component: {fileID: 4883313536895628195}
   m_Layer: 0
-  m_Name: LeftWingTrail
+  m_Name: MissileTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
