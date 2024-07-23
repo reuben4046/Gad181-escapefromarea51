@@ -8,7 +8,7 @@ public class GameEnderRP : MonoBehaviour {
     // this script ends the game when the OnPlayerHealthZero event is triggered
     public SpriteRenderer playerRenderer;
 
-    private float timeTillEndGame = 5f;
+    private float timeTillEndGame = 0.5f;
 
     //subscribing to the event and unsubscribing from the event
     private void OnEnable() {
