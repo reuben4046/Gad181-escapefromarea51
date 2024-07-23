@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CollectingDocs : MonoBehaviour
+public class CollectingDocKey : MonoBehaviour
 {
     public int docs;
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class CollectingDocs : MonoBehaviour
             docs = docs + 1;
             ScoreManager.docCount += 1;
             //   Col.gameObject.SetActive(false);
-            Destroy(Col.gameObject);
+            Destroy(Col.gameObject, 1f);
         }
     }
 
