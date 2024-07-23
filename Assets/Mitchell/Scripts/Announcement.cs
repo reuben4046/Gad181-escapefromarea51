@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyAnnouncement : MonoBehaviour
+public class Announcement : MonoBehaviour
 {
     public AudioSource audioSource;
 
