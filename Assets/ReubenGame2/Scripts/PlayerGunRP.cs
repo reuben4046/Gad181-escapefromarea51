@@ -5,9 +5,6 @@ using UnityEngine.UIElements;
 
 public class PlayerGunRP : MonoBehaviour
 {
-
-
-
     Quaternion walkRotation = Quaternion.Euler(0f, 0f, 0f);
     Quaternion aimRotation = Quaternion.Euler(-0.73f, 0f, 0f);
 
@@ -34,7 +31,6 @@ public class PlayerGunRP : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(gunTweeningToAim);
         if (Input.GetMouseButtonDown(1) && !gunTweeningToAim) {   
             TweenToAimPos();
         }

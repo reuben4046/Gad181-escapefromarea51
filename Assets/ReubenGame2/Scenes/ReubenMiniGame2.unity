@@ -309,6 +309,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &946716320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 946716321}
+  m_Layer: 0
+  m_Name: BulletTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &946716321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946716320}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.42, z: 6.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7370899117167489224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1352588057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,7 +2393,7 @@ GameObject:
   - component: {fileID: 4455768501286175207}
   - component: {fileID: 4455768501286175206}
   m_Layer: 0
-  m_Name: FirstPersonController
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3487,6 +3518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7370899117167489224}
   - component: {fileID: 1475317158792777822}
+  - component: {fileID: 7370899117167489225}
   m_Layer: 0
   m_Name: MCX
   m_TagString: Untagged
@@ -4155,8 +4187,23 @@ Transform:
   - {fileID: 1888230616245890855}
   - {fileID: 8647736147290813338}
   - {fileID: 1445573225388040735}
+  - {fileID: 946716321}
   m_Father: {fileID: 4455768502681774975}
   m_LocalEulerAnglesHint: {x: -5.38, y: 0, z: 0}
+--- !u!114 &7370899117167489225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769648136072250075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b4a1312c4f5ae4589963989a980acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
+  bulletTransform: {fileID: 946716321}
 --- !u!1 &7371522747396737851
 GameObject:
   m_ObjectHideFlags: 0
