@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour {    
-    
-    float speed = 1.0f;
+    [SerializeField] Rigidbody rb;
+    float force = 100f;
 
-    // Update is called once per frame
-    void Update() {
-        ForwardMovement();
-    }
-
-    private void ForwardMovement () {
-        transform.position = Vector3.forward * speed;
+    void Start() {
+        rb.AddForce(transform.forward * force, ForceMode.Impulse);
     }
 }
