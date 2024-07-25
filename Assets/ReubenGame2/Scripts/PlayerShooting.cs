@@ -87,6 +87,8 @@ public class PlayerShooting : MonoBehaviour
             //     bulletTransform.LookAt(hit.point);
             //     GetPooledBullet();
             // }
+
+            //possible fix. abandon raycassting and just controll the rotation of the transform randomly instead to get less acurassy hipfiring 
         }
     }
 
