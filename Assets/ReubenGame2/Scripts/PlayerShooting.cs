@@ -4,8 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerShooting : MonoBehaviour {
-
+public class PlayerShooting : MonoBehaviour 
+{
     public PlayerBullet PlayerBullet;
     public Transform bulletTransform;
 
@@ -23,11 +23,13 @@ public class PlayerShooting : MonoBehaviour {
 
     }
 
-    private void Update() {
+    private void Update() 
+    {
 
         FireTimer();
         
-        if (Input.GetMouseButton(0) && canFire) {
+        if (Input.GetMouseButton(0) && canFire) 
+        {
             Shoot();
             ShootingTweenShake();
         }
@@ -35,16 +37,19 @@ public class PlayerShooting : MonoBehaviour {
     }
 
 
-    void FireTimer() {
-        if (canFire == false) {
+    void FireTimer() 
+    {
+        if (canFire == false) 
+        {
             shootingTimer += Time.deltaTime;
-            if (shootingTimer > fireRate) {
+            if (shootingTimer > fireRate) 
+            {
                 canFire = true;
                 shootingTimer = 0f;
             }
         }
     }
-        
+        //next thing to add is reduced accuracy when the player hipfires. 
     void Shoot() 
     {
         RaycastHit hit;
@@ -57,7 +62,6 @@ public class PlayerShooting : MonoBehaviour {
             PlayerBullet bullet = Instantiate(PlayerBullet, bulletTransform.position, bulletTransform.rotation);
             bulletList.Add(bullet);
         }
-
     }
 
     float neutralZ = 0.91f; 
