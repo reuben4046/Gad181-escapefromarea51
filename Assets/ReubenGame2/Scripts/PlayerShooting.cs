@@ -15,6 +15,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] PlayerBullet PlayerBullet;
     [SerializeField] Transform bulletTransform;
     [SerializeField] PlayerGunRP playerGun;
+    [SerializeField] ParticleSystem muzzleFlash;
 
     [Header("HipFire")]    
     [SerializeField] private float hipFireBulletSpreadRadius = 8f;
@@ -62,25 +63,30 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot() 
     {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit)) 
+        //RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit)) 
         {
+            RaycastHit savedHit = new RaycastHit(); 
             canFire = false;
-            if (isHipFiring)
-            {
-                Vector3 modifiedHitPoint = ReduceHipFireAccuracy(hit);
-                Vector3 hitPointDirection = modifiedHitPoint - bulletTransform.position;
-                hitPointDirection.Normalize();
-                bulletTransform.forward = hitPointDirection;
-                GetPooledBullet();
-            } 
-            else
-            {
-                Vector3 hitPointDirection = hit.point - bulletTransform.position;
-                hitPointDirection.Normalize();
-                bulletTransform.forward = hitPointDirection;
-                GetPooledBullet();
-            }
+            bulletTransform.LookAt(savedHit.point);
+            GetPooledBullet();
+            // if (isHipFiring)
+            // {
+            //     Vector3 modifiedHitPoint = ReduceHipFireAccuracy(hit);
+            //     // Vector3 hitPointDirection = modifiedHitPoint - bulletTransform.position;
+            //     // hitPointDirection.Normalize();
+            //     // bulletTransform.forward = hitPointDirection;
+            //     bulletTransform.LookAt(modifiedHitPoint);
+            //     GetPooledBullet();
+            // } 
+            // else
+            // {
+            //     // Vector3 hitPointDirection = hit.point - bulletTransform.position;
+            //     // hitPointDirection.Normalize();
+            //     // bulletTransform.forward = hitPointDirection;
+            //     bulletTransform.LookAt(hit.point);
+            //     GetPooledBullet();
+            // }
         }
     }
 
@@ -90,7 +96,6 @@ public class PlayerShooting : MonoBehaviour
         hipFireBulletSpreadRadius = 5f;
         Vector3 randomPoint = Random.insideUnitSphere * hipFireBulletSpreadRadius;
         modifiedHitPoint += randomPoint;
-        Debug.Log(modifiedHitPoint);
         return modifiedHitPoint;
     }
     
@@ -103,6 +108,7 @@ public class PlayerShooting : MonoBehaviour
             playerBullet.transform.position = bulletTransform.position;
             playerBullet.transform.rotation = bulletTransform.rotation;
             playerBullet.gameObject.SetActive(true);
+            muzzleFlash.Play();
         }
     }
 
