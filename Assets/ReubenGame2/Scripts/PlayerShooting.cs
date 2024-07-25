@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Security.Cryptography;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
@@ -14,30 +16,33 @@ public class PlayerShooting : MonoBehaviour
 
     List<PlayerBullet> bulletList = new List<PlayerBullet>();
 
-    [SerializeField] Camera playerCam;
     [SerializeField] PlayerGunRP playerGun;
 
+    private bool isHipFiring = true;
 
     [SerializeField] float fireRate = .1f;
     bool canFire = true;
     float shootingTimer;
 
-
-    void Start()
-    {
-
-    }
+    //LeanTween variables
+    float neutralZ = 0.91f; 
+    float kickbackZ = 0.82f;
 
     private void Update() 
     {
         FireTimer();
-        
+        Debug.Log(isHipFiring);
         if (Input.GetMouseButton(0) && canFire) 
         {
             Shoot();
             ShootingTweenShake();
-        }
+        } 
 
+        if (Input.GetMouseButton(1))
+        {  
+            isHipFiring = false;
+        } 
+        else { isHipFiring = true;}
     }
 
 
@@ -60,16 +65,35 @@ public class PlayerShooting : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit)) 
         {
             canFire = false;
-            Vector3 hitPosDirection = hit.point - bulletTransform.position;
-            hitPosDirection.Normalize();
-            bulletTransform.forward = hitPosDirection;
-            PlayerBullet bullet = Instantiate(PlayerBullet, bulletTransform.position, bulletTransform.rotation);
-            bulletList.Add(bullet);
+            if (isHipFiring)
+            {
+                Vector3 modifiedHitPoint = ReduceHipFireAccuracy(hit);
+                Vector3 hitPointDirection = modifiedHitPoint - bulletTransform.position;
+                hitPointDirection.Normalize();
+                GetPooledBullet();
+            } 
+            else
+            {
+                Vector3 hitPointDirection = hit.point - bulletTransform.position;
+                hitPointDirection.Normalize();
+                GetPooledBullet();
             }
+
+        }
     }
 
-    float neutralZ = 0.91f; 
-    float kickbackZ = 0.82f;
+    void GetPooledBullet()
+    {
+        PlayerBullet playerBullet = ObjectPool.instance.GetPooledBullet();
+        if (playerBullet != null)
+        {
+            playerBullet.transform.position = bulletTransform.position;
+            playerBullet.transform.rotation = bulletTransform.rotation;
+            playerBullet.gameObject.SetActive(true);
+        }
+    }
+
+
     void ShootingTweenShake() 
     {
         LeanTween.moveLocalZ(playerGun.gameObject, kickbackZ, fireRate / 2)
@@ -81,5 +105,14 @@ public class PlayerShooting : MonoBehaviour
             });
     }
 
+    Vector3 ReduceHipFireAccuracy(RaycastHit hit)
+    {
+        float randX = Random.Range(1f, 1f);
+        float randY = Random.Range(1f, 1f);
+        Vector3 modifiedHitPoint = hit.point;
+        modifiedHitPoint += new Vector3(randX, randY, 0f);
+        return modifiedHitPoint;
+    }
+    
 
 }

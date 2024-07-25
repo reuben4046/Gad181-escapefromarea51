@@ -9,4 +9,9 @@ public class PlayerBullet : MonoBehaviour {
     void Start() {
         rb.AddForce(transform.forward * force, ForceMode.Impulse);
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        
+    }
 }
