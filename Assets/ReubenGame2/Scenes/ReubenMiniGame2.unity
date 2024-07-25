@@ -1178,12 +1178,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5769648136072250075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a30b436d7143c84cb99273c3caf32a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xRot: 0
+  playerGunRP: {fileID: 0}
 --- !u!33 &1541198368934235541
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2313,6 +2313,7 @@ MonoBehaviour:
   invertCamera: 0
   cameraCanMove: 1
   mouseSensitivity: 2
+  zoomedMouseSensitivity: 0.5
   maxLookAngle: 50
   lockCursor: 1
   crosshair: 1
@@ -2393,6 +2394,8 @@ GameObject:
   - component: {fileID: 4455768501286175203}
   - component: {fileID: 4455768501286175207}
   - component: {fileID: 4455768501286175206}
+  - component: {fileID: 4455768501286175214}
+  - component: {fileID: 4455768501286175213}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2400,6 +2403,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4455768501286175213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455768501286175212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b4a1312c4f5ae4589963989a980acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
+  bulletTransform: {fileID: 946716321}
+  playerCam: {fileID: 4455768502681774968}
+  playerGun: {fileID: 1475317158792777822}
+  fireRate: 0.1
+--- !u!114 &4455768501286175214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4455768501286175212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a30b436d7143c84cb99273c3caf32a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGunRP: {fileID: 1475317158792777822}
 --- !u!222 &4455768501528211408
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4198,7 +4231,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5769648136072250075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6b4a1312c4f5ae4589963989a980acc, type: 3}
   m_Name: 
@@ -4206,6 +4239,7 @@ MonoBehaviour:
   PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
   bulletTransform: {fileID: 946716321}
   playerCam: {fileID: 4455768502681774968}
+  playerGun: {fileID: 0}
   fireRate: 0.1
 --- !u!1 &7371522747396737851
 GameObject:

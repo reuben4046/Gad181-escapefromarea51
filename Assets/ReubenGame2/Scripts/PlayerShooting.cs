@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 public class PlayerShooting : MonoBehaviour 
@@ -12,11 +15,13 @@ public class PlayerShooting : MonoBehaviour
     List<PlayerBullet> bulletList = new List<PlayerBullet>();
 
     [SerializeField] Camera playerCam;
+    [SerializeField] PlayerGunRP playerGun;
 
 
     [SerializeField] float fireRate = .1f;
     bool canFire = true;
     float shootingTimer;
+
 
     void Start()
     {
@@ -25,7 +30,6 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update() 
     {
-
         FireTimer();
         
         if (Input.GetMouseButton(0) && canFire) 
@@ -61,20 +65,21 @@ public class PlayerShooting : MonoBehaviour
             bulletTransform.forward = hitPosDirection;
             PlayerBullet bullet = Instantiate(PlayerBullet, bulletTransform.position, bulletTransform.rotation);
             bulletList.Add(bullet);
-        }
+            }
     }
 
     float neutralZ = 0.91f; 
     float kickbackZ = 0.82f;
     void ShootingTweenShake() 
     {
-        LeanTween.moveLocalZ(gameObject, kickbackZ, fireRate / 2)
+        LeanTween.moveLocalZ(playerGun.gameObject, kickbackZ, fireRate / 2)
             .setEase(LeanTweenType.easeOutSine)
             .setOnComplete(() => 
             {
-                LeanTween.moveLocalZ(gameObject, neutralZ, fireRate / 2)
+                LeanTween.moveLocalZ(playerGun.gameObject, neutralZ, fireRate / 2)
                 .setEase(LeanTweenType.easeOutSine);    
             });
     }
+
 
 }

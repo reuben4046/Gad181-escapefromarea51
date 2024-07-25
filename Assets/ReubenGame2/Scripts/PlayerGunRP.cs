@@ -11,7 +11,9 @@ public class PlayerGunRP : MonoBehaviour
     Vector3 gunWalkingRot = new Vector3(-0.6f, -0.75f, 0f);
     Vector3 gunAimingPos = new Vector3(0f, -0.36f, 0.91f);
     Vector3 gunAimingRot = new Vector3(-0.88f, 0f, 0f);
-    [SerializeField] float xRot = 0f;
+
+    [SerializeField] PlayerGunRP playerGunRP;
+
 
     private bool gunTweeningToAim = false;
     private bool gunTweeningToWalk = false;
@@ -27,8 +29,8 @@ public class PlayerGunRP : MonoBehaviour
     }
 
     private void GoToWalkPos() {
-        transform.localPosition = gunWalkingPos;
-        transform.localRotation = Quaternion.Euler(gunWalkingRot);
+        playerGunRP.transform.localPosition = gunWalkingPos;
+        playerGunRP.transform.localRotation = Quaternion.Euler(gunWalkingRot);
     }
 
     // Update is called once per frame
@@ -48,10 +50,10 @@ public class PlayerGunRP : MonoBehaviour
     private void TweenToAimPos() {
         if (gunTweeningToAim) return;
         gunTweeningToAim = true;
-        leanTweenMoveID = LeanTween.moveLocal(gameObject, gunAimingPos, tweenTime)
+        leanTweenMoveID = LeanTween.moveLocal(playerGunRP.gameObject, gunAimingPos, tweenTime)
                         .setEase(LeanTweenType.easeInOutSine)
                         .setOnComplete(() => gunTweeningToAim = false).id;
-        leanTweenRotateID = LeanTween.rotateLocal(gameObject, gunAimingRot, tweenTime)
+        leanTweenRotateID = LeanTween.rotateLocal(playerGunRP.gameObject, gunAimingRot, tweenTime)
                         .setEase(LeanTweenType.easeInOutSine)
                         .setOnComplete(() => gunTweeningToAim = false).id;
         
@@ -60,10 +62,10 @@ public class PlayerGunRP : MonoBehaviour
     private void TweenToWalkPos() {
         if (gunTweeningToWalk) return;
         gunTweeningToWalk = true;
-        LeanTween.moveLocal(gameObject, gunWalkingPos, tweenTime)
+        LeanTween.moveLocal(playerGunRP.gameObject, gunWalkingPos, tweenTime)
                 .setEase(LeanTweenType.easeInOutSine)
                 .setOnComplete(() => gunTweeningToWalk = false);
-        LeanTween.rotateLocal(gameObject, gunWalkingRot, tweenTime)
+        LeanTween.rotateLocal(playerGunRP.gameObject, gunWalkingRot, tweenTime)
                 .setEase(LeanTweenType.easeInOutSine)
                 .setOnComplete(() => gunTweeningToWalk = false);
     }

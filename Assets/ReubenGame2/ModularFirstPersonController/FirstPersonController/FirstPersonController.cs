@@ -26,6 +26,7 @@ public class FirstPersonController : MonoBehaviour
     public bool invertCamera = false;
     public bool cameraCanMove = true;
     public float mouseSensitivity = 2f;
+    public float zoomedMouseSensitivity = 0.5f;
     public float maxLookAngle = 50f;
 
     // Crosshair
@@ -148,9 +149,10 @@ public class FirstPersonController : MonoBehaviour
             sprintCooldownReset = sprintCooldown;
         }
     }
-
+    float savedMouseSensitivity;
     void Start()
     {
+        savedMouseSensitivity = mouseSensitivity;
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -251,10 +253,12 @@ public class FirstPersonController : MonoBehaviour
                 if(Input.GetKeyDown(zoomKey))
                 {
                     isZoomed = true;
+                    mouseSensitivity = zoomedMouseSensitivity;
                 }
                 else if(Input.GetKeyUp(zoomKey))
                 {
                     isZoomed = false;
+                    mouseSensitivity = savedMouseSensitivity;
                 }
             }
 
@@ -567,6 +571,7 @@ public class FirstPersonController : MonoBehaviour
         GUI.enabled = fpc.cameraCanMove;
         fpc.invertCamera = EditorGUILayout.ToggleLeft(new GUIContent("Invert Camera Rotation", "Inverts the up and down movement of the camera."), fpc.invertCamera);
         fpc.mouseSensitivity = EditorGUILayout.Slider(new GUIContent("Look Sensitivity", "Determines how sensitive the mouse movement is."), fpc.mouseSensitivity, .1f, 10f);
+        fpc.zoomedMouseSensitivity = EditorGUILayout.Slider(new GUIContent("Zoomed Look Sensitivity", "Determines how sensitive the mouse movement is while Zoomed."), fpc.zoomedMouseSensitivity, .1f, 10f);
         fpc.maxLookAngle = EditorGUILayout.Slider(new GUIContent("Max Look Angle", "Determines the max and min angle the player camera is able to look."), fpc.maxLookAngle, 40, 90);
         GUI.enabled = true;
 
