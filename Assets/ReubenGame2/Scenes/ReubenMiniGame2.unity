@@ -4205,6 +4205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
   bulletTransform: {fileID: 946716321}
+  playerCam: {fileID: 4455768502681774968}
   fireRate: 0.1
 --- !u!1 &7371522747396737851
 GameObject:
