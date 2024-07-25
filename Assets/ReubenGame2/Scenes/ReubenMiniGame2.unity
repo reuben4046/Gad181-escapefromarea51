@@ -2438,9 +2438,9 @@ GameObject:
   - component: {fileID: 4455768501286175202}
   - component: {fileID: 4455768501286175203}
   - component: {fileID: 4455768501286175207}
-  - component: {fileID: 4455768501286175206}
   - component: {fileID: 4455768501286175214}
   - component: {fileID: 4455768501286175213}
+  - component: {fileID: 4455768501286175206}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2463,6 +2463,7 @@ MonoBehaviour:
   PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
   bulletTransform: {fileID: 946716321}
   playerGun: {fileID: 1475317158792777822}
+  hipFireBulletSpreadRadius: 8
   fireRate: 0.1
 --- !u!114 &4455768501286175214
 MonoBehaviour:
@@ -4283,6 +4284,7 @@ MonoBehaviour:
   PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
   bulletTransform: {fileID: 946716321}
   playerGun: {fileID: 0}
+  hipFireBulletSpreadRadius: 5
   fireRate: 0.1
 --- !u!1 &7371522747396737851
 GameObject:

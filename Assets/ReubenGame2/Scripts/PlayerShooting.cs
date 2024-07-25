@@ -11,15 +11,17 @@ using UnityEngine.UIElements;
 
 public class PlayerShooting : MonoBehaviour 
 {
-    public PlayerBullet PlayerBullet;
-    public Transform bulletTransform;
-
-    List<PlayerBullet> bulletList = new List<PlayerBullet>();
-
+    [Header("References")]
+    [SerializeField] PlayerBullet PlayerBullet;
+    [SerializeField] Transform bulletTransform;
     [SerializeField] PlayerGunRP playerGun;
 
+    [Header("HipFire")]    
+    [SerializeField] private float hipFireBulletSpreadRadius = 8f;
     private bool isHipFiring = true;
 
+
+    [Header("Fire Rate")]
     [SerializeField] float fireRate = .1f;
     bool canFire = true;
     float shootingTimer;
@@ -31,7 +33,6 @@ public class PlayerShooting : MonoBehaviour
     private void Update() 
     {
         FireTimer();
-        Debug.Log(isHipFiring);
         if (Input.GetMouseButton(0) && canFire) 
         {
             Shoot();
@@ -58,7 +59,7 @@ public class PlayerShooting : MonoBehaviour
             }
         }
     }
-        //next thing to add is reduced accuracy when the player hipfires. 
+
     void Shoot() 
     {
         RaycastHit hit;
@@ -70,17 +71,29 @@ public class PlayerShooting : MonoBehaviour
                 Vector3 modifiedHitPoint = ReduceHipFireAccuracy(hit);
                 Vector3 hitPointDirection = modifiedHitPoint - bulletTransform.position;
                 hitPointDirection.Normalize();
+                bulletTransform.forward = hitPointDirection;
                 GetPooledBullet();
             } 
             else
             {
                 Vector3 hitPointDirection = hit.point - bulletTransform.position;
                 hitPointDirection.Normalize();
+                bulletTransform.forward = hitPointDirection;
                 GetPooledBullet();
             }
-
         }
     }
+
+    Vector3 ReduceHipFireAccuracy(RaycastHit hit)
+    {
+        Vector3 modifiedHitPoint = hit.point;
+        hipFireBulletSpreadRadius = 5f;
+        Vector3 randomPoint = Random.insideUnitSphere * hipFireBulletSpreadRadius;
+        modifiedHitPoint += randomPoint;
+        Debug.Log(modifiedHitPoint);
+        return modifiedHitPoint;
+    }
+    
 
     void GetPooledBullet()
     {
@@ -104,15 +117,5 @@ public class PlayerShooting : MonoBehaviour
                 .setEase(LeanTweenType.easeOutSine);    
             });
     }
-
-    Vector3 ReduceHipFireAccuracy(RaycastHit hit)
-    {
-        float randX = Random.Range(1f, 1f);
-        float randY = Random.Range(1f, 1f);
-        Vector3 modifiedHitPoint = hit.point;
-        modifiedHitPoint += new Vector3(randX, randY, 0f);
-        return modifiedHitPoint;
-    }
-    
 
 }
