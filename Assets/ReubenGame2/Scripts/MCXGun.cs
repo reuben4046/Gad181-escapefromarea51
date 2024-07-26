@@ -18,7 +18,8 @@ public class MCXGun : MonoBehaviour
 
     [SerializeField] GameObject playerGun;
     [SerializeField] PlayerBullet bulletPrefab;
-
+    [SerializeField] Transform bulletTransform;
+    [SerializeField] Camera playerCam;
 
     private bool gunTweeningToAim = false;
     private bool gunTweeningToWalk = false;
@@ -33,14 +34,13 @@ public class MCXGun : MonoBehaviour
 
     [SerializeField] ParticleSystem muzzleFlash;
 
-    [SerializeField] Transform bulletTransform;
-
+    //HipFiring varables
+    private bool isHipFiring = true;
 
     // Start is called before the first frame update
     void Start() 
     {
         GoToWalkPos();        
-
     }
 
     private void GoToWalkPos() 
@@ -52,7 +52,6 @@ public class MCXGun : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {     
-
         FireTimer();
         if (Input.GetMouseButton(0) && canFire) 
         {        
@@ -64,6 +63,7 @@ public class MCXGun : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && !gunTweeningToAim) 
         {   
             TweenToAimPos();
+            isHipFiring = false;
         }
         else if (Input.GetMouseButtonUp(1)) 
         {
@@ -71,6 +71,7 @@ public class MCXGun : MonoBehaviour
             LeanTween.cancel(leanTweenRotateID);
             gunTweeningToAim = false;
             TweenToWalkPos();
+            isHipFiring = true;
         }
     }
 
@@ -91,30 +92,56 @@ public class MCXGun : MonoBehaviour
     {
         if (canFire) 
         {
-            GetPooledBullet(); 
+            PlayerBullet bullet = GetPooledBullet(); 
             canFire = false;
             muzzleFlash.Play();
+            bullet.transform.position = bulletTransform.position;            
+            if (!isHipFiring)
+            {
+                Vector3 hitPoint = GetRayCastHitPoint();
+                bullet.transform.LookAt(hitPoint);                
+            }
+            else
+            {
+                Vector3 hitPoint = GetRayCastHitPoint();
+                Vector3 randomPoint = ReduceAccuracy(hitPoint);
+                bullet.transform.LookAt(randomPoint);
+            }
+
         }
     }
-    [SerializeField] Camera playerCam;
+
+    PlayerBullet GetPooledBullet()
+    {
+        PlayerBullet playerBullet = ObjectPool.instance.GetPooledBullet();
+        if (playerBullet != null)
+        {
+            playerBullet.gameObject.SetActive(true);
+            return playerBullet;
+        } 
+        else
+        {
+            return null;
+        }
+    }
+
+    float hipFireAccuracyRadius = 10f;
+    Vector3 ReduceAccuracy(Vector3 hitPoint)
+    {
+        Debug.Log("not changed" + hitPoint);
+        Vector3 randomPoint = Random.insideUnitSphere * hipFireAccuracyRadius;
+        hitPoint += randomPoint;
+        Debug.Log("Changed" + hitPoint);
+        return hitPoint;
+    }
+
     Vector3 GetRayCastHitPoint()
     {
         Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit);
         return hit.point;
     }
 
-    void GetPooledBullet()
-    {
-        PlayerBullet playerBullet = ObjectPool.instance.GetPooledBullet();
-        if (playerBullet != null)
-        {
-            playerBullet.transform.position = bulletTransform.position;
-            Vector3 hitPoint = GetRayCastHitPoint();
-            playerBullet.transform.LookAt(hitPoint);
-            playerBullet.gameObject.SetActive(true);
-            muzzleFlash.Play();
-        }
-    }
+    
 
     //leanTween 
     private void TweenToAimPos() 
