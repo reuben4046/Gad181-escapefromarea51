@@ -4,11 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour {    
-    [SerializeField] Rigidbody rb;
-    float force = 100f;
+    float speed = 100f;
 
-    void Start() {
-        rb.AddForce(transform.forward * force, ForceMode.Impulse);
+    void Update()
+    {
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     void OnCollisionEnter(Collision other)
