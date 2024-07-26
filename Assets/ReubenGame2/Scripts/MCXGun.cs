@@ -27,7 +27,7 @@ public class MCXGun : MonoBehaviour
     private int leanTweenRotateID;
 
     [Header("Fire Rate")]
-    [SerializeField] float fireRate = .5f;
+    [SerializeField] float fireRate = .1f;
     bool canFire = true;
     float shootingTimer;
 
@@ -97,18 +97,22 @@ public class MCXGun : MonoBehaviour
         }
     }
     [SerializeField] Camera playerCam;
+    Vector3 GetRayCastHitPoint()
+    {
+        Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit);
+        return hit.point;
+    }
+
     void GetPooledBullet()
     {
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit))
+        PlayerBullet playerBullet = ObjectPool.instance.GetPooledBullet();
+        if (playerBullet != null)
         {
-            PlayerBullet playerBullet = ObjectPool.instance.GetPooledBullet();
-            if (playerBullet != null)
-            {
-                playerBullet.transform.position = bulletTransform.position;
-                playerBullet.transform.LookAt(hit.point);
-                playerBullet.gameObject.SetActive(true);
-                muzzleFlash.Play();
-            }
+            playerBullet.transform.position = bulletTransform.position;
+            Vector3 hitPoint = GetRayCastHitPoint();
+            playerBullet.transform.LookAt(hitPoint);
+            playerBullet.gameObject.SetActive(true);
+            muzzleFlash.Play();
         }
     }
 

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour {    
@@ -10,16 +9,21 @@ public class PlayerBullet : MonoBehaviour {
     {
         transform.position += transform.forward * speed * Time.deltaTime;
     }
-
-    void OnCollisionEnter(Collision other)
+    
+    void OnEnable()
     {
-        Debug.Log("collision");
+        StartCoroutine(DisableAfter(4f));
+    }
+
+    IEnumerator DisableAfter(float time)
+    {
+        yield return new WaitForSeconds(time);
         gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger");
         gameObject.SetActive(false);
+        FPSGameEvents.OnTargetHit.Invoke(other.gameObject.GetComponent<Target>());
     }
 }
