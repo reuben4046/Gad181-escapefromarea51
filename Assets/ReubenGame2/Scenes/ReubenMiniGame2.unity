@@ -6305,19 +6305,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1475317158792777822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5769648136072250075}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a30b436d7143c84cb99273c3caf32a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGunRP: {fileID: 0}
 --- !u!33 &1541198368934235541
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7544,17 +7531,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4455768501286175212}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6b4a1312c4f5ae4589963989a980acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
   bulletTransform: {fileID: 946716321}
-  playerGun: {fileID: 1475317158792777822}
+  playerGun: {fileID: 5769648136072250075}
   muzzleFlash: {fileID: 2024515383}
-  hipFireBulletSpreadRadius: 8
-  fireRate: 0.1
+  fireRate: 0.5
 --- !u!114 &4455768501286175214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7567,7 +7553,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a30b436d7143c84cb99273c3caf32a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerGunRP: {fileID: 1475317158792777822}
+  playerGunRP: {fileID: 5769648136072250075}
+  PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
+  bulletTransform: {fileID: 946716321}
+  playerGun: {fileID: 5769648136072250075}
+  muzzleFlash: {fileID: 0}
+  fireRate: 0.5
 --- !u!222 &4455768501528211408
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8686,8 +8677,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7370899117167489224}
-  - component: {fileID: 1475317158792777822}
-  - component: {fileID: 7370899117167489225}
   m_Layer: 0
   m_Name: MCX
   m_TagString: Untagged
@@ -9359,24 +9348,6 @@ Transform:
   - {fileID: 946716321}
   m_Father: {fileID: 4455768502681774975}
   m_LocalEulerAnglesHint: {x: -5.38, y: 0, z: 0}
---- !u!114 &7370899117167489225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5769648136072250075}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b4a1312c4f5ae4589963989a980acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerBullet: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
-  bulletTransform: {fileID: 946716321}
-  playerGun: {fileID: 0}
-  muzzleFlash: {fileID: 0}
-  hipFireBulletSpreadRadius: 3
-  fireRate: 0.1
 --- !u!1 &7371522747396737851
 GameObject:
   m_ObjectHideFlags: 0
