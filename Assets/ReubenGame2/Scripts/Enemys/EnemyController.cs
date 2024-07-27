@@ -50,6 +50,32 @@ public class EnemyController : MonoBehaviour
             JumpOutAndShoot();
         }
     }
+    Transform CurrentCoverPoint;
+    float jumpOutDistance = 3f;
+
+    void JumpOutAndShoot()
+    {
+        Vector3 rayShootPoint1 = CurrentCoverPoint.position + new Vector3(0, 0, jumpOutDistance);
+        Vector3 rayShootPoint2 = CurrentCoverPoint.position - new Vector3(0, 0, -jumpOutDistance);
+        float distance1 = 1;
+        float distance2 = 1;
+        if (Physics.Raycast(rayShootPoint1, target.position - rayShootPoint1, out RaycastHit hit1))
+        {
+            distance1 = Vector3.Distance(hit1.point, rayShootPoint1);
+        }
+        if (Physics.Raycast(rayShootPoint1, target.position - rayShootPoint2, out RaycastHit hit2))
+        {
+            distance2 = Vector3.Distance(hit2.point, rayShootPoint2);
+        }
+        if (distance1 < distance2)
+        {
+            agentEnemy.SetDestination(rayShootPoint2);
+        } 
+        else if (distance1 > distance2)
+        {
+            agentEnemy.SetDestination(rayShootPoint1);
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -99,15 +125,18 @@ public class EnemyController : MonoBehaviour
 
     //     foreach (GameObject cover in covers)
     //     {
-    //         Vector3 coverDirection = cover.transform.position - enemyPosition;
-    //         if (Vector3.Dot(coverDirection, direction1) > 0 && Vector3.Dot(coverDirection, direction2) > 0)
+    //         if (cover != null)
     //         {
-    //             float distance = Vector3.Distance(cover.transform.position, transform.position);
-    //             if (distance < closestDistance)
+    //             Vector3 coverDirection = cover.transform.position - enemyPosition;
+    //             if (Vector3.Dot(coverDirection, direction1) > 0 && Vector3.Dot(coverDirection, direction2) > 0)
     //             {
-    //                 closestDistance = distance;
-    //                 closestCover = cover;
-    //             }
+    //                 float distance = Vector3.Distance(cover.transform.position, transform.position);
+    //                 if (distance < closestDistance)
+    //                 {
+    //                     closestDistance = distance;
+    //                     closestCover = cover;
+    //                 }
+    //             }                
     //         }
     //     }
 
@@ -138,6 +167,7 @@ public class EnemyController : MonoBehaviour
         return closestCover;
     }
 
+
     Transform GetClosestCoverPoint(GameObject cover)
     {
         Transform closestCoverPoint = null;
@@ -155,6 +185,7 @@ public class EnemyController : MonoBehaviour
                 closestCoverPoint = point;
             }
         }
+        CurrentCoverPoint = closestCoverPoint;
         coverPoints.Clear();
         return closestCoverPoint;
     }
