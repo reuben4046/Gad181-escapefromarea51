@@ -9,6 +9,7 @@ TagManager:
   - Pattern
   - Explosion
   - Bullet
+  - Cover
   layers:
   - Default
   - TransparentFX
