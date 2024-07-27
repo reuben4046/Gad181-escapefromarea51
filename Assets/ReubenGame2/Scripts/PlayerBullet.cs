@@ -24,6 +24,11 @@ public class PlayerBullet : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         gameObject.SetActive(false);
-        FPSGameEvents.OnTargetHit.Invoke(other.gameObject.GetComponent<Target>());
+        Target target = other.gameObject.GetComponent<Target>();
+        if (target != null)
+        {
+            FPSGameEvents.OnTargetHit.Invoke(other.gameObject.GetComponent<Target>());        
+        }
+
     }
 }

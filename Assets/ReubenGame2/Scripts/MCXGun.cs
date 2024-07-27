@@ -36,7 +36,7 @@ public class MCXGun : MonoBehaviour
 
     //HipFiring varables
     private bool isHipFiring = true;
-
+    [SerializeField] float hipFireAccuracyRadius = 10f;
     // Start is called before the first frame update
     void Start() 
     {
@@ -125,7 +125,7 @@ public class MCXGun : MonoBehaviour
         }
     }
 
-    float hipFireAccuracyRadius = 10f;
+
     Vector3 ReduceAccuracy(Vector3 hitPoint)
     {
         Debug.Log("not changed" + hitPoint);
