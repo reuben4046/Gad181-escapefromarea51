@@ -1958,6 +1958,7 @@ GameObject:
   - component: {fileID: 2038990655}
   - component: {fileID: 2038990654}
   - component: {fileID: 2038990653}
+  - component: {fileID: 2038990659}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -2093,13 +2094,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038990652}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7256747, z: 0, w: 0.68803805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.17, y: 7.3, z: 6.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -93.05, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2038990659
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038990652}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12, y: 2, z: 12}
+  m_Center: {x: 0, y: 0, z: 6}
 --- !u!1 &2115519462 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 313816093623182620, guid: 7f89e61f95f1c410c8044a371c431452, type: 3}

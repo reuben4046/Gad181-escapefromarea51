@@ -8,6 +8,11 @@ using UnityEngine.TestTools;
 
 public class EnemyController : MonoBehaviour
 {
+
+
+    //possible way to get this working properly could be to use a trigger area instead of getting direction angles. 
+    //then just grab every cover that is registered in the trigger area. 
+
     public Transform target;
     public Camera cam;
     public NavMeshAgent agentEnemy;
