@@ -20,8 +20,8 @@ TagManager:
   - Wall
   - Navmesh
   - Enemy
-  - 
-  - 
+  - Floor
+  - LineOfSight
   - 
   - 
   - 

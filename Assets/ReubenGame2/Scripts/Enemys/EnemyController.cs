@@ -45,37 +45,37 @@ public class EnemyController : MonoBehaviour
             //     agentEnemy.SetDestination(hit.point);
             // }
         }
-        if (Input.GetMouseButton(1))
-        {
-            JumpOutAndShoot();
-        }
+        // if (Input.GetMouseButton(1))
+        // {
+        //     JumpOutAndShoot();
+        // }
     }
     Transform CurrentCoverPoint;
     float jumpOutDistance = 3f;
 
-    void JumpOutAndShoot()
-    {
-        Vector3 rayShootPoint1 = CurrentCoverPoint.position + new Vector3(0, 0, jumpOutDistance);
-        Vector3 rayShootPoint2 = CurrentCoverPoint.position - new Vector3(0, 0, -jumpOutDistance);
-        float distance1 = 1;
-        float distance2 = 1;
-        if (Physics.Raycast(rayShootPoint1, target.position - rayShootPoint1, out RaycastHit hit1))
-        {
-            distance1 = Vector3.Distance(hit1.point, rayShootPoint1);
-        }
-        if (Physics.Raycast(rayShootPoint1, target.position - rayShootPoint2, out RaycastHit hit2))
-        {
-            distance2 = Vector3.Distance(hit2.point, rayShootPoint2);
-        }
-        if (distance1 < distance2)
-        {
-            agentEnemy.SetDestination(rayShootPoint2);
-        } 
-        else if (distance1 > distance2)
-        {
-            agentEnemy.SetDestination(rayShootPoint1);
-        }
-    }
+    // void JumpOutAndShoot()
+    // {
+    //     Vector3 rayShootPoint1 = CurrentCoverPoint.position + new Vector3(0, 0, jumpOutDistance);
+    //     Vector3 rayShootPoint2 = CurrentCoverPoint.position - new Vector3(0, 0, -jumpOutDistance);
+    //     float distance1 = 1;
+    //     float distance2 = 1;
+    //     if (Physics.Raycast(rayShootPoint1, target.position - rayShootPoint1, out RaycastHit hit1))
+    //     {
+    //         distance1 = Vector3.Distance(hit1.point, rayShootPoint1);
+    //     }
+    //     if (Physics.Raycast(rayShootPoint1, target.position - rayShootPoint2, out RaycastHit hit2))
+    //     {
+    //         distance2 = Vector3.Distance(hit2.point, rayShootPoint2);
+    //     }
+    //     if (distance1 < distance2)
+    //     {
+    //         agentEnemy.SetDestination(rayShootPoint2);
+    //     } 
+    //     else if (distance1 > distance2)
+    //     {
+    //         agentEnemy.SetDestination(rayShootPoint1);
+    //     }
+    // }
 
     void OnTriggerEnter(Collider other)
     {
@@ -143,19 +143,22 @@ public class EnemyController : MonoBehaviour
     //     return closestCover;
     // }
 
+    public float feildOfView = 30f;
     GameObject GetClosestCover()
     {
         GameObject closestCover = null;
         float closestDistance = 100f;
         
 
-        foreach (GameObject cover in triggeredCovers)
+        foreach (GameObject cover in covers)
         {
             if (cover != null)
-            {
+            {        
+                Vector3 directionOfTarget = (target.position - transform.position).normalized;
+                float dotProduct = Vector3.Dot(transform.forward, directionOfTarget);
                 float distance = Vector3.Distance(cover.transform.position, transform.position);
-                if (distance < closestDistance && distance > 5f)
-                {
+                if (distance < closestDistance && distance > 5f && dotProduct >= Mathf.Cos(feildOfView))
+                {                    
                     closestDistance = distance;
                     closestCover = cover;
                 }         
@@ -166,6 +169,29 @@ public class EnemyController : MonoBehaviour
         Debug.DrawRay(transform.position, direction, Color.blue, 5f);
         return closestCover;
     }
+    // GameObject GetClosestCover()
+    // {
+    //     GameObject closestCover = null;
+    //     float closestDistance = 100f;
+        
+
+    //     foreach (GameObject cover in triggeredCovers)
+    //     {
+    //         if (cover != null)
+    //         {
+    //             float distance = Vector3.Distance(cover.transform.position, transform.position);
+    //             if (distance < closestDistance && distance > 5f)
+    //             {
+    //                 closestDistance = distance;
+    //                 closestCover = cover;
+    //             }         
+    //         }
+    //     }
+    //     Vector3 direction = closestCover.transform.position - transform.position;
+    //     direction.Normalize();
+    //     Debug.DrawRay(transform.position, direction, Color.blue, 5f);
+    //     return closestCover;
+    // }
 
 
     Transform GetClosestCoverPoint(GameObject cover)
