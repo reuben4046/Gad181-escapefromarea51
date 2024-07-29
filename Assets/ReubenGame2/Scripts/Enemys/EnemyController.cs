@@ -8,22 +8,14 @@ using UnityEngine.TestTools;
 
 public class EnemyController : MonoBehaviour
 {
-
-
-    //possible way to get this working properly could be to use a trigger area instead of getting direction angles. 
-    //then just grab every cover that is registered in the trigger area. 
-
     public Transform target;
     public Camera cam;
     public NavMeshAgent agentEnemy;
 
-    [SerializeField] BoxCollider triggerArea;
-
-    [SerializeField] List<GameObject> triggeredCovers = new List<GameObject>();
     [SerializeField] List<GameObject> covers = new List<GameObject>();
     List<Transform> coverPoints = new List<Transform>();
 
-    float directionAngle = 70f;
+
 
     void Start()
     {
@@ -45,13 +37,153 @@ public class EnemyController : MonoBehaviour
             //     agentEnemy.SetDestination(hit.point);
             // }
         }
-        // if (Input.GetMouseButton(1))
-        // {
-        //     JumpOutAndShoot();
-        // }
     }
-    Transform CurrentCoverPoint;
-    float jumpOutDistance = 3f;
+
+    void GoToCover()
+    {
+        transform.forward = GetDirectionOfTarget();
+        GameObject cover = GetClosestCover();
+        Transform destination = GetClosestCoverPoint(cover);
+
+        agentEnemy.SetDestination(destination.position);
+    }
+
+    Vector3 GetDirectionOfTarget()
+    {
+        Vector3 direction = target.position - transform.position;
+        direction.Normalize();
+        return direction;
+    }
+    bool needsDifferentCover = false;
+    GameObject GetClosestCover()
+    {
+        GameObject closestCover = null;
+        float closestDistance = 100f;
+        foreach (GameObject cover in covers)
+        {
+            if (cover != null)
+            {                   
+                float distance = Vector3.Distance(cover.transform.position, transform.position);
+                if (distance < closestDistance) //&& distance > 5f)
+                {                    
+                    closestDistance = distance;
+                    closestCover = cover;
+                }
+            }
+        }
+        return closestCover;
+    }
+
+    Transform savedCoverPoint = null;
+    Transform GetClosestCoverPoint(GameObject cover)
+    {
+        Transform closestCoverPoint = null;
+        foreach (Transform point in cover.transform)
+        {
+            coverPoints.Add(point);
+        }
+        float closestDistance = 50f;
+        List<Transform> savedPoints = GetSavedCoverPoints();
+        foreach (Transform point in coverPoints)
+        {
+            if (savedPoints.Contains(point))
+            {
+                continue;
+            }
+            float distance = Vector3.Distance(point.position, transform.position);
+            if (distance < closestDistance && distance > 2f)
+            {
+                closestDistance = distance;
+                closestCoverPoint = point;
+            }
+        }
+        if (closestCoverPoint == null)
+        {
+            coverPoints.Clear();
+            GameObject newCover = GetNewClosestCover();
+            foreach (Transform point in newCover.transform)
+            {
+                coverPoints.Add(point);
+            }
+            closestDistance = 50f;
+            
+            foreach (Transform point in coverPoints)
+            {
+                if (savedPoints.Contains(point))
+                {
+                    continue;
+                }
+                float distance = Vector3.Distance(point.position, transform.position);
+                if (distance < closestDistance && distance > 2f)
+                {
+                    closestDistance = distance;
+                    closestCoverPoint = point;
+                }
+            }
+        }
+        savedCoverPoint = closestCoverPoint;
+        coverPoints.Clear();
+        return closestCoverPoint;
+    }
+    
+    GameObject GetNewClosestCover()
+    {
+        GameObject closestCover = null;
+        float closestDistance = 100f;
+        foreach (GameObject cover in covers)
+        {
+            if (cover != null)
+            {                   
+                float distance = Vector3.Distance(cover.transform.position, transform.position);
+                if (distance < closestDistance && distance > 5f)
+                {                    
+                    closestDistance = distance;
+                    closestCover = cover;
+                }
+            }
+        }
+        return closestCover;
+    }
+    
+
+    List<Transform> GetSavedCoverPoints()
+    {
+        List<Transform> savedCoverPoints = new List<Transform>();
+        savedCoverPoints.Add(savedCoverPoint);
+        if (savedCoverPoints.Count > 2)
+        {
+            savedCoverPoints.RemoveAt(0);
+        }
+        return savedCoverPoints;
+    }
+
+
+
+    //Debugging
+    float directionAngle = 70f;
+
+    void DebugRays()
+    {
+        Vector3 enemyPosition = transform.position;
+        Vector3 direction1 = GetDirectionOfTarget();
+        direction1 = Quaternion.Euler(0, directionAngle, 0) * direction1;
+        Vector3 direction2 = GetDirectionOfTarget();
+        direction2 = Quaternion.Euler(0, -directionAngle, 0) * direction2;
+
+        Debug.DrawRay(enemyPosition, direction1, Color.red, 10f);
+        Debug.DrawRay(enemyPosition, direction2, Color.red, 10f);
+    }
+
+}
+    public struct EnemyStates
+    {
+        public bool movingToCover;
+        public bool shooting;
+        public bool movingToPlayer;
+        public bool movingFromPlayer;
+    }
+
+
 
     // void JumpOutAndShoot()
     // {
@@ -77,38 +209,51 @@ public class EnemyController : MonoBehaviour
     //     }
     // }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Cover")
-        {
-            triggeredCovers.Add(other.gameObject);
-        }
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.tag == "Cover")
+    //     {
+    //         triggeredCovers.Add(other.gameObject);
+    //     }
+    // }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Cover")
-        {
-            triggeredCovers.Remove(other.gameObject);
-        }
-    }
+    // void OnTriggerExit(Collider other)
+    // {
+    //     if (other.gameObject.tag == "Cover")
+    //     {
+    //         triggeredCovers.Remove(other.gameObject);
+    //     }
+    // }
 
-    void GoToCover()
-    {
-        transform.forward = GetDirectionOfTarget();
-        GameObject cover = GetClosestCover();
-        Transform destination = GetClosestCoverPoint(cover);
+    // GameObject GetClosestCover()
+    // {
+    //     GameObject closestCover = null;
+    //     float closestDistance = 100f;
+        
 
-        agentEnemy.SetDestination(destination.position);
-    }
-
-    Vector3 GetDirectionOfTarget()
-    {
-        Vector3 direction = target.position - transform.position;
-        direction.Normalize();
-        return direction;
-    }
-
+    //     foreach (GameObject cover in covers)
+    //     {
+    //         if (cover != null)
+    //         {        
+    //             Vector3 directionOfTarget = (target.position - transform.position).normalized;
+    //             float dotProduct = Vector3.Dot(transform.forward, directionOfTarget);
+    //             float distance = Vector3.Distance(cover.transform.position, transform.position);
+    //             if (distance < closestDistance && distance > 5f && dotProduct >= Mathf.Cos(feildOfView))
+    //             {                    
+    //                 closestDistance = distance;
+    //                 closestCover = cover;
+    //             }         
+    //         }
+    //     }
+    //     Vector3 direction = closestCover.transform.position - transform.position;
+    //     direction.Normalize();
+    //     Debug.DrawRay(transform.position, direction, Color.blue, 5f);
+    //     return closestCover;
+    // }    
+    
+    
+    
+    
     // GameObject GetClosestCover()
     // {
     //     GameObject closestCover = null;
@@ -142,91 +287,3 @@ public class EnemyController : MonoBehaviour
 
     //     return closestCover;
     // }
-
-    public float feildOfView = 30f;
-    GameObject GetClosestCover()
-    {
-        GameObject closestCover = null;
-        float closestDistance = 100f;
-        
-
-        foreach (GameObject cover in covers)
-        {
-            if (cover != null)
-            {        
-                Vector3 directionOfTarget = (target.position - transform.position).normalized;
-                float dotProduct = Vector3.Dot(transform.forward, directionOfTarget);
-                float distance = Vector3.Distance(cover.transform.position, transform.position);
-                if (distance < closestDistance && distance > 5f && dotProduct >= Mathf.Cos(feildOfView))
-                {                    
-                    closestDistance = distance;
-                    closestCover = cover;
-                }         
-            }
-        }
-        Vector3 direction = closestCover.transform.position - transform.position;
-        direction.Normalize();
-        Debug.DrawRay(transform.position, direction, Color.blue, 5f);
-        return closestCover;
-    }
-    // GameObject GetClosestCover()
-    // {
-    //     GameObject closestCover = null;
-    //     float closestDistance = 100f;
-        
-
-    //     foreach (GameObject cover in triggeredCovers)
-    //     {
-    //         if (cover != null)
-    //         {
-    //             float distance = Vector3.Distance(cover.transform.position, transform.position);
-    //             if (distance < closestDistance && distance > 5f)
-    //             {
-    //                 closestDistance = distance;
-    //                 closestCover = cover;
-    //             }         
-    //         }
-    //     }
-    //     Vector3 direction = closestCover.transform.position - transform.position;
-    //     direction.Normalize();
-    //     Debug.DrawRay(transform.position, direction, Color.blue, 5f);
-    //     return closestCover;
-    // }
-
-
-    Transform GetClosestCoverPoint(GameObject cover)
-    {
-        Transform closestCoverPoint = null;
-        foreach (Transform point in cover.transform)
-        {
-            coverPoints.Add(point);
-        }
-        float closestDistance = 50f;
-        foreach (Transform point in coverPoints)
-        {
-            float distance = Vector3.Distance(point.position, transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestCoverPoint = point;
-            }
-        }
-        CurrentCoverPoint = closestCoverPoint;
-        coverPoints.Clear();
-        return closestCoverPoint;
-    }
-
-
-    void DebugRays()
-    {
-        Vector3 enemyPosition = transform.position;
-        Vector3 direction1 = GetDirectionOfTarget();
-        direction1 = Quaternion.Euler(0, directionAngle, 0) * direction1;
-        Vector3 direction2 = GetDirectionOfTarget();
-        direction2 = Quaternion.Euler(0, -directionAngle, 0) * direction2;
-
-        Debug.DrawRay(enemyPosition, direction1, Color.red, 10f);
-        Debug.DrawRay(enemyPosition, direction2, Color.red, 10f);
-    }
-
-}
