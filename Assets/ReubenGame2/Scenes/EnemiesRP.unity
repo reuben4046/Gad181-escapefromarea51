@@ -1420,7 +1420,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingState: {fileID: 1929850546}
+  goToCoverState: {fileID: 2095449964}
   canSeePlayer: 0
+  agentEnemy: {fileID: 2038990654}
 --- !u!4 &1513918124
 Transform:
   m_ObjectHideFlags: 0
@@ -2308,6 +2310,7 @@ GameObject:
   - component: {fileID: 2038990655}
   - component: {fileID: 2038990654}
   - component: {fileID: 2038990653}
+  - component: {fileID: 2038990659}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -2322,7 +2325,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038990652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 185cc8b2cf9874149a1a1a1508f943f5, type: 3}
   m_Name: 
@@ -2453,6 +2456,19 @@ Transform:
   - {fileID: 1165943429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038990659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038990652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ca76a38f7fb4c8cab5b76671d8c253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: {fileID: 1513918123}
 --- !u!1 &2095449963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2500,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTowardsPlayerState: {fileID: 158294430}
   behindCover: 0
+  target: {fileID: 1982970901}
+  cam: {fileID: 1917634272}
+  agentEnemy: {fileID: 2038990654}
+  covers:
+  - {fileID: 856623240}
+  - {fileID: 2115519462}
+  - {fileID: 470245208}
+  - {fileID: 1733792578}
+  - {fileID: 674159796}
+  - {fileID: 1702910604}
+  - {fileID: 1281176150}
+  - {fileID: 1596425996}
+  - {fileID: 1992415288}
 --- !u!4 &2095449965
 Transform:
   m_ObjectHideFlags: 0
