@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         GoToCover();
-        StartCoroutine(EnemyControllerFunc());
+        //StartCoroutine(EnemyControllerFunc());
     }
 
     void Update()
@@ -52,52 +52,79 @@ public class EnemyController : MonoBehaviour
         {
             SwitchCoverPoint(currentCover);
         }
-        //ShootAtPlayer();
+
+        StartCoroutine(ContinuousRayCast());
+        if (playerVisible)
+        {
+            StartCoroutine(WaitThenCover());
+            ShootAtPlayer();
+        }
+        if (!playerVisible)
+        {
+            MoveTowardsPlayer(2f);
+        }
     }
 
-    IEnumerator EnemyControllerFunc()
+    IEnumerator WaitThenCover()
     {
         yield return new WaitForSeconds(3f);
-        float timeRandom = Random.Range(1f, 5f);
-        StartCoroutine(RandomWaitCoroutine(timeRandom));
+        GoToCover();
     }
 
-    IEnumerator RandomWaitCoroutine(float time)
+    IEnumerator WaitThenShoot()
+    {
+        yield return new WaitForSeconds(3f);
+        ShootAtPlayer();
+    }
+    // IEnumerator EnemyControllerFunc()
+    // {
+    //     yield return new WaitForSeconds(3f);
+    //     float timeRandom = Random.Range(1f, 5f);
+    //     StartCoroutine(RandomWaitCoroutine(timeRandom));
+    // }
+
+    // IEnumerator RandomWaitCoroutine(float time)
+    // {
+    //     while (true)
+    //     {
+    //         yield return new WaitForSeconds(time);
+
+    //         Debug.Log("movingTo Player");
+
+    //         MoveTowardsPlayer(2f);
+
+    //         yield return new WaitForSeconds(2f);
+    //         float timeRandom = Random.Range(2f, 5f);
+    //         yield return new WaitForSeconds(timeRandom);
+    //         Debug.Log("Going to Cover");
+    //         GoToCover();
+    //         yield return new WaitForSeconds(timeRandom);
+    //     }
+
+    // }
+    bool playerVisible = false;
+    IEnumerator ContinuousRayCast()
     {
         while (true)
         {
-            yield return new WaitForSeconds(time);
-            Debug.Log("movingTo Player");
-            MoveTowardsPlayer();
-            while (IsPlayerVisible().transform != target)
+            yield return new WaitForSeconds(0.5f);
+            Vector3 rayDirection = (target.position - transform.position).normalized;
+            RaycastHit hit;
+            Physics.Raycast(transform.position, rayDirection, out hit);
+            Debug.Log(hit.transform.name);
+            if (hit.transform == target)
             {
-                if (IsPlayerVisible().transform == target)
-                {
-                    Debug.Log("Player Visible");
-                    StopMoving();
-                    ShootAtPlayer();
-                    yield return new WaitForSeconds(2f);
-                }
+                playerVisible = true;
+                Debug.Log("Player Detected");
             }
-            float timeRandom = Random.Range(2f, 5f);
-            yield return new WaitForSeconds(timeRandom);
-            Debug.Log("Going to Cover");
-            GoToCover();
-            yield return new WaitForSeconds(timeRandom);
+            else
+            {
+                playerVisible = false;
+            }
         }
-
     }
 
-    RaycastHit IsPlayerVisible()
-    {
-        RaycastHit hit;
-        Physics.Raycast(transform.position, transform.forward, out hit);
-        if (hit.transform == target)
-        {
-            return hit;
-        }
-        return new RaycastHit();
-    }
+
 
     //go to cover
     void GoToCover()
@@ -178,9 +205,11 @@ public class EnemyController : MonoBehaviour
 
 
     //move towards player
-    void MoveTowardsPlayer()
+    IEnumerator MoveTowardsPlayer(float time)
     {
         agentEnemy.SetDestination(target.position);
+        yield return new WaitForSeconds(time);
+        StopMoving();
     }
 
 
@@ -194,7 +223,7 @@ public class EnemyController : MonoBehaviour
             Debug.Log(hit.transform);
             if (hit.transform == target && canFire)
             {
-                Shoot();
+                ShootBullet();
             }
         }
     }
@@ -213,7 +242,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Shoot() 
+    void ShootBullet() 
     {
         if (canFire) 
         {
