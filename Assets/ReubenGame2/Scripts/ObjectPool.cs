@@ -7,10 +7,18 @@ public class ObjectPool : MonoBehaviour
 
     public static ObjectPool instance;
 
-    private List<PlayerBullet> pooledBullets = new List<PlayerBullet>();
-    private int bulletAmountToPool = 50;
+    //PlayerBullet
+    private List<PlayerBullet> pooledPlayerBullets = new List<PlayerBullet>();
+    private int playerBulletAmountToPool = 50;
 
-    [SerializeField] private PlayerBullet bulletPrefab;
+    [SerializeField] private PlayerBullet playerBulletPrefab;
+
+    //enemyBullet
+    private List<EnemyBulletRP> pooledEnemyBullets = new List<EnemyBulletRP>();
+    private int enemyBulletAmountToPool = 50;
+
+    [SerializeField] private EnemyBulletRP enemyBulletPrefab;
+
 
     private void Awake()
     {
@@ -22,21 +30,40 @@ public class ObjectPool : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < bulletAmountToPool; i++)
+        for (int i = 0; i < playerBulletAmountToPool; i++)
         {
-            PlayerBullet playerBullet = Instantiate(bulletPrefab);
+            PlayerBullet playerBullet = Instantiate(playerBulletPrefab);
             playerBullet.gameObject.SetActive(false);
-            pooledBullets.Add(playerBullet);
+            pooledPlayerBullets.Add(playerBullet);
+        }
+        for (int i = 0; i < enemyBulletAmountToPool; i++)
+        {
+            EnemyBulletRP enemyBullet = Instantiate(enemyBulletPrefab);
+            enemyBullet.gameObject.SetActive(false);
+            pooledEnemyBullets.Add(enemyBullet);
         }
     }
 
-    public PlayerBullet GetPooledBullet()
+    public PlayerBullet GetPooledPlayerBullet()
     {
-        for (int i = 0; i < pooledBullets.Count; i++)
+        for (int i = 0; i < pooledPlayerBullets.Count; i++)
         {
-            if (!pooledBullets[i].gameObject.activeInHierarchy)
+            if (!pooledPlayerBullets[i].gameObject.activeInHierarchy)
             {
-                return pooledBullets[i];
+                return pooledPlayerBullets[i];
+            }
+        }
+
+        return null;
+    }
+
+    public EnemyBulletRP GetPooledEnemyBullet()
+    {
+        for (int i = 0; i < pooledEnemyBullets.Count; i++)
+        {
+            if (!pooledEnemyBullets[i].gameObject.activeInHierarchy)
+            {
+                return pooledEnemyBullets[i];
             }
         }
 

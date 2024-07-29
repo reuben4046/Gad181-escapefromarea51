@@ -113,7 +113,7 @@ public class MCXGun : MonoBehaviour
 
     PlayerBullet GetPooledBullet()
     {
-        PlayerBullet playerBullet = ObjectPool.instance.GetPooledBullet();
+        PlayerBullet playerBullet = ObjectPool.instance.GetPooledPlayerBullet();
         if (playerBullet != null)
         {
             playerBullet.gameObject.SetActive(true);

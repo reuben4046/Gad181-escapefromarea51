@@ -1,5 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -8,18 +11,33 @@ using UnityEngine.TestTools;
 
 public class EnemyController : MonoBehaviour
 {
+    //PlayerReference
     public Transform target;
+
     public Camera cam;
+
+    //NavMeshAgent
     public NavMeshAgent agentEnemy;
 
+    //Gun
+    public Transform gunTransform;
+    bool canFire = true;
+    float fireRate = 0.5f;
+    float shootingTimer = 0f;    
+
+    //Covers
     [SerializeField] List<GameObject> covers = new List<GameObject>();
     List<Transform> coverPoints = new List<Transform>();
+
+    GameObject currentCover = null;
+    Transform currentCoverPoint = null;
 
 
 
     void Start()
     {
-        //GoToCover();
+        GoToCover();
+        StartCoroutine(EnemyControllerFunc());
     }
 
     void Update()
@@ -29,16 +47,59 @@ public class EnemyController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             GoToCover();
-            // Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            // RaycastHit hit;
-
-            // if (Physics.Raycast(ray, out hit))
-            // {
-            //     agentEnemy.SetDestination(hit.point);
-            // }
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            SwitchCoverPoint(currentCover);
+        }
+        //ShootAtPlayer();
     }
 
+    IEnumerator EnemyControllerFunc()
+    {
+        yield return new WaitForSeconds(3f);
+        float timeRandom = Random.Range(1f, 5f);
+        StartCoroutine(RandomWaitCoroutine(timeRandom));
+    }
+
+    IEnumerator RandomWaitCoroutine(float time)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(time);
+            Debug.Log("movingTo Player");
+            MoveTowardsPlayer();
+            while (IsPlayerVisible().transform != target)
+            {
+                if (IsPlayerVisible().transform == target)
+                {
+                    Debug.Log("Player Visible");
+                    StopMoving();
+                    ShootAtPlayer();
+                    yield return new WaitForSeconds(2f);
+                }
+            }
+            float timeRandom = Random.Range(2f, 5f);
+            yield return new WaitForSeconds(timeRandom);
+            Debug.Log("Going to Cover");
+            GoToCover();
+            yield return new WaitForSeconds(timeRandom);
+        }
+
+    }
+
+    RaycastHit IsPlayerVisible()
+    {
+        RaycastHit hit;
+        Physics.Raycast(transform.position, transform.forward, out hit);
+        if (hit.transform == target)
+        {
+            return hit;
+        }
+        return new RaycastHit();
+    }
+
+    //go to cover
     void GoToCover()
     {
         transform.forward = GetDirectionOfTarget();
@@ -54,79 +115,8 @@ public class EnemyController : MonoBehaviour
         direction.Normalize();
         return direction;
     }
-    bool needsDifferentCover = false;
-    GameObject GetClosestCover()
-    {
-        GameObject closestCover = null;
-        float closestDistance = 100f;
-        foreach (GameObject cover in covers)
-        {
-            if (cover != null)
-            {                   
-                float distance = Vector3.Distance(cover.transform.position, transform.position);
-                if (distance < closestDistance) //&& distance > 5f)
-                {                    
-                    closestDistance = distance;
-                    closestCover = cover;
-                }
-            }
-        }
-        return closestCover;
-    }
 
-    Transform savedCoverPoint = null;
-    Transform GetClosestCoverPoint(GameObject cover)
-    {
-        Transform closestCoverPoint = null;
-        foreach (Transform point in cover.transform)
-        {
-            coverPoints.Add(point);
-        }
-        float closestDistance = 50f;
-        List<Transform> savedPoints = GetSavedCoverPoints();
-        foreach (Transform point in coverPoints)
-        {
-            if (savedPoints.Contains(point))
-            {
-                continue;
-            }
-            float distance = Vector3.Distance(point.position, transform.position);
-            if (distance < closestDistance && distance > 2f)
-            {
-                closestDistance = distance;
-                closestCoverPoint = point;
-            }
-        }
-        if (closestCoverPoint == null)
-        {
-            coverPoints.Clear();
-            GameObject newCover = GetNewClosestCover();
-            foreach (Transform point in newCover.transform)
-            {
-                coverPoints.Add(point);
-            }
-            closestDistance = 50f;
-            
-            foreach (Transform point in coverPoints)
-            {
-                if (savedPoints.Contains(point))
-                {
-                    continue;
-                }
-                float distance = Vector3.Distance(point.position, transform.position);
-                if (distance < closestDistance && distance > 2f)
-                {
-                    closestDistance = distance;
-                    closestCoverPoint = point;
-                }
-            }
-        }
-        savedCoverPoint = closestCoverPoint;
-        coverPoints.Clear();
-        return closestCoverPoint;
-    }
-    
-    GameObject GetNewClosestCover()
+    GameObject GetClosestCover()
     {
         GameObject closestCover = null;
         float closestDistance = 100f;
@@ -142,26 +132,121 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
+        currentCover = closestCover;
         return closestCover;
+    }
+
+    Transform GetClosestCoverPoint(GameObject cover)
+    {
+        Transform closestCoverPoint = null;
+        
+        foreach (Transform point in cover.transform)
+        {
+            coverPoints.Add(point);
+        }
+        float closestDistance = 50f;
+        foreach (Transform point in coverPoints)
+        {
+            if (point == currentCoverPoint)
+            {
+                continue;
+            }
+            float distance = Vector3.Distance(point.position, transform.position);
+            if (distance < closestDistance && distance > 2f)
+            {
+                closestDistance = distance;
+                closestCoverPoint = point;
+            }
+        }
+        coverPoints.Clear();
+        currentCoverPoint = closestCoverPoint;
+        return closestCoverPoint;
     }
     
 
-    List<Transform> GetSavedCoverPoints()
+    //switch cover
+    Transform SwitchCoverPoint(GameObject currentCover)
     {
-        List<Transform> savedCoverPoints = new List<Transform>();
-        savedCoverPoints.Add(savedCoverPoint);
-        if (savedCoverPoints.Count > 2)
+        if (currentCover == null)
         {
-            savedCoverPoints.RemoveAt(0);
+            return null;
         }
-        return savedCoverPoints;
+        Transform newCoverPoint = GetClosestCoverPoint(currentCover);
+        agentEnemy.SetDestination(newCoverPoint.position);
+        return newCoverPoint;
+    }    
+
+
+    //move towards player
+    void MoveTowardsPlayer()
+    {
+        agentEnemy.SetDestination(target.position);
     }
 
 
+    //shoot at player
+    void ShootAtPlayer()
+    {
+        FireTimer();
+        transform.LookAt(target);
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
+        {
+            Debug.Log(hit.transform);
+            if (hit.transform == target && canFire)
+            {
+                Shoot();
+            }
+        }
+    }
+
+
+    void FireTimer() 
+    {
+        if (canFire == false) 
+        {
+            shootingTimer += Time.deltaTime;
+            if (shootingTimer > fireRate) 
+            {
+                canFire = true;
+                shootingTimer = 0f;
+            }
+        }
+    }
+
+    void Shoot() 
+    {
+        if (canFire) 
+        {
+            EnemyBulletRP bullet = GetPooledEnemyBullet(); 
+            bullet.transform.position = gunTransform.position;
+            bullet.transform.LookAt(target);
+            canFire = false;
+        }
+    }
+    
+    EnemyBulletRP GetPooledEnemyBullet()
+    {
+        EnemyBulletRP enemyBullet = ObjectPool.instance.GetPooledEnemyBullet();
+        if (enemyBullet != null)
+        {
+            enemyBullet.gameObject.SetActive(true);
+            return enemyBullet;
+        } 
+        else
+        {
+            return null;
+        }
+    }
+
+
+    //stop moving
+    void StopMoving()
+    {
+        agentEnemy.SetDestination(transform.position);
+    }
 
     //Debugging
     float directionAngle = 70f;
-
     void DebugRays()
     {
         Vector3 enemyPosition = transform.position;
@@ -175,13 +260,6 @@ public class EnemyController : MonoBehaviour
     }
 
 }
-    public struct EnemyStates
-    {
-        public bool movingToCover;
-        public bool shooting;
-        public bool movingToPlayer;
-        public bool movingFromPlayer;
-    }
 
 
 
