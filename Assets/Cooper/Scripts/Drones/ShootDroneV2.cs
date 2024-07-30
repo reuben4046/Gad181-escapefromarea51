@@ -7,6 +7,7 @@ public class ShootDroneV2 : MonoBehaviour
 
     [SerializeField] Camera cam;
     [SerializeField] private Gamemanager droneTracker;
+    public float fireDelay = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class ShootDroneV2 : MonoBehaviour
 
     IEnumerator Shooting()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(fireDelay);
         if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
             Collider bc = hit.collider;
