@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3308580409671813298}
   - component: {fileID: 2336316729957238429}
   - component: {fileID: 9075190972099793551}
-  - component: {fileID: 1325372098051229081}
   - component: {fileID: 6556686515740943647}
+  - component: {fileID: 2532001374048514224}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -23,21 +23,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3736474915140974992
-Transform:
+--- !u!224 &3736474915140974992
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5927725597413661759}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.39, y: 5.47, z: -63}
+  m_LocalPosition: {x: 0, y: 0, z: -63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 13.39, y: 5.47}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &3690522330659506684
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -54,8 +58,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5927725597413661759}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -66,7 +70,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 76d7ec8a931a405419d2a16f72942384, type: 2}
+  - {fileID: 2100000, guid: 41529be8d1238ec4491db454489e3abc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,19 +153,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1325372098051229081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927725597413661759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412af8277c1b3e74eb61bd351b5a9d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  droneTracker: {fileID: 0}
 --- !u!114 &6556686515740943647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ccd768f3f97e4f4497090bbb28f8b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &2532001374048514224
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927725597413661759}
+  m_CullTransparentMesh: 1

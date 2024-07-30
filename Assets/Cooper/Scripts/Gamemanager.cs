@@ -21,7 +21,8 @@ public class Gamemanager : MonoBehaviour
     {
         if (numberOfdrones < maxdrones)
         {
-            Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
+            var newdrone = Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
+            newdrone.transform.rotation = Quaternion.Euler(new Vector3 (90, 0, 0));   
             numberOfdrones += 1;
         }
     }
