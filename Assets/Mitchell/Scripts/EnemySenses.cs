@@ -7,7 +7,7 @@ public class EnemySenses : MonoBehaviour
 
     public float viewRadius;
     public float viewAngle;
-
+    public bool canSeePlayer = false;
 
     public LayerMask targetPlayer;
     public LayerMask obstacleMask;
@@ -35,11 +35,12 @@ public class EnemySenses : MonoBehaviour
                 if (Physics.Raycast(transform.position, playerTarget, distanceToTarget, obstacleMask) == false)
                 {
                     Debug.Log("I can see you!");
+                    canSeePlayer = true;
                     if(enemy != null)
                     {
                         enemy.RotateTowardsPlayer();
                         enemy.MoveTowardsPlayer();
-                    }
+                    }else{ canSeePlayer = false; }
                 }
             }
         }
