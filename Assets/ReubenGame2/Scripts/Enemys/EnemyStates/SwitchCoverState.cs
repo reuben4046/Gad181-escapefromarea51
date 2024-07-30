@@ -36,9 +36,15 @@ public class SwitchCoverState : State
     }
     
 
-    protected override Transform SwitchCoverPoint(GameObject currentCover)
+    protected override Transform SwitchCoverPoint(CoverToList currentCover)
     {
         base.SwitchCoverPoint(currentCover);
         return currentCoverPoint;
+    }
+
+    protected override void OnStateChanged(State newState)
+    {
+        base.OnStateChanged(newState);
+        coverpointChanged = false;
     }
 }

@@ -10,7 +10,7 @@ public class StaticTarget : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
-        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         rb.isKinematic = true;
     }
 }

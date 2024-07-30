@@ -48,6 +48,13 @@ public class StopMovingState : State
         canSeePlayer = true;
     }
 
+    protected override void OnStateChanged(State newState)
+    {
+        base.OnStateChanged(newState);
+        canSeePlayer = false;
+        canNotSeePlayer = false;
+    }
+
 
 }
 

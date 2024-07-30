@@ -33,4 +33,11 @@ public class ShootingState : State
         yield return new WaitForSeconds(2f);
         finishedShooting = true;
     }
+
+    protected override void OnStateChanged(State newState)
+    {
+        base.OnStateChanged(newState);
+        canSeePlayer = false;
+        finishedShooting = false;
+    }
 }

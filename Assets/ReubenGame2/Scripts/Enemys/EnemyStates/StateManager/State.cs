@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.AI;
+using System;
 
 public abstract class State : MonoBehaviour
 {
@@ -24,10 +25,10 @@ public abstract class State : MonoBehaviour
     protected float shootingTimer = 0f;
 
     //Covers
-    protected List<GameObject> covers = new List<GameObject>();
+    protected List<CoverToList> covers = new List<CoverToList>();
     protected List<Transform> coverPoints = new List<Transform>();
 
-    protected GameObject currentCover = null;
+    protected CoverToList currentCover = null;
     protected Transform currentCoverPoint = null;
 
     void Start()
@@ -38,14 +39,26 @@ public abstract class State : MonoBehaviour
         agentEnemy = GameObject.FindWithTag("Enemy").GetComponent<NavMeshAgent>();
 
         gunTransform = agentEnemy.transform.GetChild(0);
+    }
+    private void OnEnable()
+    {
+        FPSGameEvents.OnCoverStart += OnCoverStart;
+        FPSGameEvents.OnStateChanged += OnStateChanged;
+    }
+    private void OnDisable()
+    {
+        FPSGameEvents.OnCoverStart -= OnCoverStart;
+        FPSGameEvents.OnStateChanged -= OnStateChanged;
+    }
 
-        foreach (GameObject cover in GameObject.FindGameObjectsWithTag("Cover"))
-        {
-            if (cover != null)
-            {
-                covers.Add(cover);
-            }
-        }
+    protected virtual void OnStateChanged(State newState)
+    {
+        
+    }
+
+    private void OnCoverStart(CoverToList cover)
+    {
+        covers.Add(cover);
     }
 
     void Update()
@@ -82,12 +95,17 @@ public abstract class State : MonoBehaviour
     protected void GoToCover()
     {
         transform.forward = GetDirectionOfTarget();
-        GameObject cover = GetClosestCover();
+        CoverToList cover = GetClosestCover();
+        if (cover == null) { Debug.Log("coverNull"); }
 
         if (cover != null)
         {
             Transform destination = GetClosestCoverPoint(cover);
-            agentEnemy.SetDestination(destination.position);
+            if (agentEnemy != null && destination != null)
+            {
+                agentEnemy.SetDestination(destination.position);
+            }
+            else { Debug.Log("null"); }
         }
         
     }
@@ -99,11 +117,11 @@ public abstract class State : MonoBehaviour
         return direction;
     }
 
-    protected GameObject GetClosestCover()
+    protected CoverToList GetClosestCover()
     {
-        GameObject closestCover = null;
+        CoverToList closestCover = null;
         float closestDistance = 100f;
-        foreach (GameObject cover in covers)
+        foreach (CoverToList cover in covers)
         {
             if (cover != null)
             {                   
@@ -119,7 +137,7 @@ public abstract class State : MonoBehaviour
         return closestCover;
     }
 
-    protected Transform GetClosestCoverPoint(GameObject cover)
+    protected Transform GetClosestCoverPoint(CoverToList cover)
     {
         Transform closestCoverPoint = null;
         
@@ -148,7 +166,7 @@ public abstract class State : MonoBehaviour
     
 
     //switch cover
-    protected virtual Transform SwitchCoverPoint(GameObject currentCover)
+    protected virtual Transform SwitchCoverPoint(CoverToList currentCover)
     {
         if (currentCover == null)
         {

@@ -24,7 +24,14 @@ public class MoveTowardsPlayerState : State
     void CallMoveTowardsPlayer()
     {
         base.MoveTowardsPlayer();
-        CheckIfCanSeePlayer();
+        StartCoroutine(WaitThenStopMoving());
+        //CheckIfCanSeePlayer();
+    }
+
+    IEnumerator WaitThenStopMoving()
+    {
+        yield return new WaitForSeconds(2f);
+        canSeePlayer = true;
     }
 
     void CheckIfCanSeePlayer()
@@ -40,6 +47,12 @@ public class MoveTowardsPlayerState : State
         //stop moving then set canSeePlayer to true
         agentEnemy.SetDestination(transform.position);
         canSeePlayer = true;        
+    }
+
+    protected override void OnStateChanged(State newState)
+    {
+        base.OnStateChanged(newState);
+        canSeePlayer = false;
     }
 
 }

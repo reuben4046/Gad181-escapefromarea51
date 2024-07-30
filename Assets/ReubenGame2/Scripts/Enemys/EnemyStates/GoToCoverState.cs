@@ -33,4 +33,10 @@ public class GoToCoverState :  State
         behindCover = true;
     }
 
+    protected override void OnStateChanged(State newState)
+    {
+        base.OnStateChanged(newState);
+        behindCover = false;
+    }
+
 }
