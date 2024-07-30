@@ -41,7 +41,10 @@ public abstract class State : MonoBehaviour
 
         foreach (GameObject cover in GameObject.FindGameObjectsWithTag("Cover"))
         {
-            covers.Add(cover);
+            if (cover != null)
+            {
+                covers.Add(cover);
+            }
         }
     }
 
@@ -80,9 +83,13 @@ public abstract class State : MonoBehaviour
     {
         transform.forward = GetDirectionOfTarget();
         GameObject cover = GetClosestCover();
-        Transform destination = GetClosestCoverPoint(cover);
 
-        agentEnemy.SetDestination(destination.position);
+        if (cover != null)
+        {
+            Transform destination = GetClosestCoverPoint(cover);
+            agentEnemy.SetDestination(destination.position);
+        }
+        
     }
 
     protected Vector3 GetDirectionOfTarget()
