@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/TitleScreen/Title.unity
+    guid: 32e1bdb4fb3525547b83ebd1d0d7d28d
+  - enabled: 1
     path: Assets/Reuben/GameTransitionScenes/Game1.unity
     guid: 5a669030f144e4aeea962a664787e180
   - enabled: 1
