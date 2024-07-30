@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingState: {fileID: 1929850546}
-  canSeePlayer: 0
+  canSeeDeezNuts: 0
 --- !u!4 &158294431
 Transform:
   m_ObjectHideFlags: 0
@@ -714,18 +714,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2005190631910461884, guid: 7f89e61f95f1c410c8044a371c431452, type: 3}
   m_PrefabInstance: {fileID: 558909998384098252}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &856623250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856623240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3075f29863771e49af748df716b70a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &947926791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2587,10 +2575,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 313816093623182620, guid: 7f89e61f95f1c410c8044a371c431452, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 856623250}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f89e61f95f1c410c8044a371c431452, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
