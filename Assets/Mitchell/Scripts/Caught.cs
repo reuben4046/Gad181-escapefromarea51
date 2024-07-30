@@ -9,7 +9,7 @@ public class Caught : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
     }
 
@@ -30,5 +30,11 @@ public class Caught : MonoBehaviour
     {
         Debug.Log("Quitting Game");
         Application.Quit();
+    }
+
+    public void GameStart()
+    {
+        Debug.Log("Taking you to the First MiniGame!");
+        SceneManager.LoadScene(1);
     }
 }
