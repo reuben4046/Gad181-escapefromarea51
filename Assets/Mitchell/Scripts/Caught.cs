@@ -31,4 +31,10 @@ public class Caught : MonoBehaviour
         Debug.Log("Quitting Game");
         Application.Quit();
     }
+
+    public void GameStart()
+    {
+        Debug.Log("Taking you to the First MiniGame!");
+        SceneManager.LoadScene(1);
+    }
 }
