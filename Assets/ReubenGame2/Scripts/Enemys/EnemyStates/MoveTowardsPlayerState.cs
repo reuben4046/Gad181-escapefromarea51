@@ -6,11 +6,11 @@ using UnityEngine.AI;
 public class MoveTowardsPlayerState : State
 {
     public ShootingState shootingState;
-    public bool canSeePlayer;
+    public bool canSeeDeezNuts;
 
     public override State RunCurrentState()
     {
-        if (canSeePlayer)
+        if (canSeeDeezNuts)
         {
             return shootingState;
         }
@@ -31,7 +31,7 @@ public class MoveTowardsPlayerState : State
     IEnumerator WaitThenStopMoving()
     {
         yield return new WaitForSeconds(1f);
-        canSeePlayer = true;
+        canSeeDeezNuts = true;
     }
 
     void CheckIfCanSeePlayer()
@@ -42,7 +42,7 @@ public class MoveTowardsPlayerState : State
             if (hit.collider.tag == "Player")
             {
                 agentEnemy.SetDestination(transform.position);
-                canSeePlayer = true;
+                canSeeDeezNuts = true;
                 Debug.Log("Hit");
             }
             else 
@@ -54,7 +54,7 @@ public class MoveTowardsPlayerState : State
         else
         {
             Debug.Log("saw nothing");
-            canSeePlayer=false;
+            canSeeDeezNuts = false;
         }
     }
 
@@ -62,7 +62,7 @@ public class MoveTowardsPlayerState : State
     protected override void OnStateChanged(State newState)
     {
         base.OnStateChanged(newState);
-        canSeePlayer = false;
+        canSeeDeezNuts = false;
     }
 
 }
