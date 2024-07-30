@@ -345,8 +345,8 @@ GameObject:
   - component: {fileID: 2349212532580630440}
   - component: {fileID: 2277514152730161479}
   - component: {fileID: 7795465240642903047}
-  - component: {fileID: 834449981117860255}
-  - component: {fileID: 3705740144154916464}
+  - component: {fileID: 8925658376220873858}
+  - component: {fileID: 6006147964707082530}
   m_Layer: 0
   m_Name: Security Camera
   m_TagString: Untagged
@@ -444,7 +444,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &834449981117860255
+--- !u!114 &8925658376220873858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   m_target: {fileID: 0}
---- !u!114 &3705740144154916464
+--- !u!114 &6006147964707082530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,10 +474,10 @@ MonoBehaviour:
   viewAngle: 0
   targetPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   player: {fileID: 0}
   enemy: {fileID: 0}
 --- !u!1 &7803251996113394702
