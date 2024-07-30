@@ -20,11 +20,15 @@ public class GoToCoverState :  State
             return this;
         }
     }
-
+    bool goToCoverStateActive = false;
     void CallGoToCover()
     {
-        base.GoToCover();
-        StartCoroutine(WaitTillCoverFound());
+        if (!goToCoverStateActive)
+        {
+            base.GoToCover();
+            StartCoroutine(WaitTillCoverFound());
+            goToCoverStateActive = true;
+        }
     }
 
     IEnumerator WaitTillCoverFound()

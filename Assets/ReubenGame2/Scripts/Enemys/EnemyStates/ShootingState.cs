@@ -25,7 +25,8 @@ public class ShootingState : State
     void CallShooting()
     {
         base.ShootAtPlayer();
-        StartCoroutine(StopShooting());
+        agentEnemy.SetDestination(transform.position);
+        //StartCoroutine(StopShooting());
     }
 
     IEnumerator StopShooting()

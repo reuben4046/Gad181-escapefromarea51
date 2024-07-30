@@ -40,11 +40,13 @@ public abstract class State : MonoBehaviour
 
         gunTransform = agentEnemy.transform.GetChild(0);
     }
+
     private void OnEnable()
     {
         FPSGameEvents.OnCoverStart += OnCoverStart;
         FPSGameEvents.OnStateChanged += OnStateChanged;
     }
+
     private void OnDisable()
     {
         FPSGameEvents.OnCoverStart -= OnCoverStart;
@@ -53,12 +55,13 @@ public abstract class State : MonoBehaviour
 
     protected virtual void OnStateChanged(State newState)
     {
-        
+
     }
 
     private void OnCoverStart(CoverToList cover)
     {
         covers.Add(cover);
+        Debug.Log(covers.Count);
     }
 
     void Update()
@@ -96,7 +99,10 @@ public abstract class State : MonoBehaviour
     {
         transform.forward = GetDirectionOfTarget();
         CoverToList cover = GetClosestCover();
-        if (cover == null) { Debug.Log("coverNull"); }
+        if (cover == null) 
+        {
+            Debug.Log("coverNull"); 
+        }
 
         if (cover != null)
         {
@@ -105,9 +111,9 @@ public abstract class State : MonoBehaviour
             {
                 agentEnemy.SetDestination(destination.position);
             }
-            else { Debug.Log("null"); }
+            else { Debug.Log($"agent ={agentEnemy} destination={destination}"); }
         }
-        
+
     }
 
     protected Vector3 GetDirectionOfTarget()
@@ -153,12 +159,13 @@ public abstract class State : MonoBehaviour
                 continue;
             }
             float distance = Vector3.Distance(point.position, transform.position);
-            if (distance < closestDistance && distance > 2f)
+            if (distance < closestDistance)
             {
                 closestDistance = distance;
                 closestCoverPoint = point;
             }
         }
+        Debug.Log($"closestcover = {closestCoverPoint}");
         coverPoints.Clear();
         currentCoverPoint = closestCoverPoint;
         return closestCoverPoint;

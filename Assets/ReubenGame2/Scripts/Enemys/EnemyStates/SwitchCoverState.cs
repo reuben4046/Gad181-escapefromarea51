@@ -22,7 +22,6 @@ public class SwitchCoverState : State
     }
     
     //switch cover
-
     void SwitchCover()
     {
         SwitchCoverPoint(currentCover);

@@ -10,7 +10,7 @@ public class MoveTowardsPlayerState : State
 
     public override State RunCurrentState()
     {
-        if(canSeePlayer)
+        if (canSeePlayer)
         {
             return shootingState;
         }
@@ -24,13 +24,13 @@ public class MoveTowardsPlayerState : State
     void CallMoveTowardsPlayer()
     {
         base.MoveTowardsPlayer();
-        StartCoroutine(WaitThenStopMoving());
-        //CheckIfCanSeePlayer();
+        //StartCoroutine(WaitThenStopMoving());
+        CheckIfCanSeePlayer();
     }
 
     IEnumerator WaitThenStopMoving()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         canSeePlayer = true;
     }
 
@@ -39,15 +39,25 @@ public class MoveTowardsPlayerState : State
         Vector3 direction = base.GetDirectionOfTarget();
         if(Physics.Raycast(transform.position, direction, out RaycastHit hit))
         {
-            if(hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player")
             {
+                agentEnemy.SetDestination(transform.position);
                 canSeePlayer = true;
+                Debug.Log("Hit");
+            }
+            else 
+            { 
+
+                Debug.Log("notHit"); 
             }
         }
-        //stop moving then set canSeePlayer to true
-        agentEnemy.SetDestination(transform.position);
-        canSeePlayer = true;        
+        else
+        {
+            Debug.Log("saw nothing");
+            canSeePlayer=false;
+        }
     }
+
 
     protected override void OnStateChanged(State newState)
     {
