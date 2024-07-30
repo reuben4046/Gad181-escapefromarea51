@@ -24,24 +24,32 @@ public class EnemySenses : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerTarget = (player.transform.position - transform.position).normalized;
+        Vector3 playerDirection = (player.transform.position - transform.position).normalized;
 
-        if (Vector3.Angle(transform.forward, playerTarget) < viewAngle / 2)
+        if (Vector3.Angle(transform.forward, playerDirection) < viewAngle / 2)
         {
             float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
             if (distanceToTarget <= viewRadius)
             {
-
-                if (Physics.Raycast(transform.position, playerTarget, distanceToTarget, obstacleMask) == false)
+                if (Physics.Raycast(transform.position, playerDirection, distanceToTarget, obstacleMask) == false)
                 {
                     Debug.Log("I can see you!");
                     canSeePlayer = true;
-                    if(enemy != null)
+                    if (enemy != null)
                     {
                         enemy.RotateTowardsPlayer();
                         enemy.MoveTowardsPlayer();
-                    }else{ canSeePlayer = false; }
+                    }
+
                 }
+                if (Physics.Raycast(transform.position, playerDirection, out RaycastHit hit))
+                {
+                    if (hit.point == player.transform.position)
+                    {
+                        canSeePlayer= true;
+                    } else { canSeePlayer = false; }
+                } 
+                
             }
         }
     }
