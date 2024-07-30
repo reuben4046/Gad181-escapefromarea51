@@ -16,7 +16,29 @@ public class SwitchCoverState : State
         }
         else
         {
+            SwitchCover();
             return this;
         }
+    }
+    
+    //switch cover
+
+    void SwitchCover()
+    {
+        SwitchCoverPoint(currentCover);
+        StartCoroutine(WaitTillCoverFound());
+    }
+
+    IEnumerator WaitTillCoverFound()
+    {
+        yield return new WaitUntil(() => currentCoverPoint != null);
+        coverpointChanged = true;
+    }
+    
+
+    protected override Transform SwitchCoverPoint(GameObject currentCover)
+    {
+        base.SwitchCoverPoint(currentCover);
+        return currentCoverPoint;
     }
 }

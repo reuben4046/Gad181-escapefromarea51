@@ -11,13 +11,26 @@ public class ShootingState : State
 
     public override State RunCurrentState()
     {
-        if(canSeePlayer || finishedShooting)
+        if(finishedShooting)
         {
             return goToCoverState;
         }
         else
         {
+            CallShooting();
             return this;
         }
+    }
+
+    void CallShooting()
+    {
+        base.ShootAtPlayer();
+        StartCoroutine(StopShooting());
+    }
+
+    IEnumerator StopShooting()
+    {
+        yield return new WaitForSeconds(2f);
+        finishedShooting = true;
     }
 }

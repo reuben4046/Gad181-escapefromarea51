@@ -7,8 +7,10 @@ using UnityEngine.AI;
 public class StopMovingState : State
 {
     public ShootingState shootingState;
+    public MoveTowardsPlayerState moveTowardsPlayerState;
     //public GoToCoverState goToCoverState;
     public bool canSeePlayer;
+    public bool canNotSeePlayer;
 
     public override State RunCurrentState()
     {
@@ -17,27 +19,35 @@ public class StopMovingState : State
             return shootingState;
             //return goToCoverState;
         }
+        else if(canNotSeePlayer)
+        {
+            return moveTowardsPlayerState;
+        }
         else
         {
-            StopMoving();
+            CallStopMoving();
             return this;
         }
     }
 
-    [SerializeField] NavMeshAgent agentEnemy;
-
-    void Update()
+    void CallStopMoving()
     {
-        if (Input.GetMouseButtonDown(0))
+        base.StopMoving();
+        Vector3 direction = base.GetDirectionOfTarget();
+        if(Physics.Raycast(transform.position, direction, out RaycastHit hit))
         {
-            canSeePlayer = true;
+            if(hit.collider.tag == "Player")
+            {
+                canSeePlayer = true;
+            }
+            else 
+            {
+                canNotSeePlayer = false;
+            }
         }
+        canSeePlayer = true;
     }
-    //stop moving
-    void StopMoving()
-    {
-        agentEnemy.SetDestination(transform.position);
-    }
+
 
 }
 

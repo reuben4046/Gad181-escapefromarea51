@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608d30a46914b4c1682b4c9171befdf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMovingState: {fileID: 1513918123}
+  shootingState: {fileID: 0}
   canSeePlayer: 0
 --- !u!4 &158294431
 Transform:
@@ -1420,9 +1420,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingState: {fileID: 1929850546}
-  goToCoverState: {fileID: 2095449964}
+  moveTowardsPlayerState: {fileID: 0}
   canSeePlayer: 0
-  agentEnemy: {fileID: 2038990654}
+  canNotSeePlayer: 0
 --- !u!4 &1513918124
 Transform:
   m_ObjectHideFlags: 0
@@ -2009,7 +2009,7 @@ GameObject:
   - component: {fileID: 1917634271}
   m_Layer: 0
   m_Name: NavCam
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2237,7 +2237,7 @@ Transform:
   m_GameObject: {fileID: 1982970897}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.56, y: 6.97, z: 8.01}
+  m_LocalPosition: {x: -15.03, y: 6.97, z: 8.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2313,7 +2313,7 @@ GameObject:
   - component: {fileID: 2038990659}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2500,19 +2500,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTowardsPlayerState: {fileID: 158294430}
   behindCover: 0
-  target: {fileID: 1982970901}
-  cam: {fileID: 1917634272}
-  agentEnemy: {fileID: 2038990654}
-  covers:
-  - {fileID: 856623240}
-  - {fileID: 2115519462}
-  - {fileID: 470245208}
-  - {fileID: 1733792578}
-  - {fileID: 674159796}
-  - {fileID: 1702910604}
-  - {fileID: 1281176150}
-  - {fileID: 1596425996}
-  - {fileID: 1992415288}
 --- !u!4 &2095449965
 Transform:
   m_ObjectHideFlags: 0
