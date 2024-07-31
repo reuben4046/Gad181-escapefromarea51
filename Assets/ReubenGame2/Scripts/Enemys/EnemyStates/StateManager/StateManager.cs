@@ -18,13 +18,13 @@ public class StateManager : MonoBehaviour
 
         if (nextState != null)
         {
-            FPSGameEvents.OnStateChanged?.Invoke(nextState);
             SwitchToNextState(nextState);
         }
     }
 
     private void SwitchToNextState(State nextState)
     {
+        FPSGameEvents.OnStateChanged?.Invoke(nextState);
         currentState = nextState;
     }
 }

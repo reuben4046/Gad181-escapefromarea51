@@ -215,7 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingState: {fileID: 1929850546}
-  canSeeDeezNuts: 0
+  goToCoverState: {fileID: 2095449964}
+  playerSeen: 0
+  playerNotSeen: 0
 --- !u!4 &158294431
 Transform:
   m_ObjectHideFlags: 0
@@ -2237,7 +2239,7 @@ Transform:
   m_GameObject: {fileID: 1982970897}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.03, y: 6.97, z: 8.66}
+  m_LocalPosition: {x: 0.11, y: 6.97, z: 15.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2468,7 +2470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ca76a38f7fb4c8cab5b76671d8c253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 2095449964}
+  currentState: {fileID: 158294430}
 --- !u!1 &2095449963
 GameObject:
   m_ObjectHideFlags: 0

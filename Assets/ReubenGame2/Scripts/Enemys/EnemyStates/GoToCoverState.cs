@@ -33,7 +33,7 @@ public class GoToCoverState :  State
 
     IEnumerator WaitTillCoverFound()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         behindCover = true;
     }
 

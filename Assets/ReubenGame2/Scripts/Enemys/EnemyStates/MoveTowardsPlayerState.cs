@@ -1,19 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class MoveTowardsPlayerState : State
 {
     public ShootingState shootingState;
-    public bool canSeeDeezNuts;
+    public GoToCoverState goToCoverState;
+    public bool playerSeen;
+    public bool playerNotSeen;
 
     public override State RunCurrentState()
-    {
-        if (canSeeDeezNuts)
+    {        
+        if (playerNotSeen)
+        {
+            return goToCoverState;
+        }
+        if (playerSeen)
         {
             return shootingState;
         }
+
         else
         {
             CallMoveTowardsPlayer();
@@ -21,48 +26,55 @@ public class MoveTowardsPlayerState : State
         }
     }
 
+    float backToCoverWaitTime = 1f;
+    bool called = false;
     void CallMoveTowardsPlayer()
     {
         base.MoveTowardsPlayer();
-        //StartCoroutine(WaitThenStopMoving());
-        CheckIfCanSeePlayer();
-    }
-
-    IEnumerator WaitThenStopMoving()
-    {
-        yield return new WaitForSeconds(1f);
-        canSeeDeezNuts = true;
-    }
-
-    void CheckIfCanSeePlayer()
-    {
-        Vector3 direction = base.GetDirectionOfTarget();
-        if(Physics.Raycast(transform.position, direction, out RaycastHit hit))
+        if (called == false)
         {
-            if (hit.collider.tag == "Player")
+            StartCoroutine(ContinuousRayCast());
+            StartCoroutine(WaitThenGoToCover());
+            called = true;
+        }
+    }
+
+    IEnumerator WaitThenGoToCover()
+    {
+        Debug.Log("started");
+        yield return new WaitForSeconds(backToCoverWaitTime);
+        Debug.Log("time Up");
+        playerNotSeen = true;
+    }
+
+    IEnumerator ContinuousRayCast()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            Vector3 direction = base.GetDirectionOfTarget();
+            RaycastHit hit;
+            Physics.Raycast(transform.position, direction, out hit);
+            if (hit.transform == target)
             {
+                playerSeen = true;
+                Debug.Log("Player Detected");
                 agentEnemy.SetDestination(transform.position);
-                canSeeDeezNuts = true;
-                Debug.Log("Hit");
             }
-            else 
-            { 
-
-                Debug.Log("notHit"); 
+            else
+            {
+                playerSeen = false;
             }
-        }
-        else
-        {
-            Debug.Log("saw nothing");
-            canSeeDeezNuts = false;
         }
     }
+
 
 
     protected override void OnStateChanged(State newState)
     {
         base.OnStateChanged(newState);
-        canSeeDeezNuts = false;
+        playerSeen = false;
+        playerNotSeen = false;
     }
 
 }

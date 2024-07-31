@@ -31,7 +31,7 @@ public abstract class State : MonoBehaviour
     protected CoverToList currentCover = null;
     protected Transform currentCoverPoint = null;
 
-    void Start()
+    protected virtual void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
@@ -55,7 +55,7 @@ public abstract class State : MonoBehaviour
 
     protected virtual void OnStateChanged(State newState)
     {
-
+        Debug.Log($"stateChanged to {newState}");
     }
 
     private void OnCoverStart(CoverToList cover)
@@ -68,29 +68,6 @@ public abstract class State : MonoBehaviour
     {
         DebugRays();
     }
-
-
-    // bool playerVisible = false;
-    // IEnumerator ContinuousRayCast()
-    // {
-    //     while (true)
-    //     {
-    //         yield return new WaitForSeconds(0.5f);
-    //         Vector3 rayDirection = (target.position - transform.position).normalized;
-    //         RaycastHit hit;
-    //         Physics.Raycast(transform.position, rayDirection, out hit);
-    //         Debug.Log(hit.transform.name);
-    //         if (hit.transform == target)
-    //         {
-    //             playerVisible = true;
-    //             Debug.Log("Player Detected");
-    //         }
-    //         else
-    //         {
-    //             playerVisible = false;
-    //         }
-    //     }
-    // }
 
 
 
