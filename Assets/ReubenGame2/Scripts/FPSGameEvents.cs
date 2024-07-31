@@ -10,6 +10,6 @@ public static class FPSGameEvents
     public delegate void OnCoverStartDelegate(CoverToList cover);
     public static OnCoverStartDelegate OnCoverStart;
 
-    public delegate void OnStateChangedDelegate(State newState);
-    public static OnStateChangedDelegate OnStateChanged;
+    public delegate void OnSwitchStateDelegate(BaseEnemyState State, StateManager enemy);
+    public static OnSwitchStateDelegate OnSwitchState;
 }

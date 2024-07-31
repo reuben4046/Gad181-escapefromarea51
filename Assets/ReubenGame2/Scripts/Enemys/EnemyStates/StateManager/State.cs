@@ -5,55 +5,43 @@ using UnityEngine.UIElements;
 using UnityEngine.AI;
 using System;
 
-public abstract class State : MonoBehaviour
+public class State : MonoBehaviour
 {
-    public abstract State RunCurrentState();
-
-
     //PlayerReference
-    protected Transform target;
+    [SerializeField] protected Transform target;
 
-    protected Camera cam;
+    [SerializeField] protected Camera cam;
 
     //NavMeshAgent
-    protected NavMeshAgent agentEnemy;
+    [SerializeField] protected NavMeshAgent agentEnemy;
 
     //Gun
-    protected Transform gunTransform;
+    [SerializeField] protected Transform gunTransform;
     protected bool canFire = true;
     protected float fireRate = 0.5f;
     protected float shootingTimer = 0f;
 
     //Covers
-    protected List<CoverToList> covers = new List<CoverToList>();
-    protected List<Transform> coverPoints = new List<Transform>();
+    [SerializeField] protected List<CoverToList> covers = new List<CoverToList>();
+    [SerializeField] protected List<Transform> coverPoints = new List<Transform>();
 
-    protected CoverToList currentCover = null;
-    protected Transform currentCoverPoint = null;
+    [SerializeField] protected CoverToList currentCover = null;
+    [SerializeField] protected Transform currentCoverPoint = null;
 
-    protected virtual void Start()
-    {
-        target = GameObject.FindWithTag("Player").transform;
-        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
-
-        agentEnemy = GameObject.FindWithTag("Enemy").GetComponent<NavMeshAgent>();
-
-        gunTransform = agentEnemy.transform.GetChild(0);
-    }
 
     private void OnEnable()
     {
         FPSGameEvents.OnCoverStart += OnCoverStart;
-        FPSGameEvents.OnStateChanged += OnStateChanged;
+        FPSGameEvents.OnSwitchState += OnSwitchState;
     }
 
     private void OnDisable()
     {
         FPSGameEvents.OnCoverStart -= OnCoverStart;
-        FPSGameEvents.OnStateChanged -= OnStateChanged;
+        FPSGameEvents.OnSwitchState -= OnSwitchState;
     }
 
-    protected virtual void OnStateChanged(State newState)
+    protected virtual void OnSwitchState(BaseEnemyState newState, StateManager enemy)
     {
         Debug.Log($"stateChanged to {newState}");
     }

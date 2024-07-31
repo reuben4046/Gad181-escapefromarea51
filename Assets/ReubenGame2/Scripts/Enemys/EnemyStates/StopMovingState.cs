@@ -4,55 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StopMovingState : State
+public class StopMovingState : BaseEnemyState
 {
     public ShootingState shootingState;
     public MoveTowardsPlayerState moveTowardsPlayerState;
     //public GoToCoverState goToCoverState;
     public bool canSeePlayer;
     public bool canNotSeePlayer;
-
-    public override State RunCurrentState()
+    [SerializeField] StateVariables stateVariables;
+    private void OnEnable()
     {
-        if(canSeePlayer)
-        {
-            return shootingState;
-            //return goToCoverState;
-        }
-        else if(canNotSeePlayer)
-        {
-            return moveTowardsPlayerState;
-        }
-        else
-        {
-            CallStopMoving();
-            return this;
-        }
+
     }
 
-    void CallStopMoving()
+    private void OnDisable()
     {
-        base.StopMoving();
-        Vector3 direction = base.GetDirectionOfTarget();
-        if(Physics.Raycast(transform.position, direction, out RaycastHit hit))
-        {
-            if(hit.collider.tag == "Player")
-            {
-                canSeePlayer = true;
-            }
-            else 
-            {
-                canNotSeePlayer = false;
-            }
-        }
-        canSeePlayer = true;
-    }
-
-    protected override void OnStateChanged(State newState)
-    {
-        base.OnStateChanged(newState);
-        canSeePlayer = false;
-        canNotSeePlayer = false;
+        StopAllCoroutines();
     }
 
 

@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemyState : State
+public class BaseEnemyState : MonoBehaviour
 {
-    public override State RunCurrentState()
+    [SerializeField] protected StateManager stateManager;
+    protected virtual void StartState()
     {
-        return this;
+
+    }
+
+    private void Start()
+    {
     }
 }

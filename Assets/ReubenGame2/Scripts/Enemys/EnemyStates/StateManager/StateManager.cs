@@ -1,30 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
+    //private void SwitchToState(State State)
+    //{
+    //    FPSGameEvents.OnSwitchState?.Invoke(State);
+    //}
 
-    public State currentState;
+    [SerializeField] List<BaseEnemyState> states = new List<BaseEnemyState>();
+    [SerializeField] BaseEnemyState startState;
 
-    void Update()
+    private void OnEnable()
     {
-        RunStateMachine();
+        FPSGameEvents.OnSwitchState += OnSwitchState;
     }
 
-    private void RunStateMachine()
+    private void OnDisable()
     {
-        State nextState = currentState?.RunCurrentState();
+        FPSGameEvents.OnSwitchState -= OnSwitchState;
+    }
 
-        if (nextState != null)
+    private void Awake()
+    {
+        foreach (BaseEnemyState state in states)
         {
-            SwitchToNextState(nextState);
+            state.gameObject.SetActive(false);
         }
+        startState.gameObject.SetActive(true);
+
     }
 
-    private void SwitchToNextState(State nextState)
+    private void OnSwitchState(BaseEnemyState State, StateManager enemy)
     {
-        FPSGameEvents.OnStateChanged?.Invoke(nextState);
-        currentState = nextState;
+        if (enemy != this)
+        {
+            return;
+        }
+        foreach (BaseEnemyState state in states)
+        {
+            if (state != State)
+            {
+                state.gameObject.SetActive(false);
+            }
+            else
+            {
+                state.gameObject.SetActive(true);
+            }
+        }
     }
 }

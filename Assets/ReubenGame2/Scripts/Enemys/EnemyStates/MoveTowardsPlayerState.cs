@@ -1,42 +1,44 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class MoveTowardsPlayerState : State
+public class MoveTowardsPlayerState : BaseEnemyState
 {
     public ShootingState shootingState;
     public GoToCoverState goToCoverState;
-    public bool playerSeen;
-    public bool playerNotSeen;
+    float backToCoverWaitTime = 3f;
+    bool called = false;
 
-    public override State RunCurrentState()
-    {        
-        if (playerNotSeen)
-        {
-            return goToCoverState;
-        }
-        if (playerSeen)
-        {
-            return shootingState;
-        }
+    [SerializeField] Transform target;
+    [SerializeField] NavMeshAgent agentEnemy;
 
-        else
-        {
-            CallMoveTowardsPlayer();
-            return this;
-        }
+    private void OnEnable()
+    {
+        CallMoveTowardsPlayer();
     }
 
-    float backToCoverWaitTime = 1f;
-    bool called = false;
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        called = false;
+    }
+
     void CallMoveTowardsPlayer()
     {
-        base.MoveTowardsPlayer();
+        
         if (called == false)
         {
+            MoveTowardsPlayer();
             StartCoroutine(ContinuousRayCast());
             StartCoroutine(WaitThenGoToCover());
             called = true;
         }
+    }
+    //move towards player
+    void MoveTowardsPlayer()
+    {
+        agentEnemy.SetDestination(target.position);
     }
 
     IEnumerator WaitThenGoToCover()
@@ -44,7 +46,7 @@ public class MoveTowardsPlayerState : State
         Debug.Log("started");
         yield return new WaitForSeconds(backToCoverWaitTime);
         Debug.Log("time Up");
-        playerNotSeen = true;
+        FPSGameEvents.OnSwitchState?.Invoke(goToCoverState, this.stateManager);
     }
 
     IEnumerator ContinuousRayCast()
@@ -52,29 +54,20 @@ public class MoveTowardsPlayerState : State
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            Vector3 direction = base.GetDirectionOfTarget();
+            Vector3 direction = GetDirectionOfTarget();
             RaycastHit hit;
             Physics.Raycast(transform.position, direction, out hit);
             if (hit.transform == target)
             {
-                playerSeen = true;
-                Debug.Log("Player Detected");
-                agentEnemy.SetDestination(transform.position);
-            }
-            else
-            {
-                playerSeen = false;
+                FPSGameEvents.OnSwitchState?.Invoke(shootingState, this.stateManager);
             }
         }
     }
 
-
-
-    protected override void OnStateChanged(State newState)
+    private Vector3 GetDirectionOfTarget()
     {
-        base.OnStateChanged(newState);
-        playerSeen = false;
-        playerNotSeen = false;
+        Vector3 direction = target.position - transform.position;
+        direction.Normalize();
+        return direction;
     }
-
 }
