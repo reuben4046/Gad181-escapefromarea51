@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    //private void SwitchToState(State State)
-    //{
-    //    FPSGameEvents.OnSwitchState?.Invoke(State);
-    //}
-
     [SerializeField] List<BaseEnemyState> states = new List<BaseEnemyState>();
     [SerializeField] BaseEnemyState startState;
 
