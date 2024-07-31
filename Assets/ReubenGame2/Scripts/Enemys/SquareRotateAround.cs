@@ -4,34 +4,36 @@ using UnityEngine;
 
 public class SquareRotateAround : MonoBehaviour
 {
-    Vector3 coverPointSize = new Vector3(1, 1, 1);
-    float coverSizeX = 2f;
-    float coverSizeY = 2f;
-    Vector3 coverSize;
+    public RectTransform rectTransform; // The RectTransform component of the rectangle
+    public float speed = 5f; // The speed at which the object moves
 
-    public Transform target;
-    
-    void Start()
+    private Vector2 boundsMin; // The minimum bounds of the rectangle
+    private Vector2 boundsMax; // The maximum bounds of the rectangle
+
+    private void Start()
     {
-        coverSize = new Vector3(coverSizeX, coverSizeY, 1);
+        // Get the bounds of the rectangle
+        boundsMin = rectTransform.rect.min;
+        boundsMax = rectTransform.rect.max;
     }
 
-    void Update()
+    private void Update()
     {
-        UpdateCoverPointPosition();
-    }
-    
-    private void UpdateCoverPointPosition() 
-    {
-        coverSizeX = Mathf.Clamp(coverSize.x, coverPointSize.x, 1 - coverPointSize.x);
-        coverSizeY = Mathf.Clamp(coverSize.y, coverPointSize.y, 1 - coverPointSize.y);
+        // Get the current position of the object
+        Vector2 position = rectTransform.anchoredPosition;
 
-        var worldPosition = coverSize;
-        worldPosition.z = 0;
-        transform.position = worldPosition;
+        // Get the movement input
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 direction = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        // Calculate the new position based on the input and speed
+        position += new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime;
+
+        // Limit the position to the bounds of the rectangle
+        position.x = Mathf.Clamp(position.x, boundsMin.x, boundsMax.x);
+        position.y = Mathf.Clamp(position.y, boundsMin.y, boundsMax.y);
+
+        // Set the new position of the object
+        rectTransform.anchoredPosition = position;
     }
 }

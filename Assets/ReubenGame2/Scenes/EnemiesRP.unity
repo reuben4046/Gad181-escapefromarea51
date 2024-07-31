@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 200674280}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.32, y: 30.22, z: -0.06683054}
+  m_LocalPosition: {x: -14.75, y: 29.29, z: -0.06683054}
   m_LocalScale: {x: 0.3064, y: 0.3064, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -902,27 +902,31 @@ GameObject:
   - component: {fileID: 724933115}
   - component: {fileID: 724933114}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: tempCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &724933113
-Transform:
+--- !u!224 &724933113
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724933112}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.313953, y: 28.4602, z: 169.17545}
+  m_LocalPosition: {x: 0, y: 0, z: 169.17545}
   m_LocalScale: {x: 1, y: 2.9988, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -16.313953, y: 28.4602}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &724933114
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1867,8 +1871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92072b3f880cd4271ab2815dc7863b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube: {fileID: 724933113}
-  target: {fileID: 200674284}
+  rectTransform: {fileID: 724933113}
+  speed: 5
 --- !u!135 &1479600636
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3471,6 +3475,6 @@ SceneRoots:
   - {fileID: 1917634273}
   - {fileID: 1982970901}
   - {fileID: 1837627540}
-  - {fileID: 724933113}
   - {fileID: 1479600639}
   - {fileID: 200674284}
+  - {fileID: 724933113}
