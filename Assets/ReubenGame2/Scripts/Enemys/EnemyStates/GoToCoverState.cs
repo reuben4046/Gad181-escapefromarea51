@@ -6,24 +6,26 @@ using UnityEngine.AI;
 
 public class GoToCoverState : BaseEnemyState
 {
+    //next state reference
     public MoveTowardsPlayerState moveTowardsPlayerState;
 
-    bool goToCoverStateActive = false;
-
+    //NavMeshAgent
     [SerializeField] NavMeshAgent agentEnemy;
     [SerializeField] Transform target;
 
+    //Covers
     [SerializeField] List<CoverToList> covers = new List<CoverToList>();
     List<Transform> coverPoints = new List<Transform>();
 
     CoverToList currentCover = null;
     Transform currentCoverPoint = null;
 
+    //used like a start function, so it gets called when the state is entered
     private void OnEnable()
     {
         CallGoToCover();
     }
-
+    //makes sure all coroutines are not running
     private void OnDisable()
     {
         StopAllCoroutines();
@@ -44,13 +46,7 @@ public class GoToCoverState : BaseEnemyState
     //go to cover
     protected void GoToCover()
     {
-        transform.forward = GetDirectionOfTarget();
         CoverToList cover = GetClosestCover();
-        if (cover == null)
-        {
-            Debug.Log("coverNull");
-        }
-
         if (cover != null)
         {
             Transform destination = GetClosestCoverPoint(cover);
@@ -58,7 +54,10 @@ public class GoToCoverState : BaseEnemyState
             {
                 agentEnemy.SetDestination(destination.position);
             }
-            else { Debug.Log($"agent ={agentEnemy} destination={destination}"); }
+            else 
+            { 
+                Debug.Log($"agent ={agentEnemy} destination={destination}"); 
+            }
         }
 
     }
@@ -72,8 +71,11 @@ public class GoToCoverState : BaseEnemyState
 
     protected CoverToList GetClosestCover()
     {
+        //sets closest cover to null so that it can be found later in the function. 
         CoverToList closestCover = null;
+        //sets closest distance to a large number 
         float closestDistance = 100f;
+        //loops through the list of covers
         foreach (CoverToList cover in covers)
         {
             if (cover != null)
@@ -83,7 +85,7 @@ public class GoToCoverState : BaseEnemyState
                 {
                     closestDistance = distance;
                     closestCover = cover;
-                }
+                } //setting the cover with the shortest distance as the closest cover every time it loops
             }
         }
         currentCover = closestCover;
@@ -93,7 +95,7 @@ public class GoToCoverState : BaseEnemyState
     protected Transform GetClosestCoverPoint(CoverToList cover)
     {
         Transform closestCoverPoint = null;
-
+        //adding the coverpoints on the cover found in the previous function to a list
         foreach (Transform point in cover.transform)
         {
             coverPoints.Add(point);
@@ -103,6 +105,7 @@ public class GoToCoverState : BaseEnemyState
         {
             if (point == currentCoverPoint)
             {
+                //skips the current coverpoint
                 continue;
             }
             float distance = Vector3.Distance(point.position, transform.position);
@@ -112,8 +115,7 @@ public class GoToCoverState : BaseEnemyState
                 closestCoverPoint = point;
             }
         }
-        Debug.Log($"closestcover = {closestCoverPoint}");
-        coverPoints.Clear();
+        coverPoints.Clear(); //clears the list so it is ready for next time this state is called
         currentCoverPoint = closestCoverPoint;
         return closestCoverPoint;
     }
