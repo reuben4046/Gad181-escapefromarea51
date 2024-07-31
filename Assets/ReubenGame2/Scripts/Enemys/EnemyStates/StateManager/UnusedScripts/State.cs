@@ -22,10 +22,10 @@ public class State : MonoBehaviour
     protected float shootingTimer = 0f;
 
     //Covers
-    [SerializeField] protected List<CoverToList> covers = new List<CoverToList>();
+    [SerializeField] protected List<CoverRP> covers = new List<CoverRP>();
     [SerializeField] protected List<Transform> coverPoints = new List<Transform>();
 
-    [SerializeField] protected CoverToList currentCover = null;
+    [SerializeField] protected CoverRP currentCover = null;
     [SerializeField] protected Transform currentCoverPoint = null;
 
 
@@ -46,7 +46,7 @@ public class State : MonoBehaviour
         Debug.Log($"stateChanged to {newState}");
     }
 
-    private void OnCoverStart(CoverToList cover)
+    private void OnCoverStart(CoverRP cover)
     {
         covers.Add(cover);
         Debug.Log(covers.Count);
@@ -63,7 +63,7 @@ public class State : MonoBehaviour
     protected void GoToCover()
     {
         transform.forward = GetDirectionOfTarget();
-        CoverToList cover = GetClosestCover();
+        CoverRP cover = GetClosestCover();
         if (cover == null) 
         {
             Debug.Log("coverNull"); 
@@ -88,11 +88,11 @@ public class State : MonoBehaviour
         return direction;
     }
 
-    protected CoverToList GetClosestCover()
+    protected CoverRP GetClosestCover()
     {
-        CoverToList closestCover = null;
+        CoverRP closestCover = null;
         float closestDistance = 100f;
-        foreach (CoverToList cover in covers)
+        foreach (CoverRP cover in covers)
         {
             if (cover != null)
             {                   
@@ -108,7 +108,7 @@ public class State : MonoBehaviour
         return closestCover;
     }
 
-    protected Transform GetClosestCoverPoint(CoverToList cover)
+    protected Transform GetClosestCoverPoint(CoverRP cover)
     {
         Transform closestCoverPoint = null;
         
@@ -138,7 +138,7 @@ public class State : MonoBehaviour
     
 
     //switch cover
-    protected virtual Transform SwitchCoverPoint(CoverToList currentCover)
+    protected virtual Transform SwitchCoverPoint(CoverRP currentCover)
     {
         if (currentCover == null)
         {

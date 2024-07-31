@@ -7,7 +7,6 @@ public class SwitchCoverState : BaseEnemyState
 {
     public MoveTowardsPlayerState moveTowardsPlayerState;
     public bool coverpointChanged;
-    [SerializeField] StateVariables stateVariables;
     private void OnEnable()
     {
 

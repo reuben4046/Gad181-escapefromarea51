@@ -14,10 +14,10 @@ public class GoToCoverState : BaseEnemyState
     [SerializeField] Transform target;
 
     //Covers
-    [SerializeField] List<CoverToList> covers = new List<CoverToList>();
+    [SerializeField] List<CoverRP> covers = new List<CoverRP>();
     List<Transform> coverPoints = new List<Transform>();
 
-    CoverToList currentCover = null;
+    CoverRP currentCover = null;
     Transform currentCoverPoint = null;
 
     //used like a start function, so it gets called when the state is entered
@@ -46,7 +46,7 @@ public class GoToCoverState : BaseEnemyState
     //go to cover
     protected void GoToCover()
     {
-        CoverToList cover = GetClosestCover();
+        CoverRP cover = GetClosestCover();
         if (cover != null)
         {
             Transform destination = GetClosestCoverPoint(cover);
@@ -69,14 +69,14 @@ public class GoToCoverState : BaseEnemyState
         return direction;
     }
 
-    protected CoverToList GetClosestCover()
+    protected CoverRP GetClosestCover()
     {
         //sets closest cover to null so that it can be found later in the function. 
-        CoverToList closestCover = null;
+        CoverRP closestCover = null;
         //sets closest distance to a large number 
         float closestDistance = 100f;
         //loops through the list of covers
-        foreach (CoverToList cover in covers)
+        foreach (CoverRP cover in covers)
         {
             if (cover != null)
             {
@@ -92,7 +92,7 @@ public class GoToCoverState : BaseEnemyState
         return closestCover;
     }
 
-    protected Transform GetClosestCoverPoint(CoverToList cover)
+    protected Transform GetClosestCoverPoint(CoverRP cover)
     {
         Transform closestCoverPoint = null;
         //adding the coverpoints on the cover found in the previous function to a list

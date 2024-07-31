@@ -7,7 +7,7 @@ public static class FPSGameEvents
     public delegate void OnTargetHitDelegate(Target target);
     public static OnTargetHitDelegate OnTargetHit;
 
-    public delegate void OnCoverStartDelegate(CoverToList cover);
+    public delegate void OnCoverStartDelegate(CoverRP cover);
     public static OnCoverStartDelegate OnCoverStart;
 
     public delegate void OnSwitchStateDelegate(BaseEnemyState State, StateManager enemy);

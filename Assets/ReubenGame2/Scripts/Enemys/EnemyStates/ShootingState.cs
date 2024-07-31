@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class ShootingState : BaseEnemyState
 {
+    //reference to next state
     public GoToCoverState goToCoverState;
 
     //NavMeshAgent
@@ -12,27 +13,39 @@ public class ShootingState : BaseEnemyState
     //PlayerReference
     [SerializeField] Transform target;
 
-    //Gun
+    //shooting
     [SerializeField] Transform gunTransform;
     bool canFire = true;
     float fireRate = 0.5f;
     float shootingTimer = 0f;
+    bool shootingStateActive;
 
     private void OnEnable()
     {
-        CallShooting();
+        shootingStateActive = true;
+        StartCoroutine(StopShooting());
     }
 
     private void OnDisable()
     {
+        shootingStateActive = false;
         StopAllCoroutines();
+    }
+
+    
+    void Update()
+    {
+        if (shootingStateActive)
+        {
+            CallShooting();
+        }
     }
 
     void CallShooting()
     {
         ShootAtPlayer();
         agentEnemy.SetDestination(transform.position);
-        StartCoroutine(StopShooting());
+        
     }
 
     IEnumerator StopShooting()

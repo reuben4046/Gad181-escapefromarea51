@@ -11,7 +11,6 @@ public class StopMovingState : BaseEnemyState
     //public GoToCoverState goToCoverState;
     public bool canSeePlayer;
     public bool canNotSeePlayer;
-    [SerializeField] StateVariables stateVariables;
     private void OnEnable()
     {
 
