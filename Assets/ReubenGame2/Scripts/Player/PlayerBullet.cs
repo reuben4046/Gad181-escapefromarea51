@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class PlayerBullet : MonoBehaviour {
     
     void OnEnable()
     {
-        StartCoroutine(DisableAfter(4f));
+        StartCoroutine(DisableAfter(2f));
     }
 
     IEnumerator DisableAfter(float time)
@@ -24,11 +25,11 @@ public class PlayerBullet : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         gameObject.SetActive(false);
-        Target target = other.gameObject.GetComponent<Target>();
+
+        TargetRP target = other.gameObject.GetComponent<TargetRP>();
         if (target != null)
         {
-            FPSGameEvents.OnTargetHit.Invoke(other.gameObject.GetComponent<Target>());        
+            FPSGameEvents.OnTargetHit.Invoke(target);
         }
-
     }
 }
