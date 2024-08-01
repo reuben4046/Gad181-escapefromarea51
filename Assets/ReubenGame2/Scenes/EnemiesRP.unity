@@ -418,6 +418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7320797510384706602, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
+      propertyPath: hipFireAccuracyRadius
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
