@@ -11,23 +11,36 @@ public class GoToCoverState : BaseEnemyState
 
     //NavMeshAgent
     [SerializeField] NavMeshAgent agentEnemy;
-    [SerializeField] Transform target;
+
+    Transform target;
 
     //Covers
-    [SerializeField] List<CoverRP> covers = new List<CoverRP>();
+    List<CoverRP> covers = new List<CoverRP>();
     List<Transform> coverPoints = new List<Transform>();
 
     CoverRP currentCover = null;
     Transform currentCoverPoint = null;
 
+    void Awake()
+    {
+        target = GameObject.FindWithTag("Player")?.transform;
+    }
+
+    private void OnCoverStart(CoverRP cover)
+    {
+        covers.Add(cover);
+    }
+
     //used like a start function, so it gets called when the state is entered
     private void OnEnable()
     {
+        FPSGameEvents.OnCoverStart += OnCoverStart;
         CallGoToCover();
     }
     //makes sure all coroutines are not running
     private void OnDisable()
     {
+        FPSGameEvents.OnCoverStart -= OnCoverStart;
         StopAllCoroutines();
     }
 

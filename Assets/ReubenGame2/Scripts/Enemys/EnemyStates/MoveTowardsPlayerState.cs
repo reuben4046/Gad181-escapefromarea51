@@ -10,9 +10,18 @@ public class MoveTowardsPlayerState : BaseEnemyState
     float backToCoverWaitTime = 3f;
     bool called = false;
 
-    [SerializeField] Transform target;
-    
+    Transform target;
+
     [SerializeField] NavMeshAgent agentEnemy;
+
+    void Awake()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+        if (target == null)
+        {
+            Debug.Log($"target= {target}");
+        }
+    }
 
     private void OnEnable()
     {

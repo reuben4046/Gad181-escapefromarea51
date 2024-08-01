@@ -11,7 +11,7 @@ public class ShootingState : BaseEnemyState
     //NavMeshAgent
     [SerializeField] NavMeshAgent agentEnemy;
     //PlayerReference
-    [SerializeField] Transform target;
+    Transform target;
 
     //shooting
     [SerializeField] Transform gunTransform;
@@ -21,6 +21,12 @@ public class ShootingState : BaseEnemyState
     bool shootingStateActive;
 
     float checkTimeInterval = 0.1f;
+
+
+    void Awake()
+    {
+        target = GameObject.FindWithTag("Player")?.transform;
+    }
 
     private void OnEnable()
     {
