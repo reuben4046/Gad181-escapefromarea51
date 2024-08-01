@@ -11,6 +11,7 @@ public class MoveTowardsPlayerState : BaseEnemyState
     bool called = false;
 
     [SerializeField] Transform target;
+    
     [SerializeField] NavMeshAgent agentEnemy;
 
     private void OnEnable()

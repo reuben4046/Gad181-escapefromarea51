@@ -20,10 +20,13 @@ public class ShootingState : BaseEnemyState
     float shootingTimer = 0f;
     bool shootingStateActive;
 
+    float checkTimeInterval = 0.1f;
+
     private void OnEnable()
     {
         shootingStateActive = true;
         StartCoroutine(StopShooting());
+        StartCoroutine(ContinuousPlayerDirectionCheck());
     }
 
     private void OnDisable()
@@ -47,7 +50,7 @@ public class ShootingState : BaseEnemyState
         agentEnemy.SetDestination(transform.position);
         
     }
-
+    
     IEnumerator StopShooting()
     {
         yield return new WaitForSeconds(3f);
@@ -105,6 +108,37 @@ public class ShootingState : BaseEnemyState
         {
             return null;
         }
+    }
+
+    //only shoots while can still see the player
+    IEnumerator ContinuousPlayerDirectionCheck()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(checkTimeInterval);
+            RaycastHit hit = PlayerDirectionRaycast();
+            if (hit.transform != target)
+            {
+                FPSGameEvents.OnSwitchState?.Invoke(goToCoverState, this.stateManager);
+            }
+        }
+    }
+
+    Vector3 GetDirectionOfTarget()
+    {
+        Vector3 direction = target.position - transform.position;
+        direction.Normalize();
+        return direction;
+    }
+
+    //making sure the CoverPoint is on the opposite side to the Target. 
+    RaycastHit PlayerDirectionRaycast()
+    {
+        Vector3 targetDirection = GetDirectionOfTarget();
+        Debug.DrawRay(transform.position, targetDirection, Color.red, 10f);
+        Physics.Raycast(transform.position, targetDirection, out RaycastHit hit);
+
+        return hit;
     }
 
 }
