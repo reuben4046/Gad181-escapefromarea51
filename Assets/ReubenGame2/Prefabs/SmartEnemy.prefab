@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1810621893976619500}
   - component: {fileID: 8091169966179703739}
   - component: {fileID: 4518861325113945165}
-  - component: {fileID: 6070427110649449204}
   m_Layer: 8
   m_Name: SmartEnemy
   m_TagString: Enemy
@@ -151,19 +150,6 @@ MonoBehaviour:
   - {fileID: 8388986397920642939}
   - {fileID: 6241328629467157636}
   startState: {fileID: 18799651844279179}
---- !u!114 &6070427110649449204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196461924666274848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd0b8295ca604fe5915c88fc609fe63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateManager: {fileID: 4518861325113945165}
 --- !u!1 &2627712386764144414
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,8 +231,6 @@ MonoBehaviour:
   stateManager: {fileID: 4518861325113945165}
   moveTowardsPlayerState: {fileID: 8388986397920642939}
   agentEnemy: {fileID: 8091169966179703739}
-  target: {fileID: 0}
-  covers: []
 --- !u!1 &5744204555970288167
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +278,6 @@ MonoBehaviour:
   stateManager: {fileID: 4518861325113945165}
   goToCoverState: {fileID: 18799651844279179}
   agentEnemy: {fileID: 8091169966179703739}
-  target: {fileID: 0}
   gunTransform: {fileID: 8815743761868802922}
 --- !u!1 &6674057918433157553
 GameObject:
@@ -343,7 +326,6 @@ MonoBehaviour:
   stateManager: {fileID: 4518861325113945165}
   shootingState: {fileID: 6241328629467157636}
   goToCoverState: {fileID: 18799651844279179}
-  target: {fileID: 0}
   agentEnemy: {fileID: 8091169966179703739}
 --- !u!1 &7121170088893623012
 GameObject:

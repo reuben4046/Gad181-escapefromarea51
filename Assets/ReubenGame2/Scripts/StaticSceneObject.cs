@@ -4,7 +4,7 @@ using UnityEditor.Callbacks;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
-public class StaticTarget : MonoBehaviour
+public class StaticSceneObject : MonoBehaviour
 {
     void Awake()
     {
