@@ -21,7 +21,7 @@ public class CollectingDocs : MonoBehaviour
             docs = docs + 1;
             ScoreManager.docCount += 1;
             //   Col.gameObject.SetActive(false);
-            Destroy(Col.gameObject, 1f);
+            Destroy(Col.gameObject, 0.3f);
         }
     }
 
