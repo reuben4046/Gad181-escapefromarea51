@@ -43,9 +43,7 @@ public class MoveTowardsPlayerState : BaseEnemyState
 
     IEnumerator WaitThenGoToCover()
     {
-        Debug.Log("started");
         yield return new WaitForSeconds(backToCoverWaitTime);
-        Debug.Log("time Up");
         FPSGameEvents.OnSwitchState?.Invoke(goToCoverState, this.stateManager);
     }
 
