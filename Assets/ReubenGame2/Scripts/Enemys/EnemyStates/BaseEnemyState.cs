@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemyState : MonoBehaviour
+public abstract class BaseEnemyState : MonoBehaviour
 {
     [SerializeField] protected StateManager stateManager;
 
