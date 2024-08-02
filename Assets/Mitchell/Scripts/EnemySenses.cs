@@ -51,14 +51,6 @@ public class EnemySenses : MonoBehaviour
                 {
                     canSeePlayer = false;
                 }
-                /*if (Physics.Raycast(transform.position, playerDirection, out RaycastHit hit))
-                {
-                    if (hit.point == player.transform.position)
-                    {
-                        canSeePlayer= true;
-                    } else { canSeePlayer = false; }
-                } */
-
             }
         }
     }

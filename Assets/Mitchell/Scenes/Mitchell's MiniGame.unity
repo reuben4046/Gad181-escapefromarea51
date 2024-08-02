@@ -14776,11 +14776,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: canSeePlayer
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: timeTillCapture
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
@@ -14790,6 +14798,10 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
       value: 0
@@ -21754,11 +21766,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: canSeePlayer
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: timeTillCapture
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
@@ -21768,6 +21788,10 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
       value: 0
@@ -22409,11 +22433,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: canSeePlayer
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: timeTillCapture
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
@@ -22423,6 +22455,10 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
       value: 0
@@ -26236,11 +26272,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: canSeePlayer
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: timeTillCapture
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
@@ -26250,6 +26294,10 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
       value: 0
@@ -26387,19 +26435,27 @@ PrefabInstance:
       objectReference: {fileID: 801265120}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewAngle
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
-      value: 90
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: canSeePlayer
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: timeTillCapture
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
@@ -26409,6 +26465,10 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
       value: 0
@@ -26850,7 +26910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1588923325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28361,11 +28421,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: canSeePlayer
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: timeTillCapture
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
@@ -28375,6 +28443,10 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
       value: 0
