@@ -31,6 +31,7 @@ public class ShootingState : BaseEnemyState
     private void OnEnable()
     {
         shootingStateActive = true;
+        agentEnemy.SetDestination(transform.position);
         StartCoroutine(StopShooting());
         StartCoroutine(ContinuousPlayerDirectionCheck());
     }
@@ -46,21 +47,20 @@ public class ShootingState : BaseEnemyState
     {
         if (shootingStateActive)
         {
-            CallShooting();
+            ShootAtPlayer();
+            LookAtPlayer();
         }
     }
 
-    void CallShooting()
-    {
-        ShootAtPlayer();
-        agentEnemy.SetDestination(transform.position);
-        
-    }
-    
     IEnumerator StopShooting()
     {
         yield return new WaitForSeconds(3f);
         FPSGameEvents.OnSwitchState?.Invoke(goToCoverState, this.stateManager);
+    }
+
+    void LookAtPlayer()
+    {
+        transform.LookAt(target);
     }
 
     //shoot at player

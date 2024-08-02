@@ -273,6 +273,7 @@ MonoBehaviour:
   stateManager: {fileID: 4518861325113945165}
   moveTowardsPlayerState: {fileID: 8388986397920642939}
   agentEnemy: {fileID: 8091169966179703739}
+  covers: []
 --- !u!1 &5744204555970288167
 GameObject:
   m_ObjectHideFlags: 0

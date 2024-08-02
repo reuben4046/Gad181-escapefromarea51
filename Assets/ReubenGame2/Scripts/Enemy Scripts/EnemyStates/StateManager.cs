@@ -18,7 +18,7 @@ public class StateManager : MonoBehaviour
         FPSGameEvents.OnSwitchState -= OnSwitchState;
     }
 
-    private void Awake()
+    private void Start()
     {
         foreach (BaseEnemyState state in states)
         {
