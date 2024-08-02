@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 2277514152730161479}
   - component: {fileID: 7795465240642903047}
   - component: {fileID: 8925658376220873858}
-  - component: {fileID: 6006147964707082530}
+  - component: {fileID: 2437374433883296608}
   m_Layer: 0
   m_Name: Security Camera
   m_TagString: Untagged
@@ -458,7 +458,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   m_target: {fileID: 0}
---- !u!114 &6006147964707082530
+  viewRadius: 0
+  viewAngle: 0
+  canSeePlayer: 0
+  targetPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  player: {fileID: 0}
+--- !u!114 &2437374433883296608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -467,19 +477,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5909306368916507315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c30e8f76019e214999202ee84afb5cd, type: 3}
+  m_Script: {fileID: 11500000, guid: f130c35ad8d413442a1d7ffb9e713731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 20
+  viewRadius: 0
   viewAngle: 0
+  canSeePlayer: 0
   targetPlayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   player: {fileID: 0}
-  enemy: {fileID: 0}
+  startCapture: 0
+  timeTillCapture: 0
 --- !u!1 &7803251996113394702
 GameObject:
   m_ObjectHideFlags: 0

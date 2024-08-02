@@ -11164,8 +11164,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   player: {fileID: 801265120}
-  startCapture: 1
-  timeTillCapture: 0
+  enemy: {fileID: 0}
 --- !u!114 &583643147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14718,6 +14717,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.622
@@ -14814,7 +14837,8 @@ PrefabInstance:
       propertyPath: targetPlayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -21708,6 +21732,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59.855
@@ -21804,7 +21852,8 @@ PrefabInstance:
       propertyPath: targetPlayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22375,6 +22424,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.333
@@ -22471,7 +22544,8 @@ PrefabInstance:
       propertyPath: targetPlayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -26214,6 +26288,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.754
@@ -26310,7 +26408,8 @@ PrefabInstance:
       propertyPath: targetPlayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -26385,6 +26484,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.9
@@ -26435,11 +26558,11 @@ PrefabInstance:
       objectReference: {fileID: 801265120}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewAngle
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewRadius
-      value: 30
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: canSeePlayer
@@ -26481,7 +26604,8 @@ PrefabInstance:
       propertyPath: targetPlayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -28363,6 +28487,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.904
@@ -28459,7 +28607,8 @@ PrefabInstance:
       propertyPath: targetPlayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -35043,8 +35192,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   player: {fileID: 801265120}
-  startCapture: 1
-  timeTillCapture: 0
+  enemy: {fileID: 0}
 --- !u!136 &2115762011
 CapsuleCollider:
   m_ObjectHideFlags: 0
