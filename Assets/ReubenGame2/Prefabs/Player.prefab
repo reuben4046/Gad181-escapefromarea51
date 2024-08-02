@@ -8486,7 +8486,7 @@ MonoBehaviour:
   playerCam: {fileID: 569963879312314231}
   fireRate: 0.1
   muzzleFlash: {fileID: 2797637714984489355}
-  hipFireAccuracyRadius: 1.5
+  hipFireAccuracyRadius: 1
 --- !u!114 &7030141081301701552
 MonoBehaviour:
   m_ObjectHideFlags: 0

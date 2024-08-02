@@ -67,7 +67,6 @@ public class ShootingState : BaseEnemyState
     protected void ShootAtPlayer()
     {
         FireTimer();
-        transform.LookAt(target);
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
         {
             if (hit.transform == target && canFire)
