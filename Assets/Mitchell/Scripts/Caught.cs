@@ -23,7 +23,7 @@ public class Caught : MonoBehaviour
     public void ContinueGame()
     {
         Debug.Log("Taking you to the final MiniGame!");
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(8);
     }
 
     public void QuitGame()
