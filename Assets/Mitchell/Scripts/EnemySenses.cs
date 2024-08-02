@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySenses : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class EnemySenses : MonoBehaviour
     public LayerMask obstacleMask;
 
     public GameObject player;
-    public Fatster enemy;
+
+    public bool startCapture = true;
+
+    public float timeTillCapture;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GetComponentInChildren<Fatster>();
+
     }
 
     // Update is called once per frame
@@ -28,29 +32,50 @@ public class EnemySenses : MonoBehaviour
 
         if (Vector3.Angle(transform.forward, playerDirection) < viewAngle / 2)
         {
+            Debug.Log("You're in angle!");
             float distanceToTarget = Vector3.Distance(transform.position, player.transform.position);
             if (distanceToTarget <= viewRadius)
             {
+                Debug.Log("You're in distance!");
                 if (Physics.Raycast(transform.position, playerDirection, distanceToTarget, obstacleMask) == false)
                 {
-                    Debug.Log("I can see you!");
+                    Debug.Log("I can see you directly!!!");
                     canSeePlayer = true;
-                    if (enemy != null)
+                    if (startCapture = true)
                     {
-                        enemy.RotateTowardsPlayer();
-                        enemy.MoveTowardsPlayer();
+                        startCapture = false;
+                        StartCoroutine(WaitTillCaught());
                     }
-
                 }
-                if (Physics.Raycast(transform.position, playerDirection, out RaycastHit hit))
+                else
+                {
+                    canSeePlayer = false;
+                }
+                /*if (Physics.Raycast(transform.position, playerDirection, out RaycastHit hit))
                 {
                     if (hit.point == player.transform.position)
                     {
                         canSeePlayer= true;
                     } else { canSeePlayer = false; }
-                } 
-                
+                } */
+
             }
         }
+    }
+
+    public IEnumerator WaitTillCaught()
+    {
+        // suspend execution for 5 seconds
+        yield return new WaitForSeconds(timeTillCapture);
+        if (canSeePlayer)
+        {
+            Debug.Log("CAUGHT!!");
+            SceneManager.LoadScene(5);
+        }
+        else
+        {
+            startCapture = true;
+        }
+
     }
 }

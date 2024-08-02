@@ -8,6 +8,15 @@ public class TrackingSystem : MonoBehaviour
     Vector3 m_lastKnownPosition = Vector3.zero;
     Quaternion m_lookAtRotation;
 
+    public float viewRadius;
+    public float viewAngle;
+    public bool canSeePlayer = false;
+
+    public LayerMask targetPlayer;
+    public LayerMask obstacleMask;
+
+    public GameObject player;
+
     // Update is called once per frame
     void Update()
     {
@@ -37,4 +46,5 @@ public class TrackingSystem : MonoBehaviour
 
         return true;
     }
+
 }
