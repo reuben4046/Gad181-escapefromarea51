@@ -4,14 +4,8 @@ using UnityEngine;
 
 public static class FPSGameEvents
 {
-    public delegate void OnTargetSpawnedDelegate(TargetRP target);
-    public static OnTargetSpawnedDelegate OnTargetSpawned;
-
-    public delegate void OnTargetHitDelegate(TargetRP target);
+    public delegate void OnTargetHitDelegate(Target target);
     public static OnTargetHitDelegate OnTargetHit;
-
-    public delegate void OnPlayerTargetHitDelegate();
-    public static OnPlayerTargetHitDelegate OnPlayerTargetHit;
 
     public delegate void OnCoverStartDelegate(CoverRP cover);
     public static OnCoverStartDelegate OnCoverStart;

@@ -13,7 +13,7 @@ public class EnemyBulletRP : MonoBehaviour
     
     void OnEnable()
     {
-        StartCoroutine(DisableAfter(2f));
+        StartCoroutine(DisableAfter(4f));
     }
 
     IEnumerator DisableAfter(float time)
@@ -24,11 +24,16 @@ public class EnemyBulletRP : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        gameObject.SetActive(false);
-        PlayerTarget target = other.gameObject.GetComponent<PlayerTarget>();
-        if (target != null)
+        if (other.gameObject.tag == "Player")
         {
-            FPSGameEvents.OnPlayerTargetHit.Invoke();
+            Debug.Log("HIT PLAYER");
         }
+        gameObject.SetActive(false);
+        // Target target = other.gameObject.GetComponent<Target>();
+        // if (target != null)
+        // {
+        //     FPSGameEvents.OnTargetHit.Invoke(other.gameObject.GetComponent<Target>());        
+        // }
+
     }
 }
