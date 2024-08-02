@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,7 +16,7 @@ public class GoToCoverState : BaseEnemyState
     Transform target;
 
     //Covers
-    List<CoverRP> covers = new List<CoverRP>();
+    [SerializeField] List<CoverRP> covers = new List<CoverRP>();
     List<Transform> coverPoints = new List<Transform>();
 
     CoverRP currentCover = null;
@@ -35,19 +36,15 @@ public class GoToCoverState : BaseEnemyState
     private void OnEnable()
     {
         FPSGameEvents.OnCoverStart += OnCoverStart;
-        CallGoToCover();
+        GoToCover();
+        StartCoroutine(WaitTillCoverFound());
+
     }
     //makes sure all coroutines are not running
     private void OnDisable()
     {
         FPSGameEvents.OnCoverStart -= OnCoverStart;
         StopAllCoroutines();
-    }
-
-    void CallGoToCover()
-    {
-        GoToCover();
-        StartCoroutine(WaitTillCoverFound());
     }
 
     IEnumerator WaitTillCoverFound()
@@ -60,19 +57,16 @@ public class GoToCoverState : BaseEnemyState
     protected void GoToCover()
     {
         CoverRP cover = GetClosestCover();
-        if (cover != null)
+        if (cover == null)
         {
-            Transform destination = GetClosestCoverPoint(cover);
-            if (agentEnemy != null && destination != null)
-            {
-                agentEnemy.SetDestination(destination.position);
-            }
-            else 
-            { 
-                Debug.Log($"agent ={agentEnemy} destination={destination}"); 
-            }
+            Debug.Log($"cover= {cover}");
+            return;
         }
-
+        Transform destination = GetClosestCoverPoint(cover);
+        if (agentEnemy != null && destination != null)
+        {
+            agentEnemy.SetDestination(destination.position);
+        }
     }
 
     protected Vector3 GetDirectionOfTarget()
