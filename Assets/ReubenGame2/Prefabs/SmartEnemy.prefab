@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 5429278294323651816}
   - component: {fileID: 6060502870009612325}
   - component: {fileID: 1810621893976619500}
+  - component: {fileID: 1174275020865374853}
   - component: {fileID: 8091169966179703739}
   - component: {fileID: 4518861325113945165}
+  - component: {fileID: 73050417015038528}
   m_Layer: 8
   m_Name: SmartEnemy
   m_TagString: Enemy
@@ -111,6 +113,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!54 &1174275020865374853
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196461924666274848}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!195 &8091169966179703739
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -150,6 +179,19 @@ MonoBehaviour:
   - {fileID: 8388986397920642939}
   - {fileID: 6241328629467157636}
   startState: {fileID: 18799651844279179}
+--- !u!114 &73050417015038528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196461924666274848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef444d961e33945c6b686dd9a7eaca05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &2627712386764144414
 GameObject:
   m_ObjectHideFlags: 0

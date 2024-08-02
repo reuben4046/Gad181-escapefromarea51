@@ -128,10 +128,8 @@ public class MCXGun : MonoBehaviour
 
     Vector3 ReduceAccuracy(Vector3 hitPoint)
     {
-        Debug.Log("not changed" + hitPoint);
         Vector3 randomPoint = Random.insideUnitSphere * hipFireAccuracyRadius;
         hitPoint += randomPoint;
-        Debug.Log("Changed" + hitPoint);
         return hitPoint;
     }
 

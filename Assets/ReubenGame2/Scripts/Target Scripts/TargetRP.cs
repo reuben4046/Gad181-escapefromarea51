@@ -7,6 +7,21 @@ using UnityEngine;
 public class TargetRP : MonoBehaviour
 {
     private float damageAmmount = 10f;
+    [SerializeField] private float health = 100f; 
+
+    void Start()
+    {
+        //FPSGameEvents.OnTargetSpawned.Invoke(this);
+    }
+
+    void Awake()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+    }
+
+
     void OnEnable()
     {
         FPSGameEvents.OnTargetHit += OnTargetHit;
@@ -16,31 +31,19 @@ public class TargetRP : MonoBehaviour
         FPSGameEvents.OnTargetHit -= OnTargetHit;
     }
 
-    void OnTargetHit(Target target)
+    void OnTargetHit(TargetRP target)
     {
-        TakeDamage(damageAmmount);
-    }
-
-    void Awake()
-    {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
-    }
-
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Bullet")
+        if (target == this)
         {
-            TakeDamage(10f);
+            TakeDamage(damageAmmount);
         }
     }
 
-    public float health = 100f;
+
     public void TakeDamage(float amount)
     {
         health -= amount;
-        Debug.Log(health);
+        Debug.Log($"Enemy Health = {health}");
         if (health <= 0f)
         {
             Die();
@@ -49,6 +52,7 @@ public class TargetRP : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Dead");
+        Debug.Log("Enemy Dead");
+        Destroy(gameObject);
     }
 }
