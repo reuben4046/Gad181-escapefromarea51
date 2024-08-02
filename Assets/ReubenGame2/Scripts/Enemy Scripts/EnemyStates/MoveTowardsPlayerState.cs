@@ -8,6 +8,7 @@ public class MoveTowardsPlayerState : BaseEnemyState
     public ShootingState shootingState;
     public GoToCoverState goToCoverState;
     float backToCoverWaitTime = 3f;
+    bool called = false;
 
     Transform target;
 
@@ -30,15 +31,20 @@ public class MoveTowardsPlayerState : BaseEnemyState
     private void OnDisable()
     {
         StopAllCoroutines();
+        called = false;
     }
 
     void CallMoveTowardsPlayer()
     {
-        MoveTowardsPlayer();
-        StartCoroutine(ContinuousRayCast());
-        StartCoroutine(WaitThenGoToCover());
+        
+        if (called == false)
+        {
+            MoveTowardsPlayer();
+            StartCoroutine(ContinuousRayCast());
+            StartCoroutine(WaitThenGoToCover());
+            called = true;
+        }
     }
-
     //move towards player
     void MoveTowardsPlayer()
     {
