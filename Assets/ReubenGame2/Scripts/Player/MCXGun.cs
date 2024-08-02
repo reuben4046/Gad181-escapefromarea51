@@ -37,6 +37,10 @@ public class MCXGun : MonoBehaviour
     //HipFiring varables
     private bool isHipFiring = true;
     [SerializeField] float hipFireAccuracyRadius = 10f;
+
+    //Sprinting variables
+    bool canAim = true;
+
     // Start is called before the first frame update
     void Start() 
     {
@@ -47,6 +51,22 @@ public class MCXGun : MonoBehaviour
     {
         playerGun.transform.localPosition = gunWalkingPos;
         playerGun.transform.localRotation = Quaternion.Euler(gunWalkingRot);
+    }
+
+    void OnEnable()
+    {
+        FPSGameEvents.OnPlayerSprinting += OnPlayerSprinting;
+    }
+
+    void OnDisable()
+    {
+        FPSGameEvents.OnPlayerSprinting -= OnPlayerSprinting;
+    }
+
+    void OnPlayerSprinting(bool isSprinting)
+    {
+        //switches can aim and cant aim depending on if the player is sprinting
+        canAim = !isSprinting;
     }
 
     // Update is called once per frame
@@ -60,13 +80,15 @@ public class MCXGun : MonoBehaviour
             ShootingTweenShake();
         } 
 
-        if (Input.GetMouseButtonDown(1) && !gunTweeningToAim) 
+        if (Input.GetMouseButtonDown(1) && !gunTweeningToAim && canAim) 
         {   
+            FPSGameEvents.OnPlayerAiming?.Invoke(true);
             TweenToAimPos();
             isHipFiring = false;
         }
         else if (Input.GetMouseButtonUp(1)) 
         {
+            FPSGameEvents.OnPlayerAiming?.Invoke(false);
             LeanTween.cancel(leanTweenMoveID);
             LeanTween.cancel(leanTweenRotateID);
             gunTweeningToAim = false;

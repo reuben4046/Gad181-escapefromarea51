@@ -7191,7 +7191,7 @@ RectTransform:
   m_GameObject: {fileID: 4714219699723043455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.063260004, y: 0.063260004, z: 0.063260004}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5765974534998231847}
@@ -8518,7 +8518,7 @@ MonoBehaviour:
   playerCanMove: 1
   walkSpeed: 5
   maxVelocityChange: 10
-  enableSprint: 0
+  enableSprint: 1
   unlimitedSprint: 1
   sprintKey: 304
   sprintSpeed: 7
@@ -8526,7 +8526,7 @@ MonoBehaviour:
   sprintCooldown: 0.5
   sprintFOV: 80
   sprintFOVStepTime: 10
-  useSprintBar: 1
+  useSprintBar: 0
   hideBarWhenFull: 1
   sprintBarBG: {fileID: 4975195030847947192}
   sprintBar: {fileID: 594554133812381889}

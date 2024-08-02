@@ -149,6 +149,22 @@ public class FirstPersonController : MonoBehaviour
             sprintCooldownReset = sprintCooldown;
         }
     }
+
+    void OnEnable()
+    {
+        FPSGameEvents.OnPlayerAiming += OnPlayerAiming;
+    }
+
+    void OnDisable()
+    {
+        FPSGameEvents.OnPlayerAiming -= OnPlayerAiming;
+    }
+    
+    void OnPlayerAiming(bool isAiming)
+    {
+        enableSprint = !isAiming;
+    }
+    
     float savedMouseSensitivity;
     void Start()
     {
@@ -282,6 +298,7 @@ public class FirstPersonController : MonoBehaviour
         {
             if(isSprinting)
             {
+                FPSGameEvents.OnPlayerSprinting?.Invoke(isSprinting);
                 isZoomed = false;
                 playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
 
@@ -298,6 +315,7 @@ public class FirstPersonController : MonoBehaviour
             }
             else
             {
+                FPSGameEvents.OnPlayerSprinting?.Invoke(isSprinting);
                 // Regain sprint while not sprinting
                 sprintRemaining = Mathf.Clamp(sprintRemaining += 1 * Time.deltaTime, 0, sprintDuration);
             }

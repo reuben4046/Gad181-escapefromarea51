@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTarget : MonoBehaviour
 { 
     [SerializeField] float health = 100f;
-    private float damageAmmount = 10f;    
+    //private float damageAmmount = 10f;    
 
     void Awake()
     {
@@ -23,14 +23,14 @@ public class PlayerTarget : MonoBehaviour
         FPSGameEvents.OnPlayerTargetHit -= OnPlayerTargetHit;
     }
 
-    void OnPlayerTargetHit()
+    void OnPlayerTargetHit(float damage)
     {
-        TakeDamage(damageAmmount);
+        TakeDamage(damage);
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float damage)
     {
-        health -= amount;
+        health -= damage;
         Debug.Log($"Player Health = {health}");
         if (health <= 0f)
         {
@@ -40,6 +40,7 @@ public class PlayerTarget : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player Dead");
+        FPSGameEvents.OnPlayerDeath.Invoke();
+        gameObject.SetActive(false);
     }
 }

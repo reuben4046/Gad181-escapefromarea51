@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBulletRP : MonoBehaviour
 {
     float speed = 100f;
+    float damage = 10f;
 
     void Update()
     {
@@ -28,7 +29,7 @@ public class EnemyBulletRP : MonoBehaviour
         PlayerTarget target = other.gameObject.GetComponent<PlayerTarget>();
         if (target != null)
         {
-            FPSGameEvents.OnPlayerTargetHit.Invoke();
+            FPSGameEvents.OnPlayerTargetHit.Invoke(damage);
         }
     }
 }
