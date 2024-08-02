@@ -29,44 +29,56 @@ public class PlayerMovementRP : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update() 
+    {
+        DisableWingTrails();
         ForwardForce();
+        playerInputs();
+    }
 
-        if (Input.GetKeyDown(KeyCode.R)) {
-            rotationSpeed += 1f;
-        }
 
-        if (Input.GetKey(KeyCode.A)) {
+    void playerInputs()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
             RotateLeft();
             RightWingTrail(true);
-        } else {
-            RightWingTrail(false);
         }
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D)) 
+        {
             RotateRight();
             LeftWingTrail(true);
-        } else {
-            LeftWingTrail(false);
         }
     }
 
-    private void LeftWingTrail(bool showTrail) {
+    private void LeftWingTrail(bool showTrail) 
+    {
         leftWing.emitting = showTrail;
     }
 
-    private void RightWingTrail(bool showTrail) {
+    private void RightWingTrail(bool showTrail) 
+    {
         rightWing.emitting = showTrail;
     }
 
-    private void RotateLeft() {
+    void DisableWingTrails()
+    {
+        LeftWingTrail(false);
+        RightWingTrail(false); 
+    }
+
+    private void RotateLeft() 
+    {
         transform.Rotate(0, 0, + (rotationSpeed * Time.deltaTime)); 
     }
-    private void RotateRight() {
+    private void RotateRight() 
+    {
         transform.Rotate(0,0, - (rotationSpeed * Time.deltaTime));
     }
    
 
-    void ForwardForce() {
+    void ForwardForce() 
+    {
         transform.Translate(new Vector2(0, moveSpeed) * Time.deltaTime);
     }
 }
