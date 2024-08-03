@@ -572,37 +572,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
---- !u!1 &455953860
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 455953861}
-  m_Layer: 0
-  m_Name: Enemys
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &455953861
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455953860}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1837627540}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483177954
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,7 +2662,6 @@ MonoBehaviour:
   playerBulletPrefab: {fileID: 5889765851248760607, guid: b2bb261846da3ee40845cedce8702240, type: 3}
   enemyBulletParent: {fileID: 1236736395}
   enemyBulletPrefab: {fileID: 4168381388569575901, guid: 4e71cdd56555e46c5b2727155a88984a, type: 3}
-  enemyParent: {fileID: 455953861}
   enemyPrefab: {fileID: 4518861325113945165, guid: a6f7544b22d6d48a6a4231c2d69b5575, type: 3}
 --- !u!4 &1837627540
 Transform:
@@ -2710,7 +2678,6 @@ Transform:
   m_Children:
   - {fileID: 727776232}
   - {fileID: 1236736395}
-  - {fileID: 455953861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886216385
