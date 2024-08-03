@@ -8,7 +8,9 @@ public class EnemySpawnerRP : MonoBehaviour
     PlayerTarget playerTarget;
     [SerializeField] List<Transform> spawnPoints = new List<Transform>();
 
-    float xPos = -22f;
+    float spawnPointXPos = -22f;
+    float spawnPointSwapRange = 20f;
+    float swapWaitTime = 0.5f;
 
     List<EnemyStateManager> enemies = new List<EnemyStateManager>();
 
@@ -36,6 +38,8 @@ public class EnemySpawnerRP : MonoBehaviour
         StartCoroutine(CheckSpawnPos());
     }
 
+
+    //Spawning Enemies
     IEnumerator SpawnEnemies()
     {
         while (true)
@@ -48,13 +52,6 @@ public class EnemySpawnerRP : MonoBehaviour
                 enemy.transform.position = spawnPosition;
             }
         }
-    }
-
-    Vector3 GetRandomSpawnPoint()
-    {
-        Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
-
-        return randomSpawnPoint.position;
     }
 
     EnemyStateManager GetPooledEnemy()
@@ -70,18 +67,22 @@ public class EnemySpawnerRP : MonoBehaviour
         return null;
     }
 
+    Vector3 GetRandomSpawnPoint()
+    {
+        Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
+
+        return randomSpawnPoint.position;
+    }
 
     //Position Swapping
     IEnumerator CheckSpawnPos()
     {
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(swapWaitTime);
             MoveSpawnPoints();
         }
     }
-
-
 
     void OnPlayerSpawned(PlayerTarget player)
     {
@@ -93,7 +94,7 @@ public class EnemySpawnerRP : MonoBehaviour
         foreach (Transform point in spawnPoints)
         {
             Vector3 distace = point.position - playerTarget.transform.position;
-            if (distace.magnitude < 10f)
+            if (distace.magnitude < spawnPointSwapRange)
             {
                 point.position = new Vector3(SwitchSpawnPos(), point.position.y, point.position.z);
             }
@@ -104,7 +105,7 @@ public class EnemySpawnerRP : MonoBehaviour
     float SwitchSpawnPos()
     {
         swap = !swap;
-        return swap ? xPos : -xPos;
+        return swap ? spawnPointXPos : -spawnPointXPos;
     }
 
 }
