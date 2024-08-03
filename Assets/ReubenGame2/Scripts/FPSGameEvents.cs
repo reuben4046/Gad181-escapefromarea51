@@ -7,6 +7,10 @@ public static class FPSGameEvents
     //player spawned
     public delegate void OnPlayerSpawnedDelegate(PlayerTarget playerTarget);
     public static OnPlayerSpawnedDelegate OnPlayerSpawned;
+    //PlayerHealth 
+    public delegate void OnUpdatePlayerHealthDelegate(float health);
+    public static OnUpdatePlayerHealthDelegate OnUpdatePlayerHealth;
+
     //targets Hit
     public delegate void OnTargetHitDelegate(TargetRP target);
     public static OnTargetHitDelegate OnTargetHit;

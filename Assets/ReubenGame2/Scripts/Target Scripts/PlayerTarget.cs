@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTarget : MonoBehaviour
 { 
     [SerializeField] float health = 100f;
-    //private float damageAmmount = 10f;    
+    [SerializeField] float healthRegenMultiplier = 1.5f;
 
     void Awake()
     {
@@ -22,6 +22,16 @@ public class PlayerTarget : MonoBehaviour
     void OnDisable()
     {
         FPSGameEvents.OnPlayerTargetHit -= OnPlayerTargetHit;
+    }
+
+    void Update()
+    {
+        if (health > 0f && health < 100f)
+        {
+            health += Time.deltaTime * healthRegenMultiplier;      
+        }
+
+        FPSGameEvents.OnUpdatePlayerHealth?.Invoke(health);
     }
 
     void OnPlayerTargetHit(float damage)
