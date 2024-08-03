@@ -41,7 +41,7 @@ public class State : MonoBehaviour
         FPSGameEvents.OnSwitchState -= OnSwitchState;
     }
 
-    protected virtual void OnSwitchState(BaseEnemyState newState, StateManager enemy)
+    protected virtual void OnSwitchState(BaseEnemyState newState, EnemyStateManager enemy)
     {
         Debug.Log($"stateChanged to {newState}");
     }

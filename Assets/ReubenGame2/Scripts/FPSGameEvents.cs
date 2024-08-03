@@ -4,6 +4,9 @@ using UnityEngine;
 
 public static class FPSGameEvents
 {
+    //player spawned
+    public delegate void OnPlayerSpawnedDelegate(PlayerTarget playerTarget);
+    public static OnPlayerSpawnedDelegate OnPlayerSpawned;
     //targets Hit
     public delegate void OnTargetHitDelegate(TargetRP target);
     public static OnTargetHitDelegate OnTargetHit;
@@ -16,8 +19,12 @@ public static class FPSGameEvents
     public static OnCoverStartDelegate OnCoverStart;
 
     //used to switch enemy states
-    public delegate void OnSwitchStateDelegate(BaseEnemyState State, StateManager enemy);
+    public delegate void OnSwitchStateDelegate(BaseEnemyState State, EnemyStateManager enemy);
     public static OnSwitchStateDelegate OnSwitchState;
+
+    //Enemy Death
+    public delegate void OnEnemyDeathDelegate(TargetRP target);
+    public static OnEnemyDeathDelegate OnEnemyDeath;
 
     //Player death
     public delegate void OnPlayerDeathDelegate();

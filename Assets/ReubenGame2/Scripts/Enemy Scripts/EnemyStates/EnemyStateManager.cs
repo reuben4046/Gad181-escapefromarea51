@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateManager : MonoBehaviour
+public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] List<BaseEnemyState> states = new List<BaseEnemyState>();
     [SerializeField] BaseEnemyState startState;
@@ -28,7 +28,7 @@ public class StateManager : MonoBehaviour
 
     }
 
-    private void OnSwitchState(BaseEnemyState State, StateManager enemy)
+    private void OnSwitchState(BaseEnemyState State, EnemyStateManager enemy)
     {
         if (enemy != this)
         {

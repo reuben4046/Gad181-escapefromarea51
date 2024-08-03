@@ -8,17 +8,20 @@ public class ObjectPool : MonoBehaviour
     public static ObjectPool instance;
 
     //PlayerBullet
+    [SerializeField] private PlayerBullet playerBulletPrefab;
     private List<PlayerBullet> pooledPlayerBullets = new List<PlayerBullet>();
     private int playerBulletAmountToPool = 50;
 
-    [SerializeField] private PlayerBullet playerBulletPrefab;
 
     //enemyBullet
+    [SerializeField] private EnemyBulletRP enemyBulletPrefab;
     private List<EnemyBulletRP> pooledEnemyBullets = new List<EnemyBulletRP>();
     private int enemyBulletAmountToPool = 50;
 
-    [SerializeField] private EnemyBulletRP enemyBulletPrefab;
-
+    //smartEnemy
+    [SerializeField] private EnemyStateManager enemyPrefab;
+    private List<EnemyStateManager> pooledEnemies = new List<EnemyStateManager>();
+    private int enemyAmountToPool = 10;
 
     private void Awake()
     {
@@ -42,6 +45,12 @@ public class ObjectPool : MonoBehaviour
             enemyBullet.gameObject.SetActive(false);
             pooledEnemyBullets.Add(enemyBullet);
         }
+        for (int i = 0; i < enemyAmountToPool; i++)
+        {
+            EnemyStateManager enemy = Instantiate(enemyPrefab);
+            enemy.gameObject.SetActive(false);
+            pooledEnemies.Add(enemy);
+        }
     }
 
     public PlayerBullet GetPooledPlayerBullet()
@@ -64,6 +73,19 @@ public class ObjectPool : MonoBehaviour
             if (!pooledEnemyBullets[i].gameObject.activeInHierarchy)
             {
                 return pooledEnemyBullets[i];
+            }
+        }
+
+        return null;
+    }
+
+    public EnemyStateManager GetPooledEnemy()
+    {
+        for (int i = 0; i < pooledEnemies.Count; i++)
+        {
+            if (!pooledEnemies[i].gameObject.activeInHierarchy)
+            {
+                return pooledEnemies[i];
             }
         }
 

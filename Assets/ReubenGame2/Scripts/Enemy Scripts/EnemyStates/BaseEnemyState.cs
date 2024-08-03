@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseEnemyState : MonoBehaviour
 {
-    [SerializeField] protected StateManager stateManager;
+    [SerializeField] protected EnemyStateManager stateManager;
 
   
     protected virtual void StartState()

@@ -9,6 +9,7 @@ public class PlayerTarget : MonoBehaviour
 
     void Awake()
     {
+        FPSGameEvents.OnPlayerSpawned?.Invoke(this);
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
