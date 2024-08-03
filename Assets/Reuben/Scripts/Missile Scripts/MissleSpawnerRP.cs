@@ -42,12 +42,14 @@ public class MissleSpawnerRP : MonoBehaviour {
     private float maxSpawnAmmount = 3f;
 
     //subscribing and unsubscribing to events
-    private void OnEnable() {
+    private void OnEnable() 
+    {
         EventSystemRP.OnMissileDestroyed += OnMissileDestroyed;
         EventSystemRP.OnIncreaseSpawnAmmount += OnIncreaseSpawnAmmount;
     }
 
-    private void OnDisable( ) {
+    private void OnDisable( ) 
+    {
         EventSystemRP.OnMissileDestroyed -= OnMissileDestroyed;
         EventSystemRP.OnIncreaseSpawnAmmount -= OnIncreaseSpawnAmmount;
     }
@@ -56,14 +58,17 @@ public class MissleSpawnerRP : MonoBehaviour {
 
     //this function is called when the onincreaseSpawnAmmount event is triggered
     //increasing the ammount of spawned missles if it is less than maxSpawnAmmount
-    private void OnIncreaseSpawnAmmount() {
-        if (spawnAmmount < maxSpawnAmmount) {
+    private void OnIncreaseSpawnAmmount() 
+    {
+        if (spawnAmmount < maxSpawnAmmount) 
+        {
             spawnAmmount ++;
         }
     }
 
     //start
-    void Start() {
+    void Start() 
+    {
         StartCoroutine(SpawnMissles());
         xBounds = xRange - 17.5f;
 
@@ -72,28 +77,33 @@ public class MissleSpawnerRP : MonoBehaviour {
     }
 
     //this function is called when the onmissiledestroyed event is triggered
-    private void OnMissileDestroyed(Missile missile) {
+    private void OnMissileDestroyed(Missile missile) 
+    {
         spawnedMissiles.Remove(missile);
     }
 
 
     //coroutine that spawns the missles every spawnInterval seconds
-    private IEnumerator SpawnMissles() {
+    private IEnumerator SpawnMissles() 
+    {
         //loops the coroutine
-        while (corotineRunning) { 
+        while (corotineRunning) 
+        { 
 
             //waits SpawnInterval seconds
             yield return new WaitForSeconds(spawnInterval); 
 
             //loops spawnAmmount times
-            for (int i = 0; i < spawnAmmount; i++) {
+            for (int i = 0; i < spawnAmmount; i++) 
+            {
                 SpawnMissle();
             }
         }
     }
 
     //spawns the missile prefab at a random spawn position 
-    private void SpawnMissle() {
+    private void SpawnMissle() 
+    {
         spawnPosition = PickRandomSpawn();
         Missile missile = Instantiate(misslePrefab, spawnPosition, Quaternion.identity, missileHolder);
         spawnedMissiles.Add(missile);
@@ -103,17 +113,24 @@ public class MissleSpawnerRP : MonoBehaviour {
     
     //Picks a random spawn position picking x first and if the x is too close to 0, then a y is picked that will make it so that the spawn 
     //position is still out of the veiw of the camera. 
-    private Vector2 PickRandomSpawn() {
+    private Vector2 PickRandomSpawn() 
+    {
         float randX = Random.Range(-xRange, xRange);
         float randY;
-        if (randX < xBounds && randX > -xBounds) {
+        if (randX < xBounds && randX > -xBounds) 
+        {
             bool positiveY = Random.Range(0, 2) == 1;
-            if (positiveY) {
+            if (positiveY) 
+            {
                 randY = Random.Range(smallYRangeMin, smallYRangeMax);
-            } else {
+            } 
+            else 
+            {
                 randY = Random.Range(-smallYRangeMin, -smallYRangeMax);
             }
-        } else {
+        } 
+        else 
+        {
             randY = Random.Range(-yRange, yRange);
         }
 
@@ -121,10 +138,10 @@ public class MissleSpawnerRP : MonoBehaviour {
     }
 
     //gizmos used for figuring out and visualisng the spawn area coordinates
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(xRange*2, yRange*2, 0));
-
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position, new Vector3(xRange * 2 - xBounds, yRange * 2 - xBounds, 0));
 
@@ -133,6 +150,7 @@ public class MissleSpawnerRP : MonoBehaviour {
 
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(new Vector2(gizPositionX, gizPositionY), 0.2f);
+
     }
 
 }

@@ -13,12 +13,14 @@ public class MissileForwardMovementRP : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update() {
+    void Update() 
+    {
         ForwardForce();
     }
 
 
-    private void ForwardForce() {
+    private void ForwardForce() 
+    {
         currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed); //Mathf.Min is used to make sure the speed does not exceed the max speed
         transform.Translate(new Vector2(0, currentSpeed) * Time.deltaTime);
     }
