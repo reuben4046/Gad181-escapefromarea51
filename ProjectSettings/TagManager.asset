@@ -12,6 +12,7 @@ TagManager:
   - Cover
   - Enemy
   - EnemyBullet
+  - Covers
   layers:
   - Default
   - TransparentFX

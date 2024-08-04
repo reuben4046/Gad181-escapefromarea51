@@ -19,32 +19,38 @@ public class GoToCoverState : BaseEnemyState
     [SerializeField] List<CoverRP> covers = new List<CoverRP>();
     List<Transform> coverPoints = new List<Transform>();
 
-    CoverRP currentCover = null;
     Transform currentCoverPoint = null;
+
+    GameObject coverHolder;
 
     void Awake()
     {
         target = GameObject.FindWithTag("Player")?.transform;
     }
 
-    private void OnCoverStart(CoverRP cover)
+    void AddCoversToList()
     {
-        covers.Add(cover);
+        coverHolder = GameObject.Find("Covers");
+        for (int i = 0; i < coverHolder.transform.childCount; i++)
+        {
+            GameObject child = coverHolder.transform.GetChild(i).gameObject;
+            CoverRP cover = child.GetComponent<CoverRP>();
+            covers.Add(cover);
+        }
     }
-
     //used like a start function, so it gets called when the state is entered
     private void OnEnable()
     {
-        FPSGameEvents.OnCoverStart += OnCoverStart;
+        AddCoversToList();
         GoToCover();
         StartCoroutine(WaitTillCoverFound());
-
     }
+
     //makes sure all coroutines are not running
     private void OnDisable()
     {
-        FPSGameEvents.OnCoverStart -= OnCoverStart;
         StopAllCoroutines();
+        covers.Clear();
     }
 
     IEnumerator WaitTillCoverFound()
@@ -85,17 +91,13 @@ public class GoToCoverState : BaseEnemyState
         //loops through the list of covers
         foreach (CoverRP cover in covers)
         {
-            if (cover != null)
+            float distance = Vector3.Distance(cover.transform.position, transform.position);
+            if (distance < closestDistance && distance > 5f)
             {
-                float distance = Vector3.Distance(cover.transform.position, transform.position);
-                if (distance < closestDistance && distance > 5f)
-                {
-                    closestDistance = distance;
-                    closestCover = cover;
-                } //setting the cover with the shortest distance as the closest cover every time it loops
-            }
+                closestDistance = distance;
+                closestCover = cover;
+            } //setting the cover with the shortest distance as the closest cover every time it loops
         }
-        currentCover = closestCover;
         return closestCover;
     }
 

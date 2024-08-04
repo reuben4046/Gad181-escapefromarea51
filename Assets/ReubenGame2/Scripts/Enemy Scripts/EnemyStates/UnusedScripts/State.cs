@@ -31,13 +31,13 @@ public class State : MonoBehaviour
 
     private void OnEnable()
     {
-        FPSGameEvents.OnCoverStart += OnCoverStart;
+        //FPSGameEvents.OnCoverStart += OnCoverStart;
         FPSGameEvents.OnSwitchState += OnSwitchState;
     }
 
     private void OnDisable()
     {
-        FPSGameEvents.OnCoverStart -= OnCoverStart;
+        //FPSGameEvents.OnCoverStart -= OnCoverStart;
         FPSGameEvents.OnSwitchState -= OnSwitchState;
     }
 
