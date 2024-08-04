@@ -8481,7 +8481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  healthRegenMultiplier: 1.5
+  healthRegenMultiplier: 30
 --- !u!114 &7320797510384706602
 MonoBehaviour:
   m_ObjectHideFlags: 0

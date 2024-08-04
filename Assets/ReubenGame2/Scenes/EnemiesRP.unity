@@ -793,11 +793,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 481540595071652304, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.97
+      value: 28.28
       objectReference: {fileID: 0}
     - target: {fileID: 481540595071652304, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.34
+      value: 0.733
       objectReference: {fileID: 0}
     - target: {fileID: 481540595071652304, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_LocalPosition.z
@@ -830,18 +830,6 @@ PrefabInstance:
     - target: {fileID: 481540595071652304, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2815929793480508185, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6494531593909038116, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6494531593909038116, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
-      propertyPath: healthRegenMultiplier
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6655179703949072015, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_Name
@@ -2395,7 +2383,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 07dc66ae04b7f6a43b9674bf0fefb33a, type: 2}
+  - {fileID: 2100000, guid: e39dfeb87e0b44143be31978c35a380c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
