@@ -20,11 +20,11 @@ public class ObjectPool : MonoBehaviour
     private List<EnemyBulletRP> pooledEnemyBullets = new List<EnemyBulletRP>();
     private int enemyBulletAmountToPool = 50;
 
-    [Header("Enemy")]
-    //[SerializeField] Transform enemyParent;
-    [SerializeField] private EnemyStateManager enemyPrefab;
-    private List<EnemyStateManager> pooledEnemies = new List<EnemyStateManager>();
-    private int enemyAmountToPool = 5;
+    // [Header("Enemy")]
+    // //[SerializeField] Transform enemyParent;
+    // [SerializeField] private EnemyStateManager enemyPrefab;
+    // private List<EnemyStateManager> pooledEnemies = new List<EnemyStateManager>();
+    // private int enemyAmountToPool = 5;
 
     private void Awake()
     {
@@ -48,12 +48,12 @@ public class ObjectPool : MonoBehaviour
             enemyBullet.gameObject.SetActive(false);
             pooledEnemyBullets.Add(enemyBullet);
         }
-        for (int i = 0; i < enemyAmountToPool; i++)
-        {
-            EnemyStateManager enemy = Instantiate(enemyPrefab); //had to spawn in the scene bc of issues with parenting making it not placed on the nav mesh
-            enemy.gameObject.SetActive(false);
-            pooledEnemies.Add(enemy);
-        }
+        //for (int i = 0; i < enemyAmountToPool; i++)
+        //{
+        //    EnemyStateManager enemy = Instantiate(enemyPrefab);
+        //    enemy.gameObject.SetActive(false);
+        //    pooledEnemies.Add(enemy);
+        //}
     }
 
     public PlayerBullet GetPooledPlayerBullet()
@@ -82,16 +82,16 @@ public class ObjectPool : MonoBehaviour
         return null;
     }
 
-    public EnemyStateManager GetPooledEnemy()
-    {
-        for (int i = 0; i < pooledEnemies.Count; i++)
-        {
-            if (!pooledEnemies[i].gameObject.activeInHierarchy)
-            {
-                return pooledEnemies[i];
-            }
-        }
+    // public EnemyStateManager GetPooledEnemy()
+    // {
+    //     for (int i = 0; i < pooledEnemies.Count; i++)
+    //     {
+    //         if (!pooledEnemies[i].gameObject.activeInHierarchy)
+    //         {
+    //             return pooledEnemies[i];
+    //         }
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 }

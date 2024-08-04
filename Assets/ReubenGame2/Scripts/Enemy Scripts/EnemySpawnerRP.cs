@@ -12,6 +12,7 @@ public class EnemySpawnerRP : MonoBehaviour
     float spawnPointSwapRange = 20f;
     float swapWaitTime = 0.5f;
 
+    [SerializeField] EnemyStateManager enemyPrefab;
     List<EnemyStateManager> enemies = new List<EnemyStateManager>();
 
     void Awake()
@@ -47,25 +48,35 @@ public class EnemySpawnerRP : MonoBehaviour
             yield return new WaitForSeconds(2f);
             if (enemies.Count < 3)
             {
-                EnemyStateManager enemy = GetPooledEnemy();
+                // EnemyStateManager enemy = GetPooledEnemy();
+                EnemyStateManager enemy = InstanciateEnemy();
                 Vector3 spawnPosition = GetRandomSpawnPoint();
                 enemy.transform.position = spawnPosition;
             }
         }
     }
 
-    EnemyStateManager GetPooledEnemy()
+    EnemyStateManager InstanciateEnemy()
     {
-        EnemyStateManager enemy = ObjectPool.instance.GetPooledEnemy();
-        if (enemy != null)
-        {
-            enemy.gameObject.SetActive(true);
-            enemies.Add(enemy);
-            return enemy;
-        }
-
-        return null;
+        EnemyStateManager enemy = Instantiate(enemyPrefab);
+        enemies.Add(enemy);
+        return enemy;
     }
+
+    //had to remove pooling for enemies due to issues with pooled enemis not receiving or sending events
+    
+    // EnemyStateManager GetPooledEnemy()
+    // {
+    //     EnemyStateManager enemy = ObjectPool.instance.GetPooledEnemy();
+    //     if (enemy != null)
+    //     {
+    //         enemy.gameObject.SetActive(true);
+    //         enemies.Add(enemy);
+    //         return enemy;
+    //     }
+
+    //     return null;
+    // }
 
     Vector3 GetRandomSpawnPoint()
     {
