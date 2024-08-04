@@ -793,7 +793,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 481540595071652304, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.97
+      value: 29.02
       objectReference: {fileID: 0}
     - target: {fileID: 481540595071652304, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_LocalPosition.y
@@ -831,29 +831,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2815929793480508185, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2815929793480508185, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 6494531593909038116, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6494531593909038116, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: healthRegenMultiplier
-      value: 30
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6655179703949072015, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7030141081301701552, guid: 4bea115aa0ab84728a1e390eb2cb2d33, type: 3}
-      propertyPath: enableJump
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
