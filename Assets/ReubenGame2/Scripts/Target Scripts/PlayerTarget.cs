@@ -7,12 +7,16 @@ public class PlayerTarget : MonoBehaviour
     [SerializeField] float health = 100f;
     [SerializeField] float healthRegenMultiplier = 1.5f;
 
-    void Start()
+    void Awake()
     {
-        FPSGameEvents.OnPlayerSpawned?.Invoke(this);
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+    }
+
+    void Start()
+    {        
+        FPSGameEvents.OnPlayerSpawned?.Invoke(this);
     }
 
     void OnEnable()
