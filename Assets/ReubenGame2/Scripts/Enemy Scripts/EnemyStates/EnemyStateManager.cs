@@ -8,22 +8,14 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] List<BaseEnemyState> states = new List<BaseEnemyState>();
     [SerializeField] BaseEnemyState startState;
 
-    [SerializeField] List<CoverRP> covers = new List<CoverRP>();
-
-    private void Awake()
+    private void OnEnable()
     {
-        FPSGameEvents.OnCoverStart += OnCoverStart;
         FPSGameEvents.OnSwitchState += OnSwitchState;
     }
 
     private void OnDisable()
     {
         FPSGameEvents.OnSwitchState -= OnSwitchState;
-    }
-
-    private void OnCoverStart(CoverRP cover)
-    {
-        covers.Add(cover);
     }
 
     private void Start()
