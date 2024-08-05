@@ -64,7 +64,7 @@ public class EnemySpawnerRP : MonoBehaviour
     }
 
     //had to remove pooling for enemies due to issues with pooled enemis not receiving or sending events
-    
+
     // EnemyStateManager GetPooledEnemy()
     // {
     //     EnemyStateManager enemy = ObjectPool.instance.GetPooledEnemy();
@@ -76,7 +76,7 @@ public class EnemySpawnerRP : MonoBehaviour
     //     }
 
     //     return null;
-    // }
+    // }s
 
     Vector3 GetRandomSpawnPoint()
     {
