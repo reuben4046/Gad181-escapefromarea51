@@ -2045,8 +2045,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftWing: {fileID: 1576273307}
   rightWing: {fileID: 101270840}
-  forwardForce: 1
-  maxSpeed: 20
   rotationSpeed: 200
   moveSpeed: 15
 --- !u!61 &1546811098

@@ -8,6 +8,7 @@ public class ShootingState : BaseEnemyState
     //reference to next state
     public GoToCoverState goToCoverState;
 
+
     //NavMeshAgent
     [SerializeField] NavMeshAgent agentEnemy;
     //PlayerReference

@@ -52,7 +52,7 @@ public class TargetRP : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Enemy Dead");
-        Destroy(gameObject);
+        FPSGameEvents.OnEnemyDeath.Invoke(this);
+        gameObject.SetActive(false);
     }
 }

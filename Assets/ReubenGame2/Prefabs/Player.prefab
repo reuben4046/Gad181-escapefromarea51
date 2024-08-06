@@ -8342,9 +8342,9 @@ GameObject:
   - component: {fileID: 7733382786025472384}
   - component: {fileID: 154645895433665374}
   - component: {fileID: 2815929793480508185}
+  - component: {fileID: 6494531593909038116}
   - component: {fileID: 7320797510384706602}
   - component: {fileID: 7030141081301701552}
-  - component: {fileID: 6494531593909038116}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -8463,11 +8463,25 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 2
+--- !u!114 &6494531593909038116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655179703949072015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48357896312be4776900410483bce657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthRegenMultiplier: 30
 --- !u!114 &7320797510384706602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8532,7 +8546,7 @@ MonoBehaviour:
   sprintBar: {fileID: 594554133812381889}
   sprintBarWidthPercent: 0.3
   sprintBarHeightPercent: 0.02
-  enableJump: 1
+  enableJump: 0
   jumpKey: 32
   jumpPower: 5
   enableCrouch: 0
@@ -8544,19 +8558,6 @@ MonoBehaviour:
   joint: {fileID: 8606672394137528930}
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.1, z: 0}
---- !u!114 &6494531593909038116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6655179703949072015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48357896312be4776900410483bce657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!1 &6858214340198673594
 GameObject:
   m_ObjectHideFlags: 0

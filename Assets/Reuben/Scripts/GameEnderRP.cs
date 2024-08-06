@@ -19,7 +19,8 @@ public class GameEnderRP : MonoBehaviour {
     }   
 
     //starts coroutine that ends the game after timeTillEndGame seconds
-    private void OnPlayerHealthZero() {
+    private void OnPlayerHealthZero() 
+    {
         StartCoroutine(WaitSeconds());
     }
 
