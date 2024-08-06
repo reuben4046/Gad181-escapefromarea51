@@ -23,8 +23,6 @@ public class CameraSenses : MonoBehaviour
 
     public bool startCapture = true;
 
-    public float timeTillCapture;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -48,21 +46,19 @@ public class CameraSenses : MonoBehaviour
                 if (Physics.Raycast(transform.position, playerDirection, distanceToTarget, obstacleMask) == false)
                 {
                     Debug.Log("I can see you directly!!!");
+                    
                     canSeePlayer = true;
                     CameraSpot.enabled = true;
                     TimeRemaining.enabled = true;
                     CameraScreen.enabled = true;
-                    if (startCapture = true)
-                    {
-                        startCapture = true;
-                        StartCoroutine(WaitTillCaught());
-                    }
+                    //StartCoroutine(WaitTillCaught());
+                    StartCaptureTimer();
                 }
                 else
                 {
+                    timer = 6;
                     canSeePlayer = false;
-                    startCapture = false;
-                    StopCoroutine(WaitTillCaught());
+                    //StopCoroutine(WaitTillCaught());
                     CameraSpot.enabled = false;
                     TimeRemaining.enabled = false;
                     CameraScreen.enabled = false;
@@ -71,19 +67,20 @@ public class CameraSenses : MonoBehaviour
         }
     }
 
-    public IEnumerator WaitTillCaught()
+
+    public TextMeshProUGUI timerText;
+
+    float captureTime = 1;
+    float timer = 6;
+    void StartCaptureTimer()
     {
-        // suspend execution for 5 seconds
-        yield return new WaitForSeconds(timeTillCapture);
-        if (canSeePlayer)
+        timer -= Time.deltaTime;
+        //timerText.text = $"Time Remaining: {timer}";
+        if (timer < captureTime)
         {
             Debug.Log("CAUGHT!!");
             SceneManager.LoadScene(5);
         }
-        else
-        {
-            startCapture = true;
-        }
-
+        timerText.SetText($"Time Remaining: {(int)timer}");
     }
 }

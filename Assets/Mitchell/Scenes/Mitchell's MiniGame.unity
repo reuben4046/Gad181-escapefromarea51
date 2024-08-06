@@ -3962,7 +3962,6 @@ GameObject:
   - component: {fileID: 175895788}
   - component: {fileID: 175895790}
   - component: {fileID: 175895789}
-  - component: {fileID: 175895791}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -3986,8 +3985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -18, y: 74}
-  m_SizeDelta: {x: 173.41003, y: 50}
+  m_AnchoredPosition: {x: 447, y: 79}
+  m_SizeDelta: {x: 454.06, y: 52.739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175895789
 MonoBehaviour:
@@ -4044,7 +4043,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4072,7 +4071,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 102.27243, y: 0, z: -297.45874, w: 3.68124}
+  m_margin: {x: 0.5378151, y: 0, z: 0.7020111, w: -0.23163795}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4086,21 +4085,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175895787}
   m_CullTransparentMesh: 1
---- !u!114 &175895791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175895787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b781a484f8a4bfe48a37d029bd8b96ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  second: 6
-  clockspeed: 1
-  timerText: {fileID: 175895789}
 --- !u!1001 &178571983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15010,6 +14994,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 106321116}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 175895789}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewAngle
       value: 90
       objectReference: {fileID: 0}
@@ -22037,21 +22025,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 801265120}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: CameraRun
+      propertyPath: timerText
       value: 
-      objectReference: {fileID: 106321116}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewAngle
-      value: 90
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 175895789}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: CameraSpot
       value: 
       objectReference: {fileID: 106321116}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: CameraScreen
       value: 
@@ -22060,18 +22040,6 @@ PrefabInstance:
       propertyPath: TimeRemaining
       value: 
       objectReference: {fileID: 175895789}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: timeTillCapture
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: targetPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -59.855
@@ -22116,34 +22084,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Security Camera (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 801265120}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewAngle
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: canSeePlayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: startCapture
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: timeTillCapture
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
       value: 
@@ -22152,24 +22092,7 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: targetPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22749,6 +22672,10 @@ PrefabInstance:
       propertyPath: CameraRun
       value: 
       objectReference: {fileID: 106321116}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 175895789}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewAngle
       value: 90
@@ -26630,6 +26557,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 106321116}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 175895789}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewAngle
       value: 90
       objectReference: {fileID: 0}
@@ -26838,21 +26769,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 801265120}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: CameraRun
+      propertyPath: timerText
       value: 
-      objectReference: {fileID: 106321116}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewAngle
-      value: 90
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 175895789}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: CameraSpot
       value: 
       objectReference: {fileID: 106321116}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: CameraScreen
       value: 
@@ -26861,18 +26784,6 @@ PrefabInstance:
       propertyPath: TimeRemaining
       value: 
       objectReference: {fileID: 175895789}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: timeTillCapture
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: targetPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.9
@@ -26917,34 +26828,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Security Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 801265120}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewAngle
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: canSeePlayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: startCapture
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: timeTillCapture
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
       value: 
@@ -26953,24 +26836,7 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: targetPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -28860,6 +28726,10 @@ PrefabInstance:
       propertyPath: CameraRun
       value: 
       objectReference: {fileID: 106321116}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 175895789}
     - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: viewAngle
       value: 90
