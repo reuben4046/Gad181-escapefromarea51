@@ -49,7 +49,7 @@ public class CameraSenses : MonoBehaviour
                     canSeePlayer = true;
                     CameraRun.enabled = true;
                     CameraScreen.enabled = true;
-                    if (startCapture = true)
+                    if (startCapture == true)
                     {
                         startCapture = false;
                         StartCoroutine(WaitTillCaught());
@@ -60,6 +60,7 @@ public class CameraSenses : MonoBehaviour
                     canSeePlayer = false;
                     CameraRun.enabled = false;
                     CameraScreen.enabled = false;
+                    StopCoroutine(WaitTillCaught());
                 }
             }
         }
