@@ -8,7 +8,8 @@ public class EnemySpawnerRP : MonoBehaviour
     PlayerTarget playerTarget;
     [SerializeField] List<Transform> spawnPoints = new List<Transform>();
 
-    float spawnPointXPos = -22f;
+    float spawnPointXPos1 = -22f;
+    //float spawnPointXPos2 = 45.5f;
     float spawnPointSwapRange = 20f;
     float swapWaitTime = 0.5f;
 
@@ -35,10 +36,18 @@ public class EnemySpawnerRP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetFirstPos();
         StartCoroutine(SpawnEnemies());
         StartCoroutine(CheckSpawnPos());
     }
 
+    void SetFirstPos()
+    {
+        foreach (Transform point in spawnPoints)
+        {
+            point.position = new Vector3(spawnPointXPos1, point.position.y, point.position.z);
+        }
+    }
 
     //Spawning Enemies
     IEnumerator SpawnEnemies()
@@ -62,21 +71,6 @@ public class EnemySpawnerRP : MonoBehaviour
         enemies.Add(enemy);
         return enemy;
     }
-
-    //had to remove pooling for enemies due to issues with pooled enemis not receiving or sending events
-
-    // EnemyStateManager GetPooledEnemy()
-    // {
-    //     EnemyStateManager enemy = ObjectPool.instance.GetPooledEnemy();
-    //     if (enemy != null)
-    //     {
-    //         enemy.gameObject.SetActive(true);
-    //         enemies.Add(enemy);
-    //         return enemy;
-    //     }
-
-    //     return null;
-    // }
 
     Vector3 GetRandomSpawnPoint()
     {
@@ -116,7 +110,7 @@ public class EnemySpawnerRP : MonoBehaviour
     float SwitchSpawnPos()
     {
         swap = !swap;
-        return swap ? spawnPointXPos : -spawnPointXPos;
+        return swap ? spawnPointXPos1 : spawnPointXPos1;
     }
 
 }

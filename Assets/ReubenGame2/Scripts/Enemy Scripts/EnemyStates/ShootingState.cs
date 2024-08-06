@@ -53,16 +53,19 @@ public class ShootingState : BaseEnemyState
         }
     }
 
+    void LookAtPlayer()
+    {
+        agentEnemy.transform.LookAt(target);
+    }
+
+
     IEnumerator StopShooting()
     {
         yield return new WaitForSeconds(3f);
         FPSGameEvents.OnSwitchState?.Invoke(goToCoverState, this.stateManager);
     }
 
-    void LookAtPlayer()
-    {
-        transform.LookAt(target);
-    }
+
 
     //shoot at player
     protected void ShootAtPlayer()

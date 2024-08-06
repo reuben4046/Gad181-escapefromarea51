@@ -8,6 +8,8 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] List<BaseEnemyState> states = new List<BaseEnemyState>();
     [SerializeField] BaseEnemyState startState;
 
+    [SerializeField] Animator animator;
+
     private void Awake()
     {
         FPSGameEvents.OnSwitchState += OnSwitchState;
@@ -46,6 +48,30 @@ public class EnemyStateManager : MonoBehaviour
                 state.gameObject.SetActive(true);
             }
         }
-    }
+        switch (State)
+        {
+            case GoToCoverState:
+            {
+                animator.SetBool("Running", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Shooting", false);
+                break;
+            }
 
+            case ShootingState:
+            {
+                animator.SetBool("Running", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Shooting", true);
+                break;
+            }
+            case MoveTowardsPlayerState:
+            {
+                animator.SetBool("Running", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Shooting", false);
+                break;
+            }
+        }
+    }
 }
