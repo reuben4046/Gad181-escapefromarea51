@@ -61,6 +61,7 @@ public class CameraSenses : MonoBehaviour
                 else
                 {
                     canSeePlayer = false;
+                    startCapture = false;
                     CameraSpot.enabled = false;
                     TimeRemaining.enabled = false;
                     CameraScreen.enabled = false;
