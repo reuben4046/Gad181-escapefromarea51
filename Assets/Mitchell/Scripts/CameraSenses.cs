@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CameraSenses : MonoBehaviour
 {
@@ -15,14 +17,18 @@ public class CameraSenses : MonoBehaviour
 
     public GameObject player;
 
-    public bool startCapture = true;
+    public TextMeshProUGUI CameraSpot;
+    public TextMeshProUGUI TimeRemaining;
+    public Image CameraScreen;
 
-    public float timeTillCapture;
+    public bool startCapture = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        CameraSpot.enabled = false;
+        TimeRemaining.enabled = false;
+        CameraScreen.enabled = false;
     }
 
     // Update is called once per frame
@@ -40,34 +46,41 @@ public class CameraSenses : MonoBehaviour
                 if (Physics.Raycast(transform.position, playerDirection, distanceToTarget, obstacleMask) == false)
                 {
                     Debug.Log("I can see you directly!!!");
+                    
                     canSeePlayer = true;
-                    if (startCapture = true)
-                    {
-                        startCapture = false;
-                        StartCoroutine(WaitTillCaught());
-                    }
+                    CameraSpot.enabled = true;
+                    TimeRemaining.enabled = true;
+                    CameraScreen.enabled = true;
+                    //StartCoroutine(WaitTillCaught());
+                    StartCaptureTimer();
                 }
                 else
                 {
+                    timer = 6;
                     canSeePlayer = false;
+                    //StopCoroutine(WaitTillCaught());
+                    CameraSpot.enabled = false;
+                    TimeRemaining.enabled = false;
+                    CameraScreen.enabled = false;
                 }
             }
         }
     }
 
-    public IEnumerator WaitTillCaught()
+
+    public TextMeshProUGUI timerText;
+
+    float captureTime = 1;
+    float timer = 6;
+    void StartCaptureTimer()
     {
-        // suspend execution for 5 seconds
-        yield return new WaitForSeconds(timeTillCapture);
-        if (canSeePlayer)
+        timer -= Time.deltaTime;
+        //timerText.text = $"Time Remaining: {timer}";
+        if (timer < captureTime)
         {
             Debug.Log("CAUGHT!!");
             SceneManager.LoadScene(5);
         }
-        else
-        {
-            startCapture = true;
-        }
-
+        timerText.SetText($"Time Remaining: {(int)timer}");
     }
 }

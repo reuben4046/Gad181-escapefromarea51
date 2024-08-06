@@ -451,7 +451,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5909306368916507315}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 485848acb7c352049ae8df6bd837e9eb, type: 3}
   m_Name: 
@@ -463,10 +463,10 @@ MonoBehaviour:
   canSeePlayer: 0
   targetPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   player: {fileID: 0}
 --- !u!114 &2437374433883296608
 MonoBehaviour:
@@ -480,18 +480,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f130c35ad8d413442a1d7ffb9e713731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 0
-  viewAngle: 0
+  viewRadius: 30
+  viewAngle: 90
   canSeePlayer: 0
   targetPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   player: {fileID: 0}
+  CameraSpot: {fileID: 0}
+  TimeRemaining: {fileID: 0}
+  CameraScreen: {fileID: 0}
   startCapture: 0
-  timeTillCapture: 0
+  timerText: {fileID: 0}
 --- !u!1 &7803251996113394702
 GameObject:
   m_ObjectHideFlags: 0
