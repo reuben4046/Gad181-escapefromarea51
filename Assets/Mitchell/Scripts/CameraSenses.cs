@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CameraSenses : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class CameraSenses : MonoBehaviour
 
     public GameObject player;
 
+    public TextMeshProUGUI CameraRun;
+    public Image CameraScreen;
+
     public bool startCapture = true;
 
     public float timeTillCapture;
@@ -22,7 +27,8 @@ public class CameraSenses : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        CameraRun.enabled = false;
+        CameraScreen.enabled = false;
     }
 
     // Update is called once per frame
@@ -41,6 +47,8 @@ public class CameraSenses : MonoBehaviour
                 {
                     Debug.Log("I can see you directly!!!");
                     canSeePlayer = true;
+                    CameraRun.enabled = true;
+                    CameraScreen.enabled = true;
                     if (startCapture = true)
                     {
                         startCapture = false;
@@ -50,6 +58,8 @@ public class CameraSenses : MonoBehaviour
                 else
                 {
                     canSeePlayer = false;
+                    CameraRun.enabled = false;
+                    CameraScreen.enabled = false;
                 }
             }
         }
