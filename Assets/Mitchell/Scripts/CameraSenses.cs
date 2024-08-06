@@ -17,7 +17,8 @@ public class CameraSenses : MonoBehaviour
 
     public GameObject player;
 
-    public TextMeshProUGUI CameraRun;
+    public TextMeshProUGUI CameraSpot;
+    public TextMeshProUGUI TimeRemaining;
     public Image CameraScreen;
 
     public bool startCapture = true;
@@ -27,7 +28,8 @@ public class CameraSenses : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CameraRun.enabled = false;
+        CameraSpot.enabled = false;
+        TimeRemaining.enabled = false;
         CameraScreen.enabled = false;
     }
 
@@ -47,9 +49,10 @@ public class CameraSenses : MonoBehaviour
                 {
                     Debug.Log("I can see you directly!!!");
                     canSeePlayer = true;
-                    CameraRun.enabled = true;
+                    CameraSpot.enabled = true;
+                    TimeRemaining.enabled = true;
                     CameraScreen.enabled = true;
-                    if (startCapture == true)
+                    if (startCapture = true)
                     {
                         startCapture = false;
                         StartCoroutine(WaitTillCaught());
@@ -58,9 +61,9 @@ public class CameraSenses : MonoBehaviour
                 else
                 {
                     canSeePlayer = false;
-                    CameraRun.enabled = false;
+                    CameraSpot.enabled = false;
+                    TimeRemaining.enabled = false;
                     CameraScreen.enabled = false;
-                    StopCoroutine(WaitTillCaught());
                 }
             }
         }
