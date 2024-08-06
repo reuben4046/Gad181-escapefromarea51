@@ -54,7 +54,7 @@ public class CameraSenses : MonoBehaviour
                     CameraScreen.enabled = true;
                     if (startCapture = true)
                     {
-                        startCapture = false;
+                        startCapture = true;
                         StartCoroutine(WaitTillCaught());
                     }
                 }
