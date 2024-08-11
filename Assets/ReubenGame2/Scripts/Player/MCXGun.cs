@@ -46,7 +46,7 @@ public class MCXGun : MonoBehaviour
     {
         GoToWalkPos();        
     }
-
+    //sets the gun to walk position at the start of the game
     private void GoToWalkPos() 
     {
         playerGun.transform.localPosition = gunWalkingPos;
@@ -71,22 +71,24 @@ public class MCXGun : MonoBehaviour
 
     // Update is called once per frame
     void Update() 
-    {     
+    {
         FireTimer();
+        //checks if the left mouse button is pressed
         if (Input.GetMouseButton(0) && canFire) 
         {        
             Debug.DrawRay(bulletTransform.position, bulletTransform.forward, Color.red, 10f);   
             Shoot();
             ShootingTweenShake();
-        } 
+        }
 
+        //checks if the right mouse button down
         if (Input.GetMouseButtonDown(1) && !gunTweeningToAim && canAim) 
         {   
             FPSGameEvents.OnPlayerAiming?.Invoke(true);
             TweenToAimPos();
             isHipFiring = false;
         }
-        else if (Input.GetMouseButtonUp(1)) 
+        else if (Input.GetMouseButtonUp(1)) //if the right mouse button is released
         {
             FPSGameEvents.OnPlayerAiming?.Invoke(false);
             LeanTween.cancel(leanTweenMoveID);
@@ -97,6 +99,7 @@ public class MCXGun : MonoBehaviour
         }
     }
 
+    //timer for the fire rate
     void FireTimer() 
     {
         if (canFire == false) 
@@ -110,7 +113,9 @@ public class MCXGun : MonoBehaviour
         }
     }
 
-        void Shoot() 
+    //shoots the bullet if can fire is true
+    //calls functions that decrease accuracy if hipfiring is true
+    void Shoot() 
     {
         if (canFire) 
         {
@@ -133,6 +138,8 @@ public class MCXGun : MonoBehaviour
         }
     }
 
+    //gets pooled bullet
+    //sets the bullet to be active and returns it
     PlayerBullet GetPooledBullet()
     {
         PlayerBullet playerBullet = ObjectPool.instance.GetPooledPlayerBullet();
@@ -147,7 +154,14 @@ public class MCXGun : MonoBehaviour
         }
     }
 
+    //returns an accuate hit point
+    Vector3 GetRayCastHitPoint()
+    {
+        Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit);
+        return hit.point;
+    }
 
+    //changes the location of the hitpoint found in the function above to a random location inside of the hipfire accuracy radius
     Vector3 ReduceAccuracy(Vector3 hitPoint)
     {
         Vector3 randomPoint = Random.insideUnitSphere * hipFireAccuracyRadius;
@@ -155,15 +169,7 @@ public class MCXGun : MonoBehaviour
         return hitPoint;
     }
 
-    Vector3 GetRayCastHitPoint()
-    {
-        Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit);
-        return hit.point;
-    }
-
-    
-
-    //leanTween 
+    //leanTweening to aim position
     private void TweenToAimPos() 
     {
         if (gunTweeningToAim) return;
@@ -177,6 +183,7 @@ public class MCXGun : MonoBehaviour
         
     }
 
+    //leanTweening to walk position
     private void TweenToWalkPos() 
     {
         if (gunTweeningToWalk) return;
@@ -189,6 +196,7 @@ public class MCXGun : MonoBehaviour
                 .setOnComplete(() => gunTweeningToWalk = false);
     }
 
+    //shakes the gun while shooting
     void ShootingTweenShake() 
     {
         LeanTween.moveLocalZ(playerGun.gameObject, kickbackZ, fireRate / 2)

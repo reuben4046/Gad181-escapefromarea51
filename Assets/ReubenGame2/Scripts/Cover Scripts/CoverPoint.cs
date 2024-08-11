@@ -26,6 +26,7 @@ public class CoverPoint : MonoBehaviour
     }
 
     //making sure the CoverPoint is on the opposite side to the Target. 
+    //casts a ray at the target (player) and returns the hit
     RaycastHit PlayerDirectionRaycast()
     {
         Vector3 targetDirection = GetDirectionOfTarget();
@@ -43,13 +44,13 @@ public class CoverPoint : MonoBehaviour
             RaycastHit hit = PlayerDirectionRaycast();
             if (hit.transform == target)
             {
-                // float newX = SwapPosition();
                 float newX = SwapPosSwitch();
                 transform.localPosition = new Vector3(newX, transform.localPosition.y, transform.localPosition.z);
             }
         }
     }
 
+    //swaps the position between -1 and 1 every time the function is called
     bool swap = false;
     float SwapPosSwitch()
     {
@@ -68,6 +69,7 @@ public class CoverPoint : MonoBehaviour
         }
     }
 
+    //gizmos used for figuring out and visualisng the spawn area coordinates and to see if they are actually swapping positions
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

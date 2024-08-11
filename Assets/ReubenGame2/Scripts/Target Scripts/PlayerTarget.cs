@@ -28,6 +28,7 @@ public class PlayerTarget : MonoBehaviour
         FPSGameEvents.OnPlayerTargetHit -= OnPlayerTargetHit;
     }
 
+    //regenerates player health and sends out an event that lets other scripts know the players health 
     void Update()
     {
         if (health > 0f && health < 100f)
@@ -43,6 +44,7 @@ public class PlayerTarget : MonoBehaviour
         TakeDamage(damage);
     }
 
+    //takes damage and checks if the player should die yet 
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -53,6 +55,7 @@ public class PlayerTarget : MonoBehaviour
         }
     }
 
+    //sends out an event that lets other scripts know the player has died
     void Die()
     {
         FPSGameEvents.OnPlayerDeath.Invoke();

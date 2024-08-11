@@ -9,18 +9,12 @@ public class TargetRP : MonoBehaviour
     private float damageAmmount = 10f;
     [SerializeField] private float health = 100f; 
 
-    void Start()
-    {
-        //FPSGameEvents.OnTargetSpawned.Invoke(this);
-    }
-
     void Awake()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
-
 
     void OnEnable()
     {
@@ -31,6 +25,7 @@ public class TargetRP : MonoBehaviour
         FPSGameEvents.OnTargetHit -= OnTargetHit;
     }
 
+    //takes damage if this target is hit
     void OnTargetHit(TargetRP target)
     {
         if (target == this)
@@ -39,7 +34,7 @@ public class TargetRP : MonoBehaviour
         }
     }
 
-
+    //takes damage and checks if the enemy should die yet
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -50,6 +45,7 @@ public class TargetRP : MonoBehaviour
         }
     }
 
+    //sends out an event that lets other scripts know this enemy has died
     void Die()
     {
         FPSGameEvents.OnEnemyDeath.Invoke(this);

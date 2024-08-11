@@ -6,11 +6,5 @@ using UnityEngine;
 
 public class CoverRP : MonoBehaviour
 {
-    Transform target;
-
-    void Start()
-    {
-        target = GameObject.FindWithTag("Player")?.transform; // ? is a null check
-        if (target == null) {Debug.Log($"target= {target}");} //null check
-    }
+    //this script exists simply so the cover can be referenced as something other than gameObject
 }

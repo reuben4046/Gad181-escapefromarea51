@@ -25,12 +25,14 @@ public class PlayerHealth_Ui : MonoBehaviour
         FPSGameEvents.OnUpdatePlayerHealth -= OnUpdatePlayerHealth;
     }
 
+    //sets the health slider and the opacity of the blood panel in relation to the players current health
     void OnUpdatePlayerHealth(float health)
     {
         healthSlider.value = health;
         SetBloodPanelOpacity(health);
     }   
-         
+
+    //sets the opacity of the blood panel
     void SetBloodPanelOpacity(float health)
     {
         Color panelColor = bloodPanel.color;

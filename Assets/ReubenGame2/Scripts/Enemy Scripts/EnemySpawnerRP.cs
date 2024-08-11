@@ -9,7 +9,6 @@ public class EnemySpawnerRP : MonoBehaviour
     [SerializeField] List<Transform> spawnPoints = new List<Transform>();
 
     float spawnPointXPos1 = -22f;
-    //float spawnPointXPos2 = 45.5f;
     float spawnPointSwapRange = 20f;
     float swapWaitTime = 0.5f;
 
@@ -28,6 +27,7 @@ public class EnemySpawnerRP : MonoBehaviour
         FPSGameEvents.OnEnemyDeath -= OnEnemyDeath;
     }
 
+    //removes an enemy from the list when an enemy dies
     void OnEnemyDeath(TargetRP target)
     {
         enemies.RemoveAt(0);
@@ -41,6 +41,7 @@ public class EnemySpawnerRP : MonoBehaviour
         StartCoroutine(CheckSpawnPos());
     }
 
+    //setting the first position of the spawnpoints
     void SetFirstPos()
     {
         foreach (Transform point in spawnPoints)
@@ -49,7 +50,7 @@ public class EnemySpawnerRP : MonoBehaviour
         }
     }
 
-    //Spawning Enemies
+    //Spawning Enemies contiuously making sure there is always 3 enemies in the scene 
     IEnumerator SpawnEnemies()
     {
         while (true)
@@ -57,7 +58,6 @@ public class EnemySpawnerRP : MonoBehaviour
             yield return new WaitForSeconds(2f);
             if (enemies.Count < 3)
             {
-                // EnemyStateManager enemy = GetPooledEnemy();
                 EnemyStateManager enemy = InstanciateEnemy();
                 Vector3 spawnPosition = GetRandomSpawnPoint();
                 enemy.transform.position = spawnPosition;
@@ -65,6 +65,7 @@ public class EnemySpawnerRP : MonoBehaviour
         }
     }
 
+    //instanciates an enemy and adds it to the list
     EnemyStateManager InstanciateEnemy()
     {
         EnemyStateManager enemy = Instantiate(enemyPrefab);
@@ -72,6 +73,7 @@ public class EnemySpawnerRP : MonoBehaviour
         return enemy;
     }
 
+    //returns a random spawnpoint for the enemy to be spawned at
     Vector3 GetRandomSpawnPoint()
     {
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Count)];
@@ -89,11 +91,13 @@ public class EnemySpawnerRP : MonoBehaviour
         }
     }
 
+    //gets player reference when player spawned so that the spawnpoints can be swapped when the player gets close
     void OnPlayerSpawned(PlayerTarget player)
     {
         playerTarget = player;
     }
 
+    //swaps spawn pos when the player gets too close 
     void MoveSpawnPoints()
     {
         foreach (Transform point in spawnPoints)
@@ -106,6 +110,7 @@ public class EnemySpawnerRP : MonoBehaviour
         }
     }
 
+    //swaps the position every time the function is called
     bool swap = false;
     float SwitchSpawnPos()
     {

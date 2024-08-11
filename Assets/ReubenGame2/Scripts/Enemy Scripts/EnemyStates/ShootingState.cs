@@ -29,6 +29,8 @@ public class ShootingState : BaseEnemyState
         target = GameObject.FindWithTag("Player")?.transform;
     }
 
+
+    //used like a start function, so it gets called when the state is entered
     private void OnEnable()
     {
         shootingStateActive = true;
@@ -37,13 +39,14 @@ public class ShootingState : BaseEnemyState
         StartCoroutine(ContinuousPlayerDirectionCheck());
     }
 
+    //makes sure all coroutines are not running
     private void OnDisable()
     {
         shootingStateActive = false;
         StopAllCoroutines();
     }
 
-    
+    // Update is called once per frame. this update is only called while the shooting state is active. 
     void Update()
     {
         if (shootingStateActive)
@@ -58,7 +61,7 @@ public class ShootingState : BaseEnemyState
         agentEnemy.transform.LookAt(target);
     }
 
-
+    //waits a certain amount of time then switches to the next state
     IEnumerator StopShooting()
     {
         yield return new WaitForSeconds(3f);
@@ -80,7 +83,7 @@ public class ShootingState : BaseEnemyState
         }
     }
 
-
+    //shoot timer
     protected void FireTimer()
     {
         if (canFire == false)
@@ -94,6 +97,7 @@ public class ShootingState : BaseEnemyState
         }
     }
 
+    //gets pooled bullet and puts it in the position of the gun and makes it face the player 
     protected void ShootBullet()
     {
         if (canFire)
@@ -105,6 +109,7 @@ public class ShootingState : BaseEnemyState
         }
     }
 
+    //gets pooled bullet
     protected EnemyBulletRP GetPooledEnemyBullet()
     {
         EnemyBulletRP enemyBullet = ObjectPool.instance.GetPooledEnemyBullet();
@@ -133,6 +138,7 @@ public class ShootingState : BaseEnemyState
         }
     }
 
+    //get the direction of the target and returns that direction
     Vector3 GetDirectionOfTarget()
     {
         Vector3 direction = target.position - transform.position;
@@ -140,7 +146,7 @@ public class ShootingState : BaseEnemyState
         return direction;
     }
 
-    //making sure the CoverPoint is on the opposite side to the Target. 
+    //returns a raycast hit. used to check if the player is in the shooting range 
     RaycastHit PlayerDirectionRaycast()
     {
         Vector3 targetDirection = GetDirectionOfTarget();

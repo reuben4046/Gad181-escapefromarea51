@@ -81,6 +81,8 @@ public class ObjectPool : MonoBehaviour
 
         return null;
     }
+    
+    //enemy pooling is not used in this project due to the fact that it was causing issues with enemy states
 
     // public EnemyStateManager GetPooledEnemy()
     // {

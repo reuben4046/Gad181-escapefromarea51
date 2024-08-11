@@ -10,6 +10,7 @@ public class EnemyStateManager : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    //subscribing and unsubscribing to the switchstate event
     private void Awake()
     {
         FPSGameEvents.OnSwitchState += OnSwitchState;
@@ -23,6 +24,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private void Start()
     {
+        //setting all states to inactive and activating the start state
         foreach (BaseEnemyState state in states)
         {
             state.gameObject.SetActive(false);
@@ -31,12 +33,15 @@ public class EnemyStateManager : MonoBehaviour
 
     }
 
+    //switching states
     private void OnSwitchState(BaseEnemyState State, EnemyStateManager enemy)
     {
+        //this is to make sure that the state is only changed for this instance of the enemy 
         if (enemy != this)
         {
             return;
         }
+        //setting all states to inactive apart from the state received in the event 
         foreach (BaseEnemyState state in states)
         {
             if (state != State)
@@ -48,6 +53,8 @@ public class EnemyStateManager : MonoBehaviour
                 state.gameObject.SetActive(true);
             }
         }
+
+        //setting the animator based on the state using a switch statement
         switch (State)
         {
             case GoToCoverState:

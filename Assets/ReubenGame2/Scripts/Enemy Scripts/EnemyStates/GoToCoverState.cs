@@ -23,11 +23,15 @@ public class GoToCoverState : BaseEnemyState
 
     GameObject coverHolder;
 
+    //coroutines 
+    float coverFindTime = 3f;
+
     void Awake()
     {
         target = GameObject.FindWithTag("Player")?.transform;
     }
 
+    //adds all the covers in the game to the list
     void AddCoversToList()
     {
         coverHolder = GameObject.Find("Covers");
@@ -38,6 +42,7 @@ public class GoToCoverState : BaseEnemyState
             covers.Add(cover);
         }
     }
+
     //used like a start function, so it gets called when the state is entered
     private void OnEnable()
     {
@@ -53,9 +58,10 @@ public class GoToCoverState : BaseEnemyState
         covers.Clear();
     }
 
+    //waits for coverFindTime seconds and then switches states
     IEnumerator WaitTillCoverFound()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(coverFindTime);
         FPSGameEvents.OnSwitchState?.Invoke(moveTowardsPlayerState, this.stateManager);
     }
 
@@ -75,6 +81,7 @@ public class GoToCoverState : BaseEnemyState
         }
     }
 
+    //gets the direction of the target and returns that direction
     protected Vector3 GetDirectionOfTarget()
     {
         Vector3 direction = target.position - transform.position;
