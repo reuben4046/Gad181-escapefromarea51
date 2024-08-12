@@ -76,6 +76,7 @@ public class MCXGun : MonoBehaviour
         //checks if the left mouse button is pressed
         if (Input.GetMouseButton(0) && canFire) 
         {        
+            FPSGameEvents.OnPlayPlayerGunShot?.Invoke();
             Debug.DrawRay(bulletTransform.position, bulletTransform.forward, Color.red, 10f);   
             Shoot();
             ShootingTweenShake();
@@ -134,7 +135,6 @@ public class MCXGun : MonoBehaviour
                 Vector3 randomPoint = ReduceAccuracy(hitPoint);
                 bullet.transform.LookAt(randomPoint);
             }
-
         }
     }
 

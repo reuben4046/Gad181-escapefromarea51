@@ -79,6 +79,7 @@ public class ShootingState : BaseEnemyState
             if (hit.transform == target && canFire)
             {
                 ShootBullet();
+                FPSGameEvents.OnPlayEnemyGunShot?.Invoke();
             }
         }
     }

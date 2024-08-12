@@ -40,4 +40,17 @@ public static class FPSGameEvents
 
     public delegate void OnPlayerAimingDelegate(bool isAiming);
     public static OnPlayerAimingDelegate OnPlayerAiming;
+
+    //GameSounds
+    public delegate void OnPlayPlayerGunShotDelegate();
+    public static OnPlayPlayerGunShotDelegate OnPlayPlayerGunShot;
+
+    public delegate void OnPlayPlayerHurtDelegate();
+    public static OnPlayPlayerHurtDelegate OnPlayPlayerHurt;
+
+    public delegate void OnPlayEnemyGunShotDelegate();
+    public static OnPlayEnemyGunShotDelegate OnPlayEnemyGunShot;
+
+    public delegate void OnPlayEnemyDeadDelegate();
+    public static OnPlayEnemyDeadDelegate OnPlayEnemyDead;
 }

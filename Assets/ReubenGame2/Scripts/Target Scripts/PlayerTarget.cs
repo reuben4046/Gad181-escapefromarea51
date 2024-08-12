@@ -42,6 +42,7 @@ public class PlayerTarget : MonoBehaviour
     void OnPlayerTargetHit(float damage)
     {
         TakeDamage(damage);
+        FPSGameEvents.OnPlayPlayerHurt?.Invoke();
     }
 
     //takes damage and checks if the player should die yet 

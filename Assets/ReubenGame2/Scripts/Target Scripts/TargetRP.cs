@@ -48,6 +48,7 @@ public class TargetRP : MonoBehaviour
     //sends out an event that lets other scripts know this enemy has died
     void Die()
     {
+        FPSGameEvents.OnPlayEnemyDead?.Invoke();
         FPSGameEvents.OnEnemyDeath.Invoke(this);
         gameObject.SetActive(false);
     }
