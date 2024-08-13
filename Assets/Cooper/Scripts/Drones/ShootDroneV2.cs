@@ -8,6 +8,7 @@ public class ShootDroneV2 : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] private Gamemanager droneTracker;
     public float fireDelay = 1f;
+    private bool shooting = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class ShootDroneV2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !shooting)
         {
             StartCoroutine(Shooting());
         }
@@ -27,6 +28,7 @@ public class ShootDroneV2 : MonoBehaviour
 
     IEnumerator Shooting()
     {
+        shooting = true;
         yield return new WaitForSeconds(fireDelay);
         if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out RaycastHit hit))
         {
@@ -37,6 +39,7 @@ public class ShootDroneV2 : MonoBehaviour
                 Destroy(bc.gameObject);
             }
         }
+        shooting = false ;
 
 
     }

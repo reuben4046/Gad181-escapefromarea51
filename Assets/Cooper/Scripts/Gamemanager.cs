@@ -14,18 +14,36 @@ public class Gamemanager : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        StartCoroutine(StartSpawning());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (numberOfdrones < maxdrones)
         {
-            var newdrone = Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
-            newdrone.transform.rotation = Quaternion.Euler(new Vector3 (90, 0, 0));   
             numberOfdrones += 1;
+            var newdrone = Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
+
         }
+            
     }
+
+    IEnumerator StartSpawning()
+    {
+        
+        while (numberOfdrones < maxdrones)
+        {
+            numberOfdrones += 1;
+            yield return new WaitForSeconds(2);
+            var newdrone = Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
+
+        }
+        
+        
+       
+    }
+
+
 
     
 
