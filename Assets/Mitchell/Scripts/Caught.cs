@@ -43,4 +43,10 @@ public class Caught : MonoBehaviour
         Debug.Log("Taking you to the Tutorial");
         SceneManager.LoadScene(12);
     }
+
+    public void Back()
+    {
+        Debug.Log("Taking you back to the Title screen");
+        SceneManager.LoadScene(0);
+    }
 }
