@@ -37,4 +37,10 @@ public class Caught : MonoBehaviour
         Debug.Log("Taking you to the First MiniGame!");
         SceneManager.LoadScene(1);
     }
+
+    public void Tutorial()
+    {
+        Debug.Log("Taking you to the Tutorial");
+        SceneManager.LoadScene(12);
+    }
 }
