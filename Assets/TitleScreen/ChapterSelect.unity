@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 602974410}
   - component: {fileID: 602974409}
   - component: {fileID: 602974408}
-  - component: {fileID: 602974407}
+  - component: {fileID: 602974411}
   m_Layer: 5
   m_Name: Game 4
   m_TagString: Untagged
@@ -401,18 +401,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -273.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &602974407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602974405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &602974408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,9 +445,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 602974407}
-        m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: Tutorial4
+      - m_Target: {fileID: 602974411}
+        m_TargetAssemblyTypeName: ChapterSelecter, Assembly-CSharp
+        m_MethodName: Game4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -507,6 +495,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602974405}
   m_CullTransparentMesh: 1
+--- !u!114 &602974411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602974405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5162c377bb973840903ffe09f680388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &747247975
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 747247980}
   - component: {fileID: 747247979}
   - component: {fileID: 747247978}
-  - component: {fileID: 747247977}
+  - component: {fileID: 747247981}
   m_Layer: 5
   m_Name: Game 2
   m_TagString: Untagged
@@ -547,18 +547,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 12.600006}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &747247977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747247975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &747247978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,9 +591,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 747247977}
-        m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: Tutorial2
+      - m_Target: {fileID: 747247981}
+        m_TargetAssemblyTypeName: ChapterSelecter, Assembly-CSharp
+        m_MethodName: Game2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -653,6 +641,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747247975}
   m_CullTransparentMesh: 1
+--- !u!114 &747247981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747247975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5162c377bb973840903ffe09f680388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &922577410
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 922577415}
   - component: {fileID: 922577414}
   - component: {fileID: 922577413}
-  - component: {fileID: 922577412}
+  - component: {fileID: 922577416}
   m_Layer: 5
   m_Name: Game 3
   m_TagString: Untagged
@@ -693,18 +693,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -130}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &922577412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922577410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &922577413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,9 +737,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 922577412}
-        m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: Tutorial3
+      - m_Target: {fileID: 922577416}
+        m_TargetAssemblyTypeName: ChapterSelecter, Assembly-CSharp
+        m_MethodName: Game3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -799,6 +787,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922577410}
   m_CullTransparentMesh: 1
+--- !u!114 &922577416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922577410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5162c377bb973840903ffe09f680388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &954539930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,8 +1806,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1866812859}
-        m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: Tutorial1
+        m_TargetAssemblyTypeName: ChapterSelecter, Assembly-CSharp
+        m_MethodName: Game1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1864,7 +1864,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866812854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2437d1ff66bbbf489faf05e63ca18b8, type: 3}
+  m_Script: {fileID: 11500000, guid: c5162c377bb973840903ffe09f680388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1910233815
