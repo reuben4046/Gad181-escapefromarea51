@@ -1762,9 +1762,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2015862587}
+      - m_Target: {fileID: 2015862589}
         m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ChapterSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
