@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TitleScreen/Tutorials/Tutorial 3.unity
     guid: 9c167291b02aca640940243822fb3d6d
+  - enabled: 1
+    path: Assets/TitleScreen/Tutorials/Tutorial 4.unity
+    guid: d4b78cc69c111ea42adff80cf0596d15
   m_configObjects: {}
