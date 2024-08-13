@@ -6492,7 +6492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanBar: {fileID: 625200003}
-  magicNumber: 0.001
+  magicNumber: 0.0005
 --- !u!114 &743722632
 MonoBehaviour:
   m_ObjectHideFlags: 0
