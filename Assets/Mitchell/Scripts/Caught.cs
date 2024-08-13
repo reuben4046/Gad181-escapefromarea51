@@ -44,6 +44,12 @@ public class Caught : MonoBehaviour
         SceneManager.LoadScene(12);
     }
 
+    public void ChapterSelect()
+    {
+        Debug.Log("Taking you to the Chapter Select");
+        SceneManager.LoadScene(17);
+    }
+
     public void Back()
     {
         Debug.Log("Taking you back to the Title screen");
