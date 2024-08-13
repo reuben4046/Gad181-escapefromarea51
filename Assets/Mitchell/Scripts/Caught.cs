@@ -49,4 +49,28 @@ public class Caught : MonoBehaviour
         Debug.Log("Taking you back to the Title screen");
         SceneManager.LoadScene(0);
     }
+
+    public void Tutorial1()
+    {
+        Debug.Log("Taking you to the First Tutorial");
+        SceneManager.LoadScene(13);
+    }
+
+    public void Tutorial2()
+    {
+        Debug.Log("Taking you to the Second Tutorial");
+        SceneManager.LoadScene(14);
+    }
+
+    public void Tutorial3()
+    {
+        Debug.Log("Taking you to the Third Tutorial");
+        SceneManager.LoadScene(15);
+    }
+
+    public void Tutorial4()
+    {
+        Debug.Log("Taking you to the Forth Tutorial");
+        SceneManager.LoadScene(16);
+    }
 }

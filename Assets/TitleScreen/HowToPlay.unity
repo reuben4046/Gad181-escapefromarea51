@@ -457,9 +457,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 602974407}
         m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Tutorial4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -603,9 +603,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 747247977}
         m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Tutorial2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -749,9 +749,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 922577412}
         m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Tutorial3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1805,9 +1805,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1866812859}
         m_TargetAssemblyTypeName: Caught, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Tutorial1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
