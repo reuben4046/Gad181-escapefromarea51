@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TitleScreen/ChapterSelect.unity
     guid: dba9ab9e79d4ab74ea15748a8910dc68
+  - enabled: 1
+    path: Assets/ReubenGame2/Scenes/EnemiesRP.unity
+    guid: 3c8c32d941a79473a9c9c33a97d394f3
   m_configObjects: {}
