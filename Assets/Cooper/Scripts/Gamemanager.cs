@@ -9,6 +9,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject drone;
     public int maxdrones = 10;
     public int numberOfdrones;
+    private bool firstSpawnDone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +20,9 @@ public class Gamemanager : MonoBehaviour
 
     private void Update()
     {
-        if (numberOfdrones < maxdrones)
+        if (numberOfdrones < maxdrones && firstSpawnDone)
         {
-            numberOfdrones += 1;
-            var newdrone = Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
+            StartCoroutine(DroneSpawn());
 
         }
             
@@ -38,9 +38,18 @@ public class Gamemanager : MonoBehaviour
             var newdrone = Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
 
         }
+        firstSpawnDone = true;
+
         
         
        
+    }
+
+    private IEnumerator DroneSpawn()
+    {
+        numberOfdrones += 1;
+        yield return new WaitForSeconds(2);
+        var newdrone = Instantiate(drone, spawnpoints.spawnPoints[Random.Range(0, spawnpoints.spawnPoints.Count)].transform.position, Quaternion.identity);
     }
 
 
