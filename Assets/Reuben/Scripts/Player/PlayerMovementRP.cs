@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using MoreMountains.Feedbacks;
+using MoreMountains.FeedbacksForThirdParty;
 
 public class PlayerMovementRP : MonoBehaviour 
 {
+    //feedbacks
+    [SerializeField] private MMFeedbacks mMFeedBacks;
+
     //wingTrail references
     [SerializeField] private TrailRenderer leftWing;
     [SerializeField] private TrailRenderer rightWing;
@@ -18,6 +23,20 @@ public class PlayerMovementRP : MonoBehaviour
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float moveSpeed = 25f;
 
+    void OnEnable()
+    {
+        EventSystemRP.OnShakeCamera += OnShakeCamera;
+    }
+
+    void OnDisable()
+    {
+        EventSystemRP.OnShakeCamera -= OnShakeCamera;
+    }
+
+    private void OnShakeCamera()
+    {
+        mMFeedBacks.PlayFeedbacks();
+    }
 
     // Start is called before the first frame update
     void Start() 

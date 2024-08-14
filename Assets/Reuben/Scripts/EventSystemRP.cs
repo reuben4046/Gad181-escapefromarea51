@@ -30,4 +30,8 @@ public static class EventSystemRP {
     // Sounds
     public delegate void PlayExplosionSoundDelegate();
     public static PlayExplosionSoundDelegate OnPlayExplosionSound;
+
+    //Camera Shake
+    public delegate void ShakeCameraDelegate();
+    public static ShakeCameraDelegate OnShakeCamera;
 }
