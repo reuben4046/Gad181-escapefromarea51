@@ -4,9 +4,12 @@ using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Analytics;
+using MoreMountains.Feedbacks;
 
 public class MCXGun : MonoBehaviour
 {
+    //feel
+    [SerializeField] MMFeedbacks mMFeedbacks;
     //LeanTween variables
     Vector3 gunWalkingPos = new Vector3(0.42f, -0.45f, 0.91f);
     Vector3 gunWalkingRot = new Vector3(-0.6f, -0.75f, 0f);
@@ -77,6 +80,7 @@ public class MCXGun : MonoBehaviour
         if (Input.GetMouseButton(0) && canFire) 
         {        
             FPSGameEvents.OnPlayPlayerGunShot?.Invoke();
+            mMFeedbacks.PlayFeedbacks();
             Debug.DrawRay(bulletTransform.position, bulletTransform.forward, Color.red, 10f);   
             Shoot();
             ShootingTweenShake();
