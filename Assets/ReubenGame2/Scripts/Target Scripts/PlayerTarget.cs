@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerTarget : MonoBehaviour
 { 
+    [SerializeField] FirstPersonController fpc;
     [SerializeField] float health = 100f;
     [SerializeField] float healthRegenMultiplier = 1.5f;
 
@@ -60,6 +61,6 @@ public class PlayerTarget : MonoBehaviour
     void Die()
     {
         FPSGameEvents.OnPlayerDeath.Invoke();
-        gameObject.SetActive(false);
+        fpc.enabled = false;
     }
 }

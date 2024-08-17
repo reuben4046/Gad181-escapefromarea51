@@ -158,6 +158,10 @@ public class FirstPersonController : MonoBehaviour
     void OnDisable()
     {
         FPSGameEvents.OnPlayerAiming -= OnPlayerAiming;
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
     
     void OnPlayerAiming(bool isAiming)
@@ -172,6 +176,9 @@ public class FirstPersonController : MonoBehaviour
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
+        }else   
+        {
+            Cursor.lockState = CursorLockMode.None;
         }
 
         if(crosshair)

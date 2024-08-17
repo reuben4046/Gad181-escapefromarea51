@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawnerRP : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class EnemySpawnerRP : MonoBehaviour
     float spawnPointXPos1 = -22f;
     float spawnPointSwapRange = 20f;
     float swapWaitTime = 0.5f;
+
+    int enemysSpawned = 0;
 
     [SerializeField] EnemyStateManager enemyPrefab;
     List<EnemyStateManager> enemies = new List<EnemyStateManager>();
@@ -61,7 +64,18 @@ public class EnemySpawnerRP : MonoBehaviour
                 EnemyStateManager enemy = InstanciateEnemy();
                 Vector3 spawnPosition = GetRandomSpawnPoint();
                 enemy.transform.position = spawnPosition;
+                enemysSpawned++;
+                GameWinCheck();
             }
+        }
+    }
+
+    //checking if the player has won
+    void GameWinCheck()
+    {
+        if (enemysSpawned >= 11)
+        {
+            SceneManager.LoadScene("WinScene");
         }
     }
 
