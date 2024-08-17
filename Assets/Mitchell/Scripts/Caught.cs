@@ -41,13 +41,13 @@ public class Caught : MonoBehaviour
     public void Tutorial()
     {
         Debug.Log("Taking you to the Tutorial");
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene(15);
     }
 
     public void ChapterSelect()
     {
         Debug.Log("Taking you to the Chapter Select");
-        SceneManager.LoadScene(17);
+        SceneManager.LoadScene(20);
     }
 
     public void Back()
@@ -59,24 +59,24 @@ public class Caught : MonoBehaviour
     public void Tutorial1()
     {
         Debug.Log("Taking you to the First Tutorial");
-        SceneManager.LoadScene(13);
+        SceneManager.LoadScene(16);
     }
 
     public void Tutorial2()
     {
         Debug.Log("Taking you to the Second Tutorial");
-        SceneManager.LoadScene(14);
+        SceneManager.LoadScene(17);
     }
 
     public void Tutorial3()
     {
         Debug.Log("Taking you to the Third Tutorial");
-        SceneManager.LoadScene(15);
+        SceneManager.LoadScene(18);
     }
 
     public void Tutorial4()
     {
         Debug.Log("Taking you to the Forth Tutorial");
-        SceneManager.LoadScene(16);
+        SceneManager.LoadScene(19);
     }
 }
