@@ -39,8 +39,17 @@ EditorBuildSettings:
     path: Assets/Reuben/Scenes/GameOver.unity
     guid: dc669311cb99d419e8b4ec1ca12155a1
   - enabled: 1
-    path: Assets/Credits/Credits.unity
-    guid: e5269e5175fc3d54eb3647b623c46690
+    path: Assets/Reuben/Scenes/GameWin1RP.unity
+    guid: f8961556333ef4c82aa95db30da7b6d8
+  - enabled: 1
+    path: Assets/Reuben/GameTransitionScenes/Game4.unity
+    guid: 1155d7124d2e44744a35d44c732c5cfd
+  - enabled: 1
+    path: Assets/ReubenGame2/Scenes/FPSGameReuben.unity
+    guid: 3c8c32d941a79473a9c9c33a97d394f3
+  - enabled: 1
+    path: Assets/ReubenGame2/Scenes/WinScene.unity
+    guid: 44d235590c6be49a8af916c3c74b1a09
   - enabled: 1
     path: Assets/TitleScreen/HowToPlay.unity
     guid: d73b524c904417c4c87e55bbefa34dd4
@@ -60,9 +69,6 @@ EditorBuildSettings:
     path: Assets/TitleScreen/ChapterSelect.unity
     guid: dba9ab9e79d4ab74ea15748a8910dc68
   - enabled: 1
-    path: Assets/ReubenGame2/Scenes/FPSGameReuben.unity
-    guid: 3c8c32d941a79473a9c9c33a97d394f3
-  - enabled: 1
-    path: Assets/ReubenGame2/Scenes/WinScene.unity
-    guid: 44d235590c6be49a8af916c3c74b1a09
+    path: Assets/Credits/Credits.unity
+    guid: e5269e5175fc3d54eb3647b623c46690
   m_configObjects: {}
