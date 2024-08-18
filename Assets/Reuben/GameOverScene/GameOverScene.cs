@@ -13,7 +13,7 @@ public class GameOverScene : MonoBehaviour
 
     public void onClick()
     {
-        SceneManager.LoadScene("ReubenMiniGame"); 
+        SceneManager.LoadScene("GameStartRP"); 
     }
 
     void Start()
