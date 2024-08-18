@@ -22,6 +22,7 @@ public class ScanBar : MonoBehaviour
     {
          if (scanBar.value == 100)
         {
+            Cursor.visible = true;
             gameHud.SetActive(false);
             gameoverScreen.SetActive(true);
         }
