@@ -8,6 +8,8 @@ public class ScanBar : MonoBehaviour
 {
     public Slider scanBar;
     public float magicNumber;
+    public GameObject gameoverScreen;
+    public GameObject gameHud;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,11 @@ public class ScanBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+         if (scanBar.value == 100)
+        {
+            gameHud.SetActive(false);
+            gameoverScreen.SetActive(true);
+        }
     }
 
     private void OnEnable()
