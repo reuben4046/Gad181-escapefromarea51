@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Credits/Credits.unity
     guid: e5269e5175fc3d54eb3647b623c46690
+  - enabled: 1
+    path: Assets/Reuben/Scenes/GameStartRP.unity
+    guid: 97d84a5d5349a4d729fedaa69f4ca3c1
   m_configObjects: {}
