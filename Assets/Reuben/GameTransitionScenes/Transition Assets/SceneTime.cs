@@ -19,6 +19,6 @@ public class SceneTime : MonoBehaviour {
     }
 
     private void LoadNextScene() {
-        SceneManager.LoadScene("GameStartRP");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
