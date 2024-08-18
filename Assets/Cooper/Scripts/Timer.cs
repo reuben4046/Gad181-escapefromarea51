@@ -31,6 +31,7 @@ public class Timer : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
+                Cursor.visible = true;
                 SceneManager.LoadScene("Game2");
             }
         }
