@@ -10,8 +10,8 @@ public class ShootDroneV2 : MonoBehaviour
     public float fireDelay = 1f;
     private bool shooting = false;
     [SerializeField] AudioSource droneexplosion;
-    [SerializeField] Animation droneanimations;
     [SerializeField] Animator droneanimator;
+    [SerializeField] ParticleSystem droneparticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,9 +40,11 @@ public class ShootDroneV2 : MonoBehaviour
             {
                 droneTracker.numberOfdrones -= 1;
                 droneexplosion.PlayOneShot(droneexplosion.clip);
+                droneparticles = bc.gameObject.GetComponent<ParticleSystem>();
                 droneanimator = bc.gameObject.GetComponent<Animator>();
                 droneanimator.SetTrigger("droneshot");
-                Destroy(bc.gameObject, 1f);
+                droneparticles.Play();
+                Destroy(bc.gameObject, 1.5f);
             }
         }
         shooting = false ;

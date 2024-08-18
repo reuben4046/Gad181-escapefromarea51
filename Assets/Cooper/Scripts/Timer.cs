@@ -46,4 +46,9 @@ public class Timer : MonoBehaviour
         timeText.text = string.Format("Time to Arrival // {0:00}:{1:00}", minutes, seconds);
 
     }
+    public void Restart()
+    {
+        SceneManager.LoadScene("Game1");
+    }
+
 }
