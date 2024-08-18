@@ -9,7 +9,7 @@ public class Caught : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene("Caught");
         }
     }
 
@@ -17,13 +17,13 @@ public class Caught : MonoBehaviour
     {
         // Restarts the game all over.
         ScoreManager.docCount = 0;
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene("Mitchell's MiniGame");
     }
 
     public void ContinueGame()
     {
         Debug.Log("Taking you to the final MiniGame!");
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene("Game3");
     }
 
     public void QuitGame()
@@ -35,48 +35,48 @@ public class Caught : MonoBehaviour
     public void GameStart()
     {
         Debug.Log("Taking you to the First MiniGame!");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Game1");
     }
 
     public void Tutorial()
     {
         Debug.Log("Taking you to the Tutorial");
-        SceneManager.LoadScene(15);
+        SceneManager.LoadScene("HowToPlay");
     }
 
     public void ChapterSelect()
     {
         Debug.Log("Taking you to the Chapter Select");
-        SceneManager.LoadScene(20);
+        SceneManager.LoadScene("ChapterSelect");
     }
 
     public void Back()
     {
         Debug.Log("Taking you back to the Title screen");
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Title");
     }
 
     public void Tutorial1()
     {
         Debug.Log("Taking you to the First Tutorial");
-        SceneManager.LoadScene(16);
+        SceneManager.LoadScene("Tutorial 1");
     }
 
     public void Tutorial2()
     {
         Debug.Log("Taking you to the Second Tutorial");
-        SceneManager.LoadScene(17);
+        SceneManager.LoadScene("Tutorial 2");
     }
 
     public void Tutorial3()
     {
         Debug.Log("Taking you to the Third Tutorial");
-        SceneManager.LoadScene(18);
+        SceneManager.LoadScene("Tutorial 3");
     }
 
     public void Tutorial4()
     {
         Debug.Log("Taking you to the Forth Tutorial");
-        SceneManager.LoadScene(19);
+        SceneManager.LoadScene("Tutorial 4");
     }
 }

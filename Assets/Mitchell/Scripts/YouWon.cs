@@ -16,7 +16,7 @@ public class YouWon : MonoBehaviour
             Debug.Log(docPickup);
             if (docPickup >= 6)
             {
-                SceneManager.LoadScene(7);
+                SceneManager.LoadScene("YouWon");
             }
         }
     }

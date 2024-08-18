@@ -8,24 +8,24 @@ public class ChapterSelecter : MonoBehaviour
     public void Game1()
     {
         Debug.Log("Taking you to the First Game");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Game1");
     }
 
     public void Game2()
     {
         Debug.Log("Taking you to the Second Game");
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Game2");
     }
 
     public void Game3()
     {
         Debug.Log("Taking you to the Third Game");
-        SceneManager.LoadScene(22);
+        SceneManager.LoadScene("Game3");
     }
 
     public void Game4()
     {
         Debug.Log("Taking you to the Forth Game");
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene("Game4");
     }
 }

@@ -79,7 +79,7 @@ public class CameraSenses : MonoBehaviour
         if (timer < captureTime)
         {
             Debug.Log("CAUGHT!!");
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene("Caught");
         }
         timerText.SetText($"Time Remaining: {(int)timer}");
     }
