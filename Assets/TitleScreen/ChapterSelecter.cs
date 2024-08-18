@@ -20,7 +20,7 @@ public class ChapterSelecter : MonoBehaviour
     public void Game3()
     {
         Debug.Log("Taking you to the Third Game");
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(22);
     }
 
     public void Game4()
