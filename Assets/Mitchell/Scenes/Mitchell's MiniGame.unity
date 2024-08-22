@@ -14413,10 +14413,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Security Camera (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
       value: 
