@@ -19254,6 +19254,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1968069784}
     - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: TimeRemaining
       value: 
       objectReference: {fileID: 175895789}
