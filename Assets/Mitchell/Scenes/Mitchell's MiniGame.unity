@@ -19217,50 +19217,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 801265120}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: CameraRun
-      value: 
-      objectReference: {fileID: 106321116}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 175895789}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewAngle
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: CameraSpot
       value: 
       objectReference: {fileID: 106321116}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: CameraScreen
       value: 
       objectReference: {fileID: 1968069784}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: TimeRemaining
       value: 
       objectReference: {fileID: 175895789}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: timeTillCapture
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: targetPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.9
@@ -19305,34 +19281,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Security Camera (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 801265120}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewAngle
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: canSeePlayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: startCapture
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: timeTillCapture
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: player
       value: 
@@ -19341,24 +19289,7 @@ PrefabInstance:
       propertyPath: m_target
       value: 
       objectReference: {fileID: 801265120}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: viewRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: targetPlayer.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

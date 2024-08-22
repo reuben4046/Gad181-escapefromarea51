@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 2277514152730161479}
   - component: {fileID: 7795465240642903047}
   - component: {fileID: 8925658376220873858}
-  - component: {fileID: 2437374433883296608}
+  - component: {fileID: 1851659648825132807}
   m_Layer: 0
   m_Name: Security Camera
   m_TagString: Untagged
@@ -468,7 +468,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   player: {fileID: 0}
---- !u!114 &2437374433883296608
+--- !u!114 &1851659648825132807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -493,7 +493,7 @@ MonoBehaviour:
   CameraSpot: {fileID: 0}
   TimeRemaining: {fileID: 0}
   CameraScreen: {fileID: 0}
-  startCapture: 0
+  startCapture: 1
   timerText: {fileID: 0}
 --- !u!1 &7803251996113394702
 GameObject:
