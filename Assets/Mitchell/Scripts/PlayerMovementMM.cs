@@ -62,7 +62,7 @@ public class PlayerMovementMM : MonoBehaviour
         }
 
         // Rotate the player based off those mouse values we collected earlier
-        transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
+        transform.eulerAngles = new Vector3(-pitch, yaw, 0.0f);
  
         // This is stealing the data about the player being on the ground from the character controller
         isGrounded = controller.isGrounded;
