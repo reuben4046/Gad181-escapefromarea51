@@ -51,14 +51,12 @@ public class CameraSenses : MonoBehaviour
                     CameraSpot.enabled = true;
                     TimeRemaining.enabled = true;
                     CameraScreen.enabled = true;
-                    //StartCoroutine(WaitTillCaught());
                     StartCaptureTimer();
                 }
                 else
                 {
                     timer = 6;
                     canSeePlayer = false;
-                    //StopCoroutine(WaitTillCaught());
                     CameraSpot.enabled = false;
                     TimeRemaining.enabled = false;
                     CameraScreen.enabled = false;

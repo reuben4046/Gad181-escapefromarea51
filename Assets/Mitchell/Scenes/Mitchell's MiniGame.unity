@@ -3904,16 +3904,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161718370}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1297141168}
+  m_Father: {fileID: 1936384242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -329, y: 273}
+  m_AnchoredPosition: {x: -297.44995, y: 239.75}
   m_SizeDelta: {x: 616.4, y: 503.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161718372
@@ -15002,6 +15002,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1968069784}
     - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: TimeRemaining
       value: 
       objectReference: {fileID: 175895789}
@@ -22146,6 +22150,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1968069784}
     - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: TimeRemaining
       value: 
       objectReference: {fileID: 175895789}
@@ -22670,7 +22678,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1859104861}
-  - {fileID: 161718371}
   - {fileID: 1936384242}
   - {fileID: 1968069783}
   m_Father: {fileID: 0}
@@ -22809,6 +22816,10 @@ PrefabInstance:
       propertyPath: CameraScreen
       value: 
       objectReference: {fileID: 1968069784}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: TimeRemaining
       value: 
@@ -26714,6 +26725,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1968069784}
     - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: TimeRemaining
       value: 
       objectReference: {fileID: 175895789}
@@ -28818,6 +28833,10 @@ PrefabInstance:
       propertyPath: CameraScreen
       value: 
       objectReference: {fileID: 1968069784}
+    - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1851659648825132807, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
       propertyPath: TimeRemaining
       value: 
@@ -32448,7 +32467,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 161718371}
   m_Father: {fileID: 1297141168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
