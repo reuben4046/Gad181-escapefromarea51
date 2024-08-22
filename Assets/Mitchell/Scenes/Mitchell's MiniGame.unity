@@ -19209,6 +19209,160 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7153391971535617664, guid: 52ab57e0d47f0174aae69b1aaf9c5295, type: 3}
   m_PrefabInstance: {fileID: 1071599004}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1076639713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: CameraRun
+      value: 
+      objectReference: {fileID: 106321116}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 175895789}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: CameraSpot
+      value: 
+      objectReference: {fileID: 106321116}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: CameraScreen
+      value: 
+      objectReference: {fileID: 1968069784}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: TimeRemaining
+      value: 
+      objectReference: {fileID: 175895789}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.33166796
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.048157398
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.932389
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.13538069
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 16.523
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 140.837
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5909306368916507315, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Name
+      value: Security Camera (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewAngle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: canSeePlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: startCapture
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: timeTillCapture
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795465240642903047, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_target
+      value: 
+      objectReference: {fileID: 801265120}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: viewRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+      propertyPath: targetPlayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6006147964707082530, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
 --- !u!1 &1078056393
 GameObject:
   m_ObjectHideFlags: 0
@@ -26756,91 +26910,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1927390968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1564198717
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 801265120}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: timerText
-      value: 
-      objectReference: {fileID: 175895789}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: CameraSpot
-      value: 
-      objectReference: {fileID: 106321116}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: CameraScreen
-      value: 
-      objectReference: {fileID: 1968069784}
-    - target: {fileID: 2437374433883296608, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: TimeRemaining
-      value: 
-      objectReference: {fileID: 175895789}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 23.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.33166796
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.048157398
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.932389
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.13538069
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 16.523
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 140.837
-      objectReference: {fileID: 0}
-    - target: {fileID: 4190017656500004476, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5909306368916507315, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_Name
-      value: Security Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 801265120}
-    - target: {fileID: 8925658376220873858, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
-      propertyPath: m_target
-      value: 
-      objectReference: {fileID: 801265120}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 49f69cdfe165dec41a2ef1e1fd80934d, type: 3}
 --- !u!1 &1570545196
 GameObject:
   m_ObjectHideFlags: 0
@@ -36249,8 +36318,8 @@ SceneRoots:
   - {fileID: 60109318}
   - {fileID: 1948835151}
   - {fileID: 1927390968}
-  - {fileID: 1564198717}
   - {fileID: 1680459577}
+  - {fileID: 1076639713}
   - {fileID: 1552312481}
   - {fileID: 1305711689}
   - {fileID: 838807168}
